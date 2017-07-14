@@ -4,6 +4,59 @@ title: Downloads
 permalink: /downloads
 ---
 
-{% for release in site.releases %}
-	!! {{ release }} !!
-{% endfor %}
+<div class="tableContainer">
+	<table class="downloadTable">
+		<tr>
+			<th></th>
+			<th>
+				<i class="fa icon fa-windows" aria-hidden="true"></i>
+				Windows
+			</th>
+			<th>
+				<i class="fa icon fa-apple" aria-hidden="true"></i>
+				Mac OS
+			</th>
+			<th>
+				<i class="fa icon fa-linux" aria-hidden="true"></i>
+				Linux
+			</th>
+			<th>
+				<i class="fa icon fa-asterisk" aria-hidden="true"></i>
+				Cross-platform
+			</th>
+			<th>
+				<i class="fa icon fa-github" aria-hidden="true"></i>
+				Source
+			</th>
+		</tr>
+		{% for release in site.releases %}
+		<tr>
+			<td>
+				DataCleaner {{ release.version }}
+			</td>
+			<td>
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<a href="http://sourceforge.net/projects/datacleaner/files/datacleaner%20%28stable%29/{{release.version}}/DataCleaner-windows.zip/download">Zipped .exe</a>
+			</td>
+			<td>
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<a href="http://sourceforge.net/projects/datacleaner/files/datacleaner%20%28stable%29/{{release.version}}/DataCleaner-app.zip/download">Zipped .app</a>
+			</td>
+			<td>
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<a href="http://sourceforge.net/projects/datacleaner/files/datacleaner%20%28stable%29/{{release.version}}/DataCleaner-linux.deb/download">Debian package</a>
+			</td>
+			<td>
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<a href="http://sourceforge.net/projects/datacleaner/files/datacleaner%20%28stable%29/{{release.version}}/DataCleaner-all.zip/download">Zipped .sh/.cmd</a>
+			</td>
+			<td>
+				<i class="fa fa-tag" aria-hidden="true"></i>
+				<a href="https://github.com/datacleaner/DataCleaner/releases/tag/DataCleaner-{{release.version}}">git tag</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+
+<p>Older releases available at <a href="https://sourceforge.net/projects/datacleaner">Sourceforge.net</a>.</p>

@@ -1,0 +1,37 @@
+.fa.icon {
+	color: $brand-color
+}
+
+.blue {
+	color: $blue-color
+}
+.green {
+	color: $green-color
+}
+.orange {
+	color: $orange-color
+}
+a.site-title:hover {
+	text-decoration: none;
+}
+
+.tableContainer {
+	background-color: #f0f0f0;
+	padding: 0.5em;
+	border-radius: 0.5em;
+}
+
+.downloadTable {
+	width: 100%;
+	font-size: 0.9em;
+}
+
+.downloadTable td {
+	padding-top: 0.4em;
+}
+
+.downloadTable th .icon {
+	font-size: 2em;
+	display: block;
+	color: $orange-color;
+}

@@ -1,0 +1,28 @@
+# Jekyll config file
+
+# Site settings
+title_short: DataCleaner
+title: The premier open source Data Quality solution | DataCleaner
+description: >
+  Open source software for data quality, data profiling, data warehousing, data wrangling,
+  master data management, business intelligence and governance.
+releases:
+  - 5.0
+  - 5.2
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

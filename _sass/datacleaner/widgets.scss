@@ -58,3 +58,14 @@ a.site-title:hover {
 	height: 450px;
 	margin-bottom: 1em;
 }
+
+.githubRibbon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	display: none;
+	@media (min-width: 1000px) {
+		display: block;
+	}
+}

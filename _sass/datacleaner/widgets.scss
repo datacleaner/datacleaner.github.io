@@ -16,18 +16,35 @@ a.site-title:hover {
 }
 
 .tableContainer {
-	background-color: #f0f0f0;
-	padding: 0.5em;
+	background-color: $grey-color-light;
+	padding: 0.3em;
+	border: none;
 	border-radius: 0.5em;
+	margin-bottom: 1em;
+}
+
+.tableContainer table tr:nth-child(odd) {
+	background-color: $grey-color-lightest;
+}
+
+.tableContainer table tr:nth-child(even) {
+	background-color: $grey-color-lighter;
 }
 
 .downloadTable {
 	width: 100%;
 	font-size: 0.9em;
+	border-spacing: 0;
 }
 
 .downloadTable td {
+	text-align: center;
+	padding: 0.2em;
 	padding-top: 0.4em;
+}
+
+.downloadTable td.versionName {
+	text-align: left;
 }
 
 .downloadTable th .icon {

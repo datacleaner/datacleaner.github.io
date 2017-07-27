@@ -7,18 +7,19 @@ description: >
   Open source software for data quality, data profiling, data warehousing, data wrangling,
   master data management, business intelligence and governance.
 releases: [
-  {"version": "5.2.0"},
-  {"version": "5.1.5"},
-  {"version": "5.1.4"},
-  {"version": "5.1.3"},
-  {"version": "5.1.2"},
-  {"version": "5.0.3"},
-  {"version": "5.0.2"},
-  {"version": "5.0"},
-  {"version": "4.5"},
-  {"version": "4.0.2"},
-  {"version": "4.0.1"},
-  {"version": "4.0"}
+  {"version": "5.2.1"},
+  {"version": "5.2.0","sourceforge":true},
+  {"version": "5.1.5","sourceforge":true},
+  {"version": "5.1.4","sourceforge":true},
+  {"version": "5.1.3","sourceforge":true},
+  {"version": "5.1.2","sourceforge":true},
+  {"version": "5.0.3","sourceforge":true},
+  {"version": "5.0.2","sourceforge":true},
+  {"version": "5.0","sourceforge":true},
+  {"version": "4.5","sourceforge":true},
+  {"version": "4.0.2","sourceforge":true},
+  {"version": "4.0.1","sourceforge":true},
+  {"version": "4.0","sourceforge":true}
 ]
 
 # Build settings

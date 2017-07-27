@@ -7,10 +7,10 @@ layout: default
     <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%Y-%m-%-d" }}
+        Published on {{ page.date | date: "%Y-%m-%-d" }}
       </time>
-      {% if page.author %}
-        by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% if page.author_name %}
+        by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a href="https://github.com/{{ page.author_github }}"><span itemprop="name">{{ page.author_name }}</span></a></span>
       {% endif %}</p>
   </header>
 

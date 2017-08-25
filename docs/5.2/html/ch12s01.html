@@ -1,0 +1,43 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Logging configuration file</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch12.html" title="Chapter&nbsp;12.&nbsp;Logging"><link rel="prev" href="ch12.html" title="Chapter&nbsp;12.&nbsp;Logging"><link rel="next" href="ch12s02.html" title="Default logging configuration"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Logging configuration file</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch12.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;12.&nbsp;Logging</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch12s02.html">Next</a></td></tr></table><hr></div><div class="section" title="Logging configuration file"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="logging_configuration_file"></a>Logging configuration file</h2></div></div></div>
+		
+		<p>Logging in DataCleaner is based on Log4j, an open source logging
+			framework by the Apache foundation. With log4j you can configure
+			logging at a very detailed level, while at the same time keeping a
+			centralized configuration.
+		</p>
+		<p>There are three approaches to configuring logging in
+			DataCleaner:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>The default logging configuration</em></span>
+					. This requires no changes to the standard distribution of
+					DataCleaner. Log files will be generated in the log/datacleaner.log
+					file.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Specifying your own XML log configuration</em></span>
+					. This requires you to put a file named log4j.xml in the root
+					directory of DataCleaner.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Specifying your own property file log configuration
+					</em></span>
+					. This requires you to put a file named log4j.properties in the
+					root directory of DataCleaner.
+				</p>
+			</li></ol></div>
+
+		<p>
+			The recommended way of doing custom configuration of DataCleaner
+			logging is using the XML format. In the following sections we will
+			explain this approach using examples. For more detailed documentation
+			on Log4j configuration, please refer to the
+			<a class="link" href="http://logging.apache.org/log4j/" target="_top">Log4j website</a>
+			.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch12.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch12.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch12s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;12.&nbsp;Logging&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Default logging configuration</td></tr></table></div></body></html>

@@ -1,0 +1,37 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Dynamically overriding configuration elements</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch14.html" title="Chapter&nbsp;14.&nbsp;Command-line interface"><link rel="prev" href="ch14s05.html" title="Parameterizable jobs"><link rel="next" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Dynamically overriding configuration elements</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch14s05.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;14.&nbsp;Command-line interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch15.html">Next</a></td></tr></table><hr></div><div class="section" title="Dynamically overriding configuration elements"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="cli_overriding_configuration_elements"></a>Dynamically overriding configuration elements</h2></div></div></div>
+		
+		<p>
+			Since version 2.5 of DataCleaner it is possible to override elements
+			in the
+			<a class="link" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file">configuration file</a>
+			dynamically from the command line. This is a feature which can be
+			useful in scenarios where you want the to invoke the same job but
+			with slightly different configuration details.
+		</p>
+		<p>For example, you might want to reuse the same job to be executed
+			on several similar CSV files, or similar database environments.
+			Let us
+			assume that you have a CSV datastore that is defined like this:
+		</p>
+		<pre class="programlisting">
+			&lt;/datastore-catalog&gt;
+			&nbsp;&nbsp;&lt;csv-datastore&nbsp;name="My csv file"&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;filename&gt;/path/to/file.csv&lt;/filename&gt;
+			&nbsp;&nbsp;&lt;/csv-datastore&gt;
+			&lt;/datastore-catalog&gt;
+		</pre>
+		<p>To override the filename dynamically, you have to specify the
+			property path (datastore catalog, then datastore name, then property
+			name) with a '-D' parameter on the command line. Furthermore any
+			spaces or dashes are removed and the succeeding character is
+			uppercased. In the end it will look like "camelCase" strings, like
+			this:
+		</p>
+		<pre class="programlisting">DataCleaner-console.exe&nbsp;...&nbsp;-DdatastoreCatalog.myCsvFile.filename=anotherfile.csv
+		</pre>
+		<p>This mechanism can be used for any configuration property within
+			the datastore catalog and reference data catalog.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch14s05.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch14.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch15.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Parameterizable jobs&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface</td></tr></table></div></body></html>

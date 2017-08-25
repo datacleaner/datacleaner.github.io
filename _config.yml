@@ -22,6 +22,8 @@ releases: [
   {"version": "4.0.1","sourceforge":true},
   {"version": "4.0","sourceforge":true}
 ]
+docs:
+- "5.2"
 
 # Build settings
 markdown: kramdown

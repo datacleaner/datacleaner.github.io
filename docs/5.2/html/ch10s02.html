@@ -1,0 +1,340 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Datastores</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file"><link rel="prev" href="ch10s01.html" title="XML schema"><link rel="next" href="ch10s03.html" title="Reference data"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Datastores</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;10.&nbsp;Configuration file</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch10s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Datastores"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration_file_datastores"></a>Datastores</h2></div></div></div>
+		
+		<p>Datastores can be configured in the configuration file under
+			the
+			element &lt;datastore-catalog&gt;. The following sections will go
+			into further details with particular types of datastores.
+		</p>
+
+		<div class="section" title="Database (JDBC) connections"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_jdbc"></a>Database (JDBC) connections</h3></div></div></div>
+			
+	
+			<p>Here are a few examples of common database types.</p>
+	
+			<div class="tip" title="Tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3>
+				<p>The DataCleaner User Interface makes it a lot easier to figure
+					out the
+					url (connection string) and driver class part of the
+					connection
+					properties. It's a good place to start if you don't know
+					these
+					properties already.
+				</p>
+			</div>
+	
+			<p>
+				<span class="emphasis"><em>MySQL</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;jdbc-datastore&nbsp;name="MySQL&nbsp;datastore"&gt;
+				&nbsp;&lt;url&gt;jdbc:mysql://hostname:3306/database?defaultFetchSize=-2147483648&lt;/url&gt;
+				&nbsp;&lt;driver&gt;com.mysql.jdbc.Driver&lt;/driver&gt;
+				&nbsp;&lt;username&gt;username&lt;/username&gt;
+				&nbsp;&lt;password&gt;password&lt;/password&gt;
+				&nbsp;&lt;multiple-connections&gt;true&lt;/multiple-connections&gt;
+				&lt;/jdbc-datastore&gt; </pre>
+	
+			<p>
+				<span class="emphasis"><em>Oracle</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;jdbc-datastore&nbsp;name="Oracle&nbsp;datastore"&gt;
+				&nbsp;&lt;url&gt;jdbc:oracle:thin:@hostname:1521:sid&lt;/url&gt;
+				&nbsp;&lt;driver&gt;oracle.jdbc.OracleDriver&lt;/driver&gt;
+				&nbsp;&lt;username&gt;username&lt;/username&gt;
+				&nbsp;&lt;password&gt;password&lt;/password&gt;
+				&nbsp;&lt;multiple-connections&gt;true&lt;/multiple-connections&gt;
+				&lt;/jdbc-datastore&gt; </pre>
+	
+			<p>
+				<span class="emphasis"><em>Microsoft SQL Server</em></span>
+			</p>
+			<p>A typical connection to Microsoft SQL server will look like
+				this:
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;jdbc-datastore&nbsp;name="MS&nbsp;SQL&nbsp;Server&nbsp;datastore"&gt;
+				&nbsp;&lt;url&gt;jdbc:jtds:sqlserver://hostname/database;useUnicode=true;characterEncoding=UTF-8&lt;/url&gt;
+				&nbsp;&lt;driver&gt;net.sourceforge.jtds.jdbc.Driver&lt;/driver&gt;
+				&nbsp;&lt;username&gt;username&lt;/username&gt;
+				&nbsp;&lt;password&gt;password&lt;/password&gt;
+				&nbsp;&lt;multiple-connections&gt;true&lt;/multiple-connections&gt;
+				&lt;/jdbc-datastore&gt; </pre>
+			<p>However, if you want to use an instance name based connection,
+				then the SQL Server Browser service MUST BE RUNNING and then you can
+				include the instance parameter: Here's an example for connecting to a
+				SQLEXPRESS instance:
+			</p>
+			<pre lang="xml" class="programlisting">
+				&nbsp;&lt;url&gt;jdbc:jtds:sqlserver://hostname/database;instance=SQLEXPRESS;useUnicode=true;characterEncoding=UTF-8&lt;/url&gt;
+			</pre>
+		</div>
+	
+		<div class="section" title="Comma-Separated Values (CSV) files"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_csv"></a>Comma-Separated Values (CSV) files</h3></div></div></div>
+			
+			<p>This is an example of a CSV file datastore</p>
+			<pre class="programlisting">
+				&lt;csv-datastore&nbsp;name="my_csv_file"&gt;
+				&nbsp;&lt;filename&gt;/path/to/file.csv&lt;/filename&gt;
+				&nbsp;&lt;quote-char&gt;"&lt;/quote-char&gt;
+				&nbsp;&lt;separator-char&gt;;&lt;/separator-char&gt;
+				&nbsp;&lt;encoding&gt;UTF-8&lt;/encoding&gt;
+				&nbsp;&lt;fail-on-inconsistencies&gt;true&lt;/fail-on-inconsistencies&gt;
+				&nbsp;&lt;header-line-number&gt;1&lt;/header-line-number&gt;
+				&lt;/csv-datastore&gt; </pre>
+		</div>
+	
+		<div class="section" title="Fixed width value files"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_fixed_width"></a>Fixed width value files</h3></div></div></div>
+			
+			<p>Files with fixed width values can be registered in two ways -
+				either with a single fixed-width size for all columns, or with
+				individual value-widths.
+			</p>
+			<p>Here's an example with a fixed width specification for all columns:</p>
+			<pre class="programlisting">
+				&lt;fixed-width-datastore&nbsp;name="FIXED-WIDTH-ALL-COLUMNS"&gt;
+				&nbsp;&lt;filename&gt;/path/to/the/file.txt&lt;/filename&gt;
+				&nbsp;&lt;width-specification&gt;
+				&nbsp;&nbsp;&lt;fixed-value-width&gt;20&lt;/fixed-value-width&gt;
+				&nbsp;&lt;/width-specification&gt;
+				&nbsp;&lt;encoding&gt;UTF-8&lt;/encoding&gt;
+				&nbsp;&lt;header-line-number&gt;1&lt;/header-line-number&gt;
+				&nbsp;&lt;fail-on-inconsistencies&gt;true&lt;/fail-on-inconsistencies&gt;
+				&nbsp;&lt;skip-ebcdic-header&gt;false&lt;/skip-ebcdic-header&gt;
+				&nbsp;&lt;eol-present&gt;true&lt;/eol-present&gt;
+				&lt;/fixed-width-datastore&gt;
+			</pre>
+			<p>Here's an example with individual (2 columns) width specifications:</p>
+			<pre class="programlisting">
+				&lt;fixed-width-datastore&nbsp;name="FIXED-WIDTH-2-COLUMNS"&gt;
+				&nbsp;&lt;filename&gt;/path/to/the/file.txt&lt;/filename&gt;
+				&nbsp;&lt;width-specification&gt;
+				&nbsp;&nbsp;&lt;value-width&gt;20&lt;/value-width&gt;
+				&nbsp;&nbsp;&lt;value-width&gt;30&lt;/value-width&gt;
+				&nbsp;&lt;/width-specification&gt;
+				&nbsp;&lt;encoding&gt;UTF-8&lt;/encoding&gt;
+				&nbsp;&lt;header-line-number&gt;1&lt;/header-line-number&gt;
+				&nbsp;&lt;fail-on-inconsistencies&gt;true&lt;/fail-on-inconsistencies&gt;
+				&nbsp;&lt;skip-ebcdic-header&gt;false&lt;/skip-ebcdic-header&gt;
+				&nbsp;&lt;eol-present&gt;true&lt;/eol-present&gt;
+				&lt;/fixed-width-datastore&gt;
+			</pre>
+			<p>Here's an example with an EBCDIC file:</p>
+			<pre class="programlisting">
+				&lt;fixed-width-datastore&nbsp;name="FIXED-WIDTH-EBCDIC"&gt;
+				&nbsp;&lt;filename&gt;/path/to/the/file.ebc&lt;/filename&gt;
+				&nbsp;&lt;width-specification&gt;
+				&nbsp;&nbsp;&lt;value-width&gt;2&lt;/value-width&gt;
+				&nbsp;&nbsp;&lt;value-width&gt;10&lt;/value-width&gt;
+				&nbsp;&lt;/width-specification&gt;
+				&nbsp;&lt;encoding&gt;IBM01148&lt;/encoding&gt;
+				&nbsp;&lt;header-line-number&gt;0&lt;/header-line-number&gt;
+				&nbsp;&lt;fail-on-inconsistencies&gt;true&lt;/fail-on-inconsistencies&gt;
+				&nbsp;&lt;skip-ebcdic-header&gt;true&lt;/skip-ebcdic-header&gt;
+				&nbsp;&lt;eol-present&gt;false&lt;/eol-present&gt;
+				&lt;/fixed-width-datastore&gt;
+			</pre>
+		</div>
+	
+		<div class="section" title="Excel spreadsheets"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_excel"></a>Excel spreadsheets</h3></div></div></div>
+			
+			<p>This is an example of an Excel spreadsheet datastore</p>
+			<pre class="programlisting">
+				&lt;excel-datastore&nbsp;name="my_excel_spreadsheet"&gt;
+				&nbsp;&lt;filename&gt;/path/to/file.xls&lt;/filename&gt;
+				&lt;/excel-datastore&gt; </pre>
+		</div>
+	
+		<div class="section" title="XML file datastores"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_xml"></a>XML file datastores</h3></div></div></div>
+			
+			<p>Defining XML datastores can be done in both a simple
+				(automatically mapped) way, or an advanced (and more performant and
+				memory effective way).
+			</p>
+			<p>The simple way is just to define a xml-datastore with a
+				filename, like this:
+			</p>
+			<pre class="programlisting">
+				&lt;xml-datastore&nbsp;name="my_xml_datastore"&gt;
+				&nbsp;&lt;filename&gt;/path/to/file.xml&lt;/filename&gt;
+				&lt;/xml-datastore&gt; </pre>
+			<p>This kind of XML datastore works find when the file size is
+				small and the hierarchy is not too complex. The downside to it is
+				that it tries to automatically detect a table structure that is
+				fitting to represent the XML contents (which is a tree structure, not
+				really a table).
+			</p>
+			<p>To get around this problem you can also define your own table
+				structure in which you specify the XPaths that make up your rows and
+				the values within your rows. Here's an example:
+			</p>
+			<pre class="programlisting">
+				&lt;xml-datastore&nbsp;name="my_xml_datastore"&gt;
+				&nbsp;&lt;filename&gt;/path/to/file.xml&lt;/filename&gt;
+				&nbsp;&lt;table-def&gt;
+				&nbsp;&nbsp;&nbsp;&lt;rowXpath&gt;/greetings/greeting&lt;/rowXpath&gt;
+				&nbsp;&nbsp;&nbsp;&lt;valueXpath&gt;/greetings/greeting/how&lt;/valueXpath&gt;
+				&nbsp;&nbsp;&nbsp;&lt;valueXpath&gt;/greetings/greeting/what&lt;/valueXpath&gt;
+				&nbsp;&lt;/table-def&gt;
+				&lt;/xml-datastore&gt; </pre>
+			<p>The datastore defines a single table, where each record is
+				defined as the element which matches the XPath "/greetings/greeting".
+				The table has two columns, which are represented by the "how" and
+				"what" elements that are child elements to the row's path.
+			</p>
+			<p>
+				For more details on the XPath expressions that define the table model
+				of XML datastores, please refer to
+				<a class="link" href="http://metamodel.eobjects.org/example_xml_mapping.html" target="_top">MetaModel's tutorial on the topic</a>
+				(MetaModel is the data access library used to read data in
+				DataCleaner).
+			</p>
+		</div>
+	
+		<div class="section" title="ElasticSearch index"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_elasticsearch"></a>ElasticSearch index</h3></div></div></div>
+			
+			<p>This is an example of an ElasticSearch index datastore</p>
+			<pre class="programlisting">
+				&lt;elasticsearch-datastore&nbsp;name="my_elastic_search_index"&gt;
+				&nbsp;&lt;hostname&gt;localhost&lt;/hostname&gt;
+				&nbsp;&lt;port&gt;9300&lt;/port&gt;
+				&nbsp;&lt;cluster-name&gt;my_es_cluster&lt;/cluster-name&gt;
+				&nbsp;&lt;index-name&gt;my_index&lt;/index-name&gt;
+				&lt;/elasticsearch-datastore&gt; </pre>
+		</div>
+	
+		<div class="section" title="MongoDB databases"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_mongodb"></a>MongoDB databases</h3></div></div></div>
+			
+			<p>This is an example of a fully specified MongoDB datastore, with
+				an example table structure based on two collections.
+			</p>
+			<pre class="programlisting">
+				&lt;mongodb-datastore&nbsp;name="my_mongodb_datastore"&gt;
+				&nbsp;&lt;hostname&gt;localhost&lt;/hostname&gt;
+				&nbsp;&lt;port&gt;27017&lt;/port&gt;
+				&nbsp;&lt;database-name&gt;my_database&lt;/database-name&gt;
+				&nbsp;&lt;username&gt;user&lt;/username&gt;
+				&nbsp;&lt;password&gt;pass&lt;/password&gt;
+				&nbsp;&lt;table-def&gt;
+				&nbsp;&nbsp;&nbsp;&lt;collection&gt;company_collection&lt;/collection&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;company_name&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;VARCHAR&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;customer&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;BOOLEAN&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;num_employees&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;INTEGER&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;address_details&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;MAP&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&lt;/table-def&gt;
+				&nbsp;&lt;table-def&gt;
+				&nbsp;&nbsp;&nbsp;&lt;collection&gt;person_collection&lt;/collection&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;person_name&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;VARCHAR&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;birthdate&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;DATE&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&nbsp;&nbsp;&lt;property&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;emails&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;LIST&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/property&gt;
+				&nbsp;&lt;/table-def&gt;
+				&lt;/mongodb-datastore&gt; </pre>
+			<p>If the hostname and port elements are left out, localhost:27017
+				will be assumed.
+			</p>
+			<p>If the username and password elements are left out, an anonymous
+				connection will be made.
+			</p>
+			<p>If there are no table-def elements, the database will be
+				inspected and table definitions will be auto-detected based on the
+				first 1000 documents of each collection.
+			</p>
+		</div>
+	
+		<div class="section" title="CouchDB databases"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_file_datastore_couchdb"></a>CouchDB databases</h3></div></div></div>
+			
+			<p>This is an example of a fully specified CouchDB datastore, with
+				an example table structure based on two CouchDB databases.
+			</p>
+			<pre class="programlisting">
+				&lt;couchdb-datastore&nbsp;name="my_couchdb_datastore"&gt;
+				&nbsp;&lt;hostname&gt;localhost&lt;/hostname&gt;
+				&nbsp;&lt;port&gt;5984&lt;/port&gt;
+				&nbsp;&lt;username&gt;user&lt;/username&gt;
+				&nbsp;&lt;password&gt;pass&lt;/password&gt;
+				&nbsp;&lt;ssl&gt;true&lt;/ssl&gt;
+				&nbsp;&lt;table-def&gt;
+				&nbsp;&nbsp;&nbsp;&lt;database&gt;company_collection&lt;/database&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;company_name&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;VARCHAR&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;customer&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;BOOLEAN&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;num_employees&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;INTEGER&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;address_details&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;MAP&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&lt;/table-def&gt;
+				&nbsp;&lt;table-def&gt;
+				&nbsp;&nbsp;&nbsp;&lt;database&gt;person_collection&lt;/database&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;person_name&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;VARCHAR&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;birthdate&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;DATE&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&nbsp;&nbsp;&lt;field&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;emails&lt;/name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;type&gt;LIST&lt;/type&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/field&gt;
+				&nbsp;&lt;/table-def&gt;
+				&lt;/couchdb-datastore&gt; </pre>
+			<p>If the hostname and port elements are left out, localhost:5984
+				will be assumed.
+			</p>
+			<p>If the username and password elements are left out, an anonymous
+				connection will be made.
+			</p>
+			<p>If the "ssl" element is false or left out, a regular HTTP
+				connection will be used.
+			</p>
+			<p>If there are no table-def elements, the database will be
+				inspected and table definitions will be auto-detected based on the
+				first 1000 documents of each database.
+			</p>
+		</div>
+		<div class="section" title="Composite datastore"><div class="titlepage"><div><div><h3 class="title"><a name="d5e767"></a>Composite datastore</h3></div></div></div>
+			
+			<p> This is an example of a composite datastore. It contains data
+				from 2 other datastores: Datastore 1 and Datastore 2.
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;composite-datastore name="my composite"&gt;
+					&lt;datastore-name&gt;Datastore 1&lt;/datastore-name&gt;
+					&lt;datastore-name&gt;Datastore 2&lt;/datastore-name&gt;
+				&lt;/composite-datastore&gt;
+			</pre>
+		</div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch10s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">XML schema&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Reference data</td></tr></table></div></body></html>

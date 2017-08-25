@@ -1,0 +1,41 @@
+---
+layout: page
+title: Documentation
+permalink: /documentation
+---
+
+<div class="center" style="margin-top: 3em;">
+	Most people who go here just want to find the
+	<h2>
+		<i class="fa fa-book" aria-hidden="true"></i>
+		<a class="fancyLink" href="docs/{{ site.docs[0] }}/html">
+			latest DataCleaner reference documentation
+		</a>
+	</h2>
+</div>
+
+<hr />
+
+<h3>Reference documentation archive</h3>
+
+<div class="tableContainer">
+	<table class="downloadTable">
+		
+	{% for doc_version in site.docs %}
+	<tr>
+		<td class="versionName">
+			{{ doc_version }}
+		</td>
+		<td>
+			<i class="fa fa-globe" aria-hidden="true"></i>
+			<a href="docs/{{doc_version}}/html">HTML</a>
+		</td>
+		<td>
+			<i class="fa fa-book" aria-hidden="true"></i>
+			<a href="docs/{{doc_version}}/html_single">HTML single</a>
+		</td>
+	</tr>
+	{% endfor %}
+
+	</table>
+</div>

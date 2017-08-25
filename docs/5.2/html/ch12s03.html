@@ -1,0 +1,38 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Modifying logging levels</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch12.html" title="Chapter&nbsp;12.&nbsp;Logging"><link rel="prev" href="ch12s02.html" title="Default logging configuration"><link rel="next" href="ch12s04.html" title="Alternative logging outputs"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Modifying logging levels</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch12s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;12.&nbsp;Logging</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch12s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Modifying logging levels"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="logging_levels"></a>Modifying logging levels</h2></div></div></div>
+		
+		<p>These are the logging levels available in DataCleaner and Log4j,
+			order by priority (highest priority first):
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				error
+			</li><li class="listitem">
+				warn
+			</li><li class="listitem">
+				info
+			</li><li class="listitem">
+				debug
+			</li><li class="listitem">
+				trace
+			</li></ol></div>
+		<p>Typically the bottom-two logging levels (debug and trace) are
+			not used unless unexpected situations has to be investigated by
+			developers.
+		</p>
+		<p>
+			Modifying the logging levels can be done either globally or in a
+			hierarchical manner:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>If you change the &lt;priority&gt; element's value attribute,
+					you change the global threshold for logging messages.
+				</p>
+			</li><li class="listitem">
+				<p>If you change the &lt;logger&gt; element's level,
+					you change
+					the logging priority logging messages that pertain to a particular
+					hierarchy of loggers.
+				</p>
+			</li></ol></div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch12s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch12.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch12s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Default logging configuration&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Alternative logging outputs</td></tr></table></div></body></html>

@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Run DataCleaner jobs in Pentaho Data Integration</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch16.html" title="Chapter&nbsp;16.&nbsp;Pentaho integration"><link rel="prev" href="ch16s02.html" title="Launch DataCleaner to profile Pentaho Data Integration steps"><link rel="next" href="pt07.html" title="Part&nbsp;VII.&nbsp;Developer's guide"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Run DataCleaner jobs in Pentaho Data Integration</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch16s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;16.&nbsp;Pentaho integration</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="pt07.html">Next</a></td></tr></table><hr></div><div class="section" title="Run DataCleaner jobs in Pentaho Data Integration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="pentaho_run_dc_jobs_from_pdi"></a>Run DataCleaner jobs in Pentaho Data Integration</h2></div></div></div>
+		
+
+		<p>
+			<span class="emphasis"><em>Pentaho Data Integration job entry</em></span>
+			. If you want to have DataCleaner scheduled and integrated into an
+			environment where you can eg. iterate over files in a folder etc.,
+			then you can use Pentaho Data Integration (PDI), which is an open
+			source
+			ETL tool that includes a scheduler.
+		</p>
+		<p>Construct a PDI "job" (ie. not a "transformation") and add the
+			DataCleaner job entry. The entry can be found in the submenu 'Utility'. The configuration dialog will look like
+			this:
+		</p>
+		<div class="mediaobject"><img src="dc_job_entry.png"></div>
+		<p>The most tricky part is to fill out the executable and the job
+			filename. Note that all configuration options can contain PDI
+			variables, like it is the case with ${user.home} in the screenshot
+			above. This is useful if you want to eg. timestamp your resulting
+			files etc.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch16s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch16.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="pt07.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Launch DataCleaner to profile Pentaho Data Integration steps
+		&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Part&nbsp;VII.&nbsp;Developer's guide</td></tr></table></div></body></html>

@@ -1,0 +1,26 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Single JAR file</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch20.html" title="Chapter&nbsp;20.&nbsp;Extension packaging"><link rel="prev" href="ch20s01.html" title="Annotated components"><link rel="next" href="ch20s03.html" title="Extension metadata XML"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Single JAR file</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch20s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;20.&nbsp;Extension packaging</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch20s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Single JAR file"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="extensions_single_jar_file"></a>Single JAR file</h2></div></div></div>
+		
+		<p>The extension must consist of a single JAR file. If you have
+			dependencies other than the libraries provided by the DataCleaner
+			distribution, you need to package these inside your own JAR file. If
+			you're using Maven for your build, the Maven Assembly Plugin can
+			provide this functionality easily using this snippet in your POM:
+		</p>
+		<pre lang="xml" class="programlisting">
+			&lt;build&gt;
+			&nbsp;&lt;plugins&gt;
+			&nbsp;&nbsp;&lt;plugin&gt;
+			&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+			&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+			&nbsp;&nbsp;&nbsp;&lt;version&gt;2.2.1&lt;/version&gt;
+			&nbsp;&nbsp;&nbsp;&lt;configuration&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;descriptorRefs&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;/descriptorRefs&gt;
+			&nbsp;&nbsp;&nbsp;&lt;/configuration&gt;
+			&nbsp;&nbsp;&lt;/plugin&gt;
+			&nbsp;&lt;/plugins&gt;
+			&lt;/build&gt; </pre>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch20s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch20.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch20s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Annotated components&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Extension metadata XML</td></tr></table></div></body></html>

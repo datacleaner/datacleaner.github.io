@@ -1,0 +1,32 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Alternative logging outputs</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch12.html" title="Chapter&nbsp;12.&nbsp;Logging"><link rel="prev" href="ch12s03.html" title="Modifying logging levels"><link rel="next" href="ch13.html" title="Chapter&nbsp;13.&nbsp;Database drivers"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Alternative logging outputs</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch12s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;12.&nbsp;Logging</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch13.html">Next</a></td></tr></table><hr></div><div class="section" title="Alternative logging outputs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="logging_alternative_outputs"></a>Alternative logging outputs</h2></div></div></div>
+		
+		<p>Log
+			messages are printed to an output, typically a file or the
+			console. In
+			the configuration file this is configured in the
+			&lt;appender&gt;
+			elements. Here's a few examples of alternative
+			appenders you can use.
+			For more examples and documentation, please
+			refer to the
+			<a class="link" href="http://logging.apache.org/log4j/" target="_top">Log4j website</a>
+			.
+		</p>
+
+		<p>
+			<span class="emphasis"><em>Logging in a PostgreSQL database:</em></span>
+		</p>
+		<pre lang="xml" class="programlisting">
+			&lt;appender&nbsp;name="jdbcAppender"&nbsp;class="org.apache.log4j.jdbc.JDBCAppender"&gt;
+			&nbsp;&lt;param&nbsp;name="URL"&nbsp;value="jdbc:postgresql:db"/&gt;
+			&nbsp;&lt;param&nbsp;name="Driver"&nbsp;value="org.postgresql.Driver"/&gt;
+			&nbsp;&lt;param&nbsp;name="User"&nbsp;value="user"/&gt;
+			&nbsp;&lt;param&nbsp;name="Password"&nbsp;value="password"/&gt;
+			&nbsp;&lt;layout class="org.apache.log4j.PatternLayout"&gt;
+			&nbsp;&nbsp;&lt;param&nbsp;name="ConversionPattern"
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value="INSERT&nbsp;INTO&nbsp;log4j&nbsp;(log_date,log_level,log_location,log_message)&nbsp;VALUES&nbsp;('%d{yyyy-MM-dd}','%p','%C;%L','%m')"/&gt;
+			&nbsp;&lt;/layout&gt;
+			&lt;/appender&gt;</pre>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch12s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch12.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch13.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Modifying logging levels&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;13.&nbsp;Database drivers</td></tr></table></div></body></html>

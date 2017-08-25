@@ -1,0 +1,42 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Using Hadoop in DataCleaner desktop</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"><link rel="prev" href="ch15s03.html" title="Launching DataCleaner jobs using Spark"><link rel="next" href="ch15s05.html" title="Limitations of the Hadoop interface"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Using Hadoop in DataCleaner desktop</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch15s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch15s05.html">Next</a></td></tr></table><hr></div><div class="section" title="Using Hadoop in DataCleaner desktop"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hadoop_desktop"></a>Using Hadoop in DataCleaner desktop</h2></div></div></div>
+        
+        
+        <p>
+            Within DataCleaner desktop you can process CSV datastores located on HDFS.
+        </p>
+
+        <div class="section" title="Configure Hadoop clusters"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1123"></a>Configure Hadoop clusters</h3></div></div></div>
+            
+            
+            <p>
+                To be able to execute jobs from DataCleaner desktop on a Hadoop Cluster you have a number of configuration options which are managed in the <span class="emphasis"><em>Hadoop clusters</em></span> tab in the <span class="emphasis"><em>Options</em></span> dialog.
+                
+                </p><div class="mediaobject"><img src="hadoop_options_clusters.png"></div><p>
+
+                </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+                        <p><span class="emphasis"><em>Default</em></span></p>
+                        <p>By default DataCleaner uses the HADOOP_CONF_DIR and YARN_CONF_DIR environment variables to determine the location of the Hadoop/Yarn configuration files such as <span class="emphasis"><em>core-site.xml</em></span> and <span class="emphasis"><em>yarn-site.xml</em></span>.</p>
+                    </li><li class="listitem">
+                        <p><span class="emphasis"><em>Using configuration directory</em></span></p>
+                        <p>By clicking the <span class="emphasis"><em>Add Hadoop cluster</em></span> button and then selecting the <span class="emphasis"><em>Using configuration directory</em></span> you can register additional Hadoop clusters by adding locations which contain Hadoop/Yarn configuration files.</p>
+                    </li><li class="listitem">
+                        <p><span class="emphasis"><em>Using direct namenode connection</em></span></p>
+                        <p>By clicking the <span class="emphasis"><em>Add Hadoop cluster</em></span> button and then selecting the <span class="emphasis"><em>Using direct namenode connection</em></span> you can registerd additional Hadoop clusters using their file system URI (e.g. hdfs://bigdatavm:9000/).</p>
+                    </li></ol></div><p>
+                
+                If you have added additional Hadoop clusters, when selecting a file on HDFS, it first opens a dialog where you can select from which Hadoop custer you want to select a file.
+            </p>
+            
+        </div>
+        
+        <div class="section" title="CSV datastores on HDFS"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1150"></a>CSV datastores on HDFS</h3></div></div></div>
+            
+            
+            <p>
+                When registering a CSV datastore you have the option to select "hdfs" as scheme for the source of the CSV. In the path field you can either fill in an absolute path, including the scheme, e.g. <span class="emphasis"><em>hdfs://bigdatavm:9000/datacleaner/customers.csv</em></span> or the relative path to a file on HDFS, e.g. <span class="emphasis"><em>/datacleaner/customers.csv</em></span>. Note that a relative path only works when you have set the HADOOP_CONF_DIR or YARN_CONF_DIR environment variables (see <a class="link" href="ch15s02.html" title="Setting up Spark and DataCleaner environment">Setting up Spark and DataCleaner environment</a>). 
+				</p><div class="mediaobject"><img src="hadoop_register_datastore.png"></div><p>
+            </p>
+        </div>
+    </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch15s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch15.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch15s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Launching DataCleaner jobs using Spark&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Limitations of the Hadoop interface</td></tr></table></div></body></html>

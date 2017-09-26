@@ -37,4 +37,4 @@ Pluggability and Connectivity are keywords for the open source design philosophy
 
 #### Commercial upgrades and support
 
-Head on over to the [DataCleaner commercial site](https://datacleaner.org) for more information about Professional and Enterprise editions of DataCleaner.
+Head on over to the [DataCleaner commercial site](https://www.quadient.com/products/quadient-datacleaner) for more information about Professional and Enterprise editions of DataCleaner.

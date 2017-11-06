@@ -77,9 +77,10 @@ a.site-title:hover {
 	margin: 0;
 	left: 0px;
 	width: 100%;
-	height: 450px;
+	height: 300px;
 	border-bottom: 1px solid $grey-color-light;
 	background-position-x: right;
+	background-position-y: bottom;
 	background-image: url("/assets/welcome-panel-background.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -90,8 +91,26 @@ a.site-title:hover {
 
 .welcomePanelBreaker {
 	clear: both;
-	height: 450px;
+	height: 300px;
 	margin-bottom: 1em;
+}
+
+.databasesPanel {
+	text-align: center;
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	left: 0px;
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid $grey-color-light;
+	white-space: nowrap;
+}
+
+.databasesPanelBreaker {
+	clear: both;
+	height: 50px;
+	margin-bottom: 4em;
 }
 
 .githubRibbon {

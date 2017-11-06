@@ -8,13 +8,21 @@ layout: page
 
 	<h1>Welcome to the <span class="orange">DataCleaner</span> <span class="blue">community edition</span> site.</h1>
 
-	<p>The home of the premier open source Data Quality solution.</p>
+	<p>The premier open source Data Quality solution.</p>
 
 	</div>
 
 </div>
 
 <div class="welcomePanelBreaker">
+</div>
+
+<div class="databasesPanel">
+	<img src="/assets/databases1.jpg" alt=""/>
+	<img src="/assets/databases2.jpg" alt=""/>
+</div>
+
+<div class="databasesPanelBreaker">
 </div>
 
 ### What is DataCleaner?

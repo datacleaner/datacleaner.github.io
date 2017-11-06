@@ -19,11 +19,21 @@ layout: page
 
 ### What is DataCleaner?
 
+<div class="clearBoth"></div>
+<div class="frontpageScreenshot right">
+	<img src="/assets/frontpage/valuedist_country.png" alt="">
+</div>
+
 #### Data profiling
 
 The heart of DataCleaner is a strong data profiling engine for discovering and analyzing the quality of your data. Find the patterns, missing values, character sets and other characteristics of your data values.
 
 Profiling is an essential activity of any Data Quality, Master Data Management or Data Governance program. If you don't know what you're up against, you have poor chances of fixing it.
+
+<div class="clearBoth"></div>
+<div class="frontpageScreenshot left">
+	<img src="/assets/frontpage/canvas_plot.png" alt="">
+</div>
 
 #### Data wrangling
 
@@ -34,7 +44,3 @@ Use reference data, external and internal, in order to verify that the data valu
 #### A Data Quality eco-system
 
 Pluggability and Connectivity are keywords for the open source design philosophy of DataCleaner. The application delivers not only out-of-the-box functionality, but also hosts an eco-system of community driven application extensions integrations, shared content and more.
-
-#### Commercial upgrades and support
-
-Head on over to the [DataCleaner commercial site](https://www.quadient.com/products/quadient-datacleaner) for more information about Professional and Enterprise editions of DataCleaner.

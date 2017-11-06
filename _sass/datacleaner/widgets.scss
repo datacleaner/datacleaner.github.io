@@ -104,3 +104,25 @@ a.site-title:hover {
 		display: block;
 	}
 }
+
+.clearBoth {
+	clear: both;
+}
+
+.frontpageScreenshot {
+	width: 40%;
+	margin-left: 2em;
+	margin-right: 2em;
+	margin-bottom: 1em;
+	border: 1px #ccc solid;
+}
+
+.frontpageScreenshot.left {
+	float: left;
+	margin-left: -10%;
+}
+
+.frontpageScreenshot.right {
+	float: right;
+	margin-right: -10%;
+}

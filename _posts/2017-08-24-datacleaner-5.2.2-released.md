@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "DataCleaner 5.2.2 released"
-date: 2017-07-26 21:20:00 -0700
+subtitle: "Bugfixes and minor improvements"
+date: 2017-08-24 21:20:00 -0700
 categories: release
 ---
 

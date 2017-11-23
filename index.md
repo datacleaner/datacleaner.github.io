@@ -50,7 +50,7 @@ Use reference data, external and internal, in order to verify that the data valu
 
 <div class="frontpageScreenshotBreaker"></div>
 <div class="frontpageScreenshot right">
-	<img src="/assets/frontpage/hadoop_execution.png" alt="">
+	<img src="/assets/frontpage/hadoop_execution.png" alt=""/>
 </div>
 
 #### A Data Quality eco-system

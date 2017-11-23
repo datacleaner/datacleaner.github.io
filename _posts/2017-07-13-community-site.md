@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "A new site for DataCleaner's community"
+subtitle: "Welcome to datacleaner.github.io"
 date: 2017-07-13 21:22:29 -0700
 categories: www update
 author: Kasper Sørensen

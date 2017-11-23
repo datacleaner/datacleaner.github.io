@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "DataCleaner 5.2.1 released"
+subtitle: "A new community version"
 date: 2017-07-26 21:20:00 -0700
 categories: release
 ---

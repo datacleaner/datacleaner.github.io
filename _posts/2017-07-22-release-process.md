@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "A release process for DataCleaner community edition"
+title: "A new release process"
+subtitle: "Making it easier to work with DataCleaner community edition"
 date: 2017-07-22 19:00:00 -0700
 categories: www update release
 author_name: Kasper Sørensen

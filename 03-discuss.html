@@ -5,7 +5,7 @@ permalink: /discuss
 ---
 
 <p>
-	<a class="button" href="https://github.com/datacleaner/DataCleaner/issues/new?labels=Discussion">
+	<a target="_blank" class="button" href="https://github.com/datacleaner/DataCleaner/issues/new?labels=Discussion">
 		<i class="fa icon fa-commenting" aria-hidden="true"></i>
 		New discussion post
 	</a>
@@ -94,9 +94,9 @@ permalink: /discuss
 					"<tr class='discussPost'>"
 					+ "<td class='topic'>"
 					+ "<i class='fa icon fa-" + iconStyle + "' aria-hidden='true'></i>"
-					+ "<a href='" + this.html_url + "'>" + this.title + "</a>"
+					+ "<a target='_blank' href='" + this.html_url + "'>" + this.title + "</a>"
 					+ "</td>"
-					+ "<td class='author'><a href='" + this.user.html_url + "'><img class='discussAvatar' src='" + this.user.avatar_url + "' />" + this.user.login + "</a></td>"
+					+ "<td class='author'><a target='_blank' href='" + this.user.html_url + "'><img class='discussAvatar' src='" + this.user.avatar_url + "' />" + this.user.login + "</a></td>"
 					+ "<td class='created'>" + formatDate(this.created_at) + "</td>"
 					+ "<td class='replies'>" + this.comments + "</td>"
 					+ "</tr>";

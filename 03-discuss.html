@@ -1,0 +1,107 @@
+---
+layout: page
+title: Discussion
+permalink: /discuss
+---
+
+<p>
+	<a class="button" href="https://github.com/datacleaner/DataCleaner/issues/new?labels=Discussion">
+		<i class="fa icon fa-commenting" aria-hidden="true"></i>
+		New discussion post
+	</a>
+</p>
+
+<div class="tableContainer">
+	<table class="discussTable" id="discussTable">
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Created</th>
+			<th>Replies</th>
+		</tr>
+		<tr id="discussTableLoading">
+			<td colspan="4">
+				Loading data ...
+			</td>
+		</tr>
+	</table>
+</div>
+
+<p>
+	Our discussions are powered by GitHub issues. Ensure that you use the label
+	'Discussion' or 'Question' when creating an issue, and it will show up on this list.
+</p>
+
+<script type='text/javascript'>
+	function formatDate(s) {
+		var d = new Date(s);
+		var month = d.getUTCMonth()+1;
+		if (month < 10) {
+			month = '0' + month;
+		}
+		var date = d.getUTCDate();
+		if (date < 10) {
+			date = '0' + date;
+		}
+		return d.getUTCFullYear() + '-' + month + '-' + date;
+	}
+
+	var postsUrl = "https://api.github.com/repos/datacleaner/DataCleaner/issues";
+	var responseCount = 0;
+	var labels = ["Question","VOTE","Discussion"];
+	var issues = {};
+
+	$(labels).each(function() {
+		requestIssues(this, labels.length);
+	});
+
+	function requestIssues(label, requestCount) {
+		$.getJSON({
+			dataType: "json",
+			url: postsUrl,
+			data: {
+				"labels": label,
+				"state": "all",
+				"sort": "updated",
+				"direction": "desc"
+			},
+			success: function(data) {
+				$(data).each(function() {
+					issues[this.id] = this;
+				});
+				responseCount++;
+				if (responseCount == requestCount) {
+					updateTable();
+				}
+			}
+		});
+	}
+
+	function updateTable() {
+		$(Object.values(issues))
+			.sort(function (a,b) {
+				return new Date(b.updated_at) - new Date(a.updated_at);
+			})
+			.each(function() {
+				var iconStyle = "comment";
+				if (this.comments > 0) {
+					iconStyle = "comments";
+				}
+				if (this.title.startsWith("[VOTE]")) {
+					iconStyle = "check-circle";
+				}
+				var output = 
+					"<tr class='discussPost'>"
+					+ "<td class='topic'>"
+					+ "<i class='fa icon fa-" + iconStyle + "' aria-hidden='true'></i>"
+					+ "<a href='" + this.html_url + "'>" + this.title + "</a>"
+					+ "</td>"
+					+ "<td class='author'><a href='" + this.user.html_url + "'><img class='discussAvatar' src='" + this.user.avatar_url + "' />" + this.user.login + "</a></td>"
+					+ "<td class='created'>" + formatDate(this.created_at) + "</td>"
+					+ "<td class='replies'>" + this.comments + "</td>"
+					+ "</tr>";
+				$('#discussTable').append(output);
+			});
+		$('#discussTableLoading').remove();
+	}
+</script>

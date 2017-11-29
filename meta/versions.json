@@ -1,0 +1,11 @@
+---
+permalink: /meta/versions
+---
+{
+	"latest": {
+		"version": "{{ site.releases[0].version }}",
+		"downloads": {
+			"desktop-ui-zip": "https://github.com/datacleaner/DataCleaner/releases/download/DataCleaner-{{site.releases[0].version}}/DataCleaner-{{site.releases[0].version}}.zip"
+		}
+	} 
+}

@@ -1,0 +1,368 @@
+{
+	"regexes": {
+		"regex": [
+			{
+				"name": "Danish postal code",
+				"expression": "^(DK(-| )?)?[0-9]{4}$",
+				"description": "This regex allows three different formats of danish\n\t\t\tpostal codes. Examplified with the 2200 postal code:\n\n\t\t\t* DK-2200\n\t\t\t* DK2200\n\t\t\t* 2200",
+				"tags": [
+					"denmark",
+					"geographic",
+					"postal address"
+				]
+			},
+			{
+				"name": "Danish phone number",
+				"expression": "^(\\(?\\Q+45\\E\\)?( )?)?[0-9]{8}$",
+				"description": "This regex is useful for validating Danish (8 digit)\n\t\t\ttelephone numbers that may or may not be prefixed by +45 or (+45) and\n\t\t\tan optional space.",
+				"tags": [
+					"denmark",
+					"geographic",
+					"phone"
+				]
+			},
+			{
+				"name": "Website URL",
+				"expression": "^https?://[a-z0-9_-][\\.[a-z0-9_-]]*\\.(com|edu|org|net|int|info|eu|biz|mil|gov|aero|travel|pro|name|museum|coop|asia|[a-z][a-z])+(:[0-9]+)?[/[a-zA-Z0-9\\._#-]]*/?$",
+				"description": "Validates a HTTP or HTTPS url for a website. It works\n\t\t\twell for most uses, but there are a few corner-cases that it cannot\n\t\t\thandle.\n\n\t\t\tKnown issues:\n\t\t\t* URL \"GET\" parameters are not supported.\n\t\t\t* Top-level domains are not literally validated.",
+				"tags": [
+					"internet"
+				]
+			},
+			{
+				"name": "Typical username",
+				"expression": "[a-zA-Z0-9_]{3,16}",
+				"description": "A regex for a typical username format. Here are the\n\t\t\tusername requirements:\n\n\t\t\t* 3 to 16 characters\n\t\t\t* alphanumeric characters are accepted\n\t\t\t* underscore (_) is also accepted",
+				"tags": [
+					"internet",
+					"identity"
+				]
+			},
+			{
+				"name": "Credit Card (JCB)",
+				"expression": "^(?:2131|1800|35\\d{3})\\d{11}$",
+				"description": "JCB Credit Card number",
+				"tags": [
+					"creditcards",
+					"numbers"
+				]
+			},
+			{
+				"name": "Credit Card (Diners Club)",
+				"expression": "^3(?:0[0-5]|[68][0-9])[0-9]{11}$",
+				"description": "Diners Club Credit Card number.",
+				"tags": [
+					"creditcards"
+				]
+			},
+			{
+				"name": "24 Hour Time (hh:mm)",
+				"expression": "^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$",
+				"description": "Validates a time field with 24 (0-23) hours.",
+				"tags": [
+					"geographic",
+					"time"
+				]
+			},
+			{
+				"name": "ISO date (yyyy-mm-dd)",
+				"expression": "^((((19|20)(([02468][048])|([13579][26]))-02-29))|((20[0-9][0-9])|(19[0-9][0-9]))-((((0[1-9])|(1[0-2]))-((0[1-9])|(1[[0-9]])|(2[0-8])))|((((0[13578])|(1[02]))-31)|(((0[1,3-9])|(1[0-2]))-(29|30)))))$",
+				"description": "Defines a datemask composed of a 4-digit year, a 2-digit\n\t\t\tmonth and a 2-digit date.\n\n\t\t\tTrailing zero's are required in single digit months or dates.",
+				"tags": [
+					"time"
+				]
+			},
+			{
+				"name": "Credit Card (Discover)",
+				"expression": "^6(?:011|5[0-9]{2})[0-9]{12}$",
+				"description": "Discover Credit Card numbers.",
+				"tags": [
+					"creditcards"
+				]
+			},
+			{
+				"name": "German postal code",
+				"expression": "^[0-9]{5}$",
+				"description": "Quite simple - it's five digits.",
+				"tags": [
+					"geographic",
+					"germany"
+				]
+			},
+			{
+				"name": "Integer or rounded decimal",
+				"expression": "^[-+]?[1-9][[0-9]]*\\.?[0]*$",
+				"description": "This regex matches all positive or negative numbers that\n\t\t\thave no decimals or only zero's in the decimal numbers. Examples:\n\n\t\t\t* 1\n\t\t\t* -1\n\t\t\t* 12.0\n\t\t\t* -512.000",
+				"tags": [
+					"numbers"
+				]
+			},
+			{
+				"name": "UK Phone Number",
+				"expression": "^(\\+44[[:space:]]?7[[:digit:]]{3}|\\(?07[[:digit:]]{3}\\)?)[[:space:]]?[[:digit:]]{3}[[:space:]]?[[:digit:]]{3}$",
+				"description": "Phone numbers for United Kingdom.",
+				"tags": [
+					"geographic",
+					"phone",
+					"united kingdom"
+				]
+			},
+			{
+				"name": "FR Postal Code",
+				"expression": "^(0[1-9]|[1-9][0-9])[0-9]{3}$",
+				"description": "Postal code for France / French cities.",
+				"tags": [
+					"france",
+					"geographic",
+					"postal address"
+				]
+			},
+			{
+				"name": "BE Postal Code",
+				"expression": "^(F-[0-9]{4,5}|B-[0-9]{4})$",
+				"description": "Postal codes for Belgium / Belgian cities",
+				"tags": [
+					"belgium",
+					"geographic",
+					"postal address"
+				]
+			},
+			{
+				"name": "Credit Card (Visa)",
+				"expression": "^4[0-9]{12}(?:[0-9]{3})?$",
+				"description": "Visa Credit Card number.",
+				"tags": [
+					"creditcards"
+				]
+			},
+			{
+				"name": "Credit Card (any)",
+				"expression": "^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$",
+				"description": "Any Credit Card number.",
+				"tags": [
+					"creditcards"
+				]
+			},
+			{
+				"name": "Indian vehicle reg. number",
+				"expression": "^([A-Z|a-z]{2}\\s{1}\\d{2}\\s{1}[A-Z|a-z]{1,2}\\s{1}\\d{1,4})?([A-Z|a-z]{3}\\s{1}\\d{1,4})?$",
+				"description": "It validates Indian Vehicle Registration Number.",
+				"tags": [
+					"india",
+					"vehicles"
+				]
+			},
+			{
+				"name": "linux/unix network devices",
+				"expression": "^eth[0-9]+$",
+				"description": "Very simple expression for validating ethX devices, such\n\t\t\tas eth0 or eth1.",
+				"tags": [
+					"computers"
+				]
+			},
+			{
+				"name": "MAC address",
+				"expression": "^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$",
+				"description": "Matches a MAC address of a network device.",
+				"tags": [
+					"computers",
+					"internet"
+				]
+			},
+			{
+				"name": "IPv4 address",
+				"expression": "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b",
+				"description": "Validates an IPv4 address",
+				"tags": [
+					"computers",
+					"internet",
+					"numbers"
+				]
+			},
+			{
+				"name": "Dutch Postal Code",
+				"expression": "^\\s*?[0-9]{4}\\s?[a-z|A-Z]{2}\\s*?$",
+				"description": "Postal code check for the Netherlands.\n\t\t\tLeading and trailing spaces are filtered.",
+				"tags": [
+					"postal address"
+				]
+			},
+			{
+				"name": "DISCO 88",
+				"expression": "\\d{4}|110",
+				"description": "Danish version of ISCO 88.",
+				"tags": [
+					"denmark"
+				]
+			},
+			{
+				"name": "DISCO AMS",
+				"expression": "\\d{7}|110(001|101|102)",
+				"description": "Sub version of DISCO 88 used by the Danish National\n\t\t\tLabour Market Authority",
+				"tags": [
+					"denmark"
+				]
+			},
+			{
+				"name": "Danish Car registrationnumber",
+				"expression": "^[a-z|A-Z]{2}[1-9]\\d{4}$",
+				"description": "",
+				"tags": [
+					"denmark",
+					"identity",
+					"numbers",
+					"vehicles"
+				]
+			},
+			{
+				"name": "ITA Post Code",
+				"expression": "^[0-9]{5}$",
+				"description": "Italian Postal Code",
+				"tags": [
+					"identity"
+				]
+			},
+			{
+				"name": "Java class name",
+				"expression": "^(([a-z])+.)+[A-Z]([A-Za-z])+$",
+				"description": "Matches a fully qualified Java class name. Requires an\n\t\t\tUppercase starting char, which is a commonly followed convention for\n\t\t\tJava classes.\n\n\t\t\tMatched example:\n\n\t\t\t* dk.eobjects.datacleaner.gui.DataCleanerGui\n\n\t\t\tUnmatches example:\n\n\t\t\t* dk.eobjects.datacleaner",
+				"tags": [
+					"computers",
+					"programming"
+				]
+			},
+			{
+				"name": "Integer",
+				"expression": "^[-+]?[1-9][[0-9]]*$",
+				"description": "This regex matches positive and negative integers and\n\t\t\tnothing else.",
+				"tags": [
+					"numbers"
+				]
+			},
+			{
+				"name": "Credit Card (MasterCard)",
+				"expression": "^5[1-5][0-9]{14}$",
+				"description": "!MasterCard Credit Card number.",
+				"tags": [
+					"creditcards"
+				]
+			},
+			{
+				"name": "Month number (01-12)",
+				"expression": "^((0[1-9])|(1[0-2]))$",
+				"description": "Defines a number between (0)1 and 12. Usefull for\n\t\t\tcomposition of regular expressions with other expressions.",
+				"tags": [
+					"time",
+					"partials"
+				]
+			},
+			{
+				"name": "Credit Card (American Express)",
+				"expression": "^3[47][0-9]{13}$",
+				"description": "American Express Credit Card number.",
+				"tags": [
+					"creditcards"
+				]
+			},
+			{
+				"name": "US Social Security Number",
+				"expression": "^([[:digit:]]{3}[ -][[:digit:]]{2}[\n\t\t\t-][[:digit:]]{4}|[[:digit:]]{9})$",
+				"description": "US / American social security number regex.",
+				"tags": [
+					"geographic",
+					"social security",
+					"united states"
+				]
+			},
+			{
+				"name": "Week day",
+				"expression": "^(Sun|Mon|(T(ues|hurs))|Fri)(day|\\.)?$|Wed(\\.|nesday)?$|Sat(\\.|urday)?$|T((ue?)|(hu?r?))\\.?$",
+				"description": "Defines an expression for matching weekdays. This\n\t\t\texpression validates both the short and long version of weekdays, but\n\t\t\trequires an upper-case first character, such as:\n\n\t\t\t* Mon\n\t\t\t* Tuesday\n\t\t\t* Thursday\n\t\t\t* Sat\n\t\t\t* Saturday\n\n\t\t\tHope it's useful, if not for anything else, then for composition with\n\t\t\tother expressions.",
+				"tags": [
+					"time",
+					"partials"
+				]
+			},
+			{
+				"name": "DE Postal Code",
+				"expression": "^(D\\-)?[0-9]{5}$",
+				"description": "Postal codes for Germany / German cities.",
+				"tags": [
+					"geographic",
+					"germany",
+					"postal address"
+				]
+			},
+			{
+				"name": "Email address",
+				"expression": "[a-zA-Z0-9._%+-]*@[a-zA-Z0-9._%+-]*\\.[a-zA-Z]{2,4}",
+				"description": "This is definitely not the final word on an email address\n\t\t\tregular expression, but it's useful and definately narrows down the\n\t\t\toptions. There are however some known issues such as no literal\n\t\t\ttop-level domain check.",
+				"tags": [
+					"identity",
+					"internet"
+				]
+			},
+			{
+				"name": "MD5 hash",
+				"expression": "^([a-f0-9]{32})$",
+				"description": "Matches a 32-digit MD5 hash. Useful for validating hashed\n\t\t\tdatabase-columns.",
+				"tags": [
+					"computers",
+					"identity",
+					"programming"
+				]
+			},
+			{
+				"name": "ID CARD of China",
+				"expression": "\\d{15}|\\d{18}",
+				"description": "identity card of China",
+				"tags": [
+					"identity"
+				]
+			},
+			{
+				"name": "Danish CPR number",
+				"expression": "^(0[1-9]|[12]\\d|3[01])((0[1-9])|(1[0-2]))[0-9]{2}(\\Q-\\E)?[0-9]{4}$",
+				"description": "Definately not the most advanced and accurate Danish CPR\n\t\t\t(social security) number validation regex, but it's pretty useful and\n\t\t\teasy to figure out.",
+				"tags": [
+					"denmark",
+					"geographic",
+					"social security"
+				]
+			},
+			{
+				"name": "Day number (01-31)",
+				"expression": "^(((0)[1-9])|((1|2)[0-9])|(3[0-1]))$",
+				"description": "Defines a day number between 01 and 31. Useful for\n\t\t\tcomposition with other regexes for custom date masks and the like.",
+				"tags": [
+					"partials",
+					"time"
+				]
+			},
+			{
+				"name": "italian fixed phone numbers",
+				"expression": "(\\+|00)?+\\s*+(39|\\(39\\))+\\s*+0+[1-9]{1}+[0-9]{0,1,2}+\\s*+[0-9]{6,10}",
+				"description": "geographic phone numbers",
+				"tags": [
+					"phone"
+				]
+			},
+			{
+				"name": "Italy Cell Phone",
+				"expression": "^((\\+|00)?+(\\s)*+(39|\n\t\t\t\\(39\\))?+(/s)*+((38[3,8,9,0])|(39[1-3])|(34[0,3,7-9])|(36[0,3,6,8])|(33[0,\n\t\t\t1, 3-9])|(32[0,4,7-9]))(/s)*([0-9]{6,7}))?$",
+				"description": "for client numbers only",
+				"tags": [
+					"phone"
+				]
+			},
+			{
+				"name": "Duplicate words (Ignores content between <style> and <script> tags)",
+				"expression": "\\b((?!(((?!<(\\w|/|\\?)).)+?((?<!\\?)>|</script>|</style>)))[a-zA-Z]{2,})\\s+\\1\\b",
+				"description": "\\b # start at a word boundary;\n\t\t\t( # group 1 start\n\t\t\t(?!(\n\t\t\t((?!< # -negative lookahead to validate tag starts only when it\n\t\t\t(\\w|/|\\?) # -is followed by {any 1 word character or\n\t\t\t).)+? # -/(to match closing html tags) or ?(to match <?php..)}\n\n\t\t\t((?<!\\?)>| # Validate if text does not belong to a\n\t\t\t<script>, <style> tag\n\t\t\t</script>| # this is needed to ignore invalid matches\n\t\t\t</style>) # such as 0px 0px or same css class names within a .tpl file\n\t\t\t))\n\t\t\t[a-zA-Z]{2,} # consider words that are >= 2 characters\n\t\t\t) # group 1 end\n\t\t\t\\s+ # words could be sperated by 1 or more spaces\n\t\t\t\\1 # compare current word with group 1\n\t\t\t\\b # the word should end at a word boundary",
+				"tags": [
+					"programming"
+				]
+			}
+		]
+	}
+}

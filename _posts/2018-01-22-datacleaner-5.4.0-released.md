@@ -10,19 +10,19 @@ We're happy to announce the availability of DataCleaner Community Edition versio
 
 ## New analyzer: "Mark rows as..."
 
-We've added the analyzer "Mark rows as ..." to DataCleaner. This is a component that allows you to consume data, present a preview of it, and count records passed to it. A very basic component that lends itself to advanced use cases such as complex filtering, error handling and rule/metric monitoring.
+We've added the analyzer "Mark rows as ..." to DataCleaner ([issue #942](https://github.com/datacleaner/DataCleaner/issues/942)). This is a component that allows you to consume data, present a preview of it, and count records passed to it. A very basic component that lends itself to advanced use cases such as complex filtering, error handling and rule/metric monitoring.
 
 More information in the [Component Library](/docs/5.4.0/components/mark_rows.html).
 
 ## Software update notifications
 
-Going forward, DataCleaner will notify you (in the lower right corner of the status bar) of new versions available.
+Going forward, DataCleaner will notify you (in the lower right corner of the status bar) of new versions available ([issue #1009](https://github.com/datacleaner/DataCleaner/issues/1009)).
 
 ## Minor bugfixes
 
 We've addressed a series of minor bugs that applied to the previous versions:
 
- * Fix for datacleaner.sh to take arguments #1755
- * Fix ConcurrentModificationException when closing job #1777
- * MetaModel 5.0.1 update #1780
- * High DPI graphical tweaks #1770
+ * Fix for datacleaner.sh to take arguments ([issue #1755](https://github.com/datacleaner/DataCleaner/issues/1544))
+ * Fix ConcurrentModificationException when closing job ([issue #1777](https://github.com/datacleaner/DataCleaner/issues/1777))
+ * MetaModel 5.0.1 update ([issue #1780](https://github.com/datacleaner/DataCleaner/issues/1780))
+ * High DPI graphical tweaks ([issue #1770](https://github.com/datacleaner/DataCleaner/issues/1770))

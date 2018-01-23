@@ -1,0 +1,57 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Default logging configuration</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch12.html" title="Chapter&nbsp;12.&nbsp;Logging"><link rel="prev" href="ch12s01.html" title="Logging configuration file"><link rel="next" href="ch12s03.html" title="Modifying logging levels"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Default logging configuration</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch12s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;12.&nbsp;Logging</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch12s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Default logging configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="logging_default_configuration"></a>Default logging configuration</h2></div></div></div>
+		
+		<p>Here's a listing of the default logging configuration, in XML
+			format:
+		</p>
+		<pre lang="xml" class="programlisting">
+			&lt;?xml&nbsp;version="1.0"
+			encoding="UTF-8"&nbsp;?&gt;
+			&lt;!DOCTYPE&nbsp;log4j:configuration&nbsp;SYSTEM
+			"log4j.dtd"&gt;
+			&lt;log4j:configuration&nbsp;xmlns:log4j="http://jakarta.apache.org/log4j/"&gt;
+
+			&nbsp;&lt;appender&nbsp;name="consoleAppender"&nbsp;class="org.apache.log4j.ConsoleAppender"&gt;
+			&nbsp;&nbsp;&lt;param&nbsp;name="Target"&nbsp;value="System.out"/&gt;
+			&nbsp;&nbsp;&lt;layout&nbsp;class="org.apache.log4j.PatternLayout"&gt;
+			&nbsp;&nbsp;&nbsp;&lt;param&nbsp;name="ConversionPattern"&nbsp;value="%-5p&nbsp;%d{HH:mm:ss}&nbsp;%c{1}&nbsp;-&nbsp;%m%n"/&gt;
+			&nbsp;&nbsp;&lt;/layout&gt;
+			&nbsp;&nbsp;&lt;filter&nbsp;class="org.apache.log4j.varia.LevelRangeFilter"&gt;
+			&nbsp;&nbsp;&nbsp;&lt;param&nbsp;name="levelMin"&nbsp;value="WARN"/&gt;
+			&nbsp;&nbsp;&lt;/filter&gt;
+			&nbsp;&lt;/appender&gt;
+
+			&nbsp;&lt;appender&nbsp;name="fileAppender"&nbsp;class="org.apache.log4j.DailyRollingFileAppender"&gt;
+			&nbsp;&nbsp;&lt;param&nbsp;name="File"&nbsp;value="${user.home}/.datacleaner/log/datacleaner.log"/&gt;
+			&nbsp;&nbsp;&lt;param&nbsp;name="DatePattern"&nbsp;value="'.'yyyy-MM-dd'.log'"/&gt;
+			&nbsp;&nbsp;&lt;layout&nbsp;class="org.apache.log4j.PatternLayout"&gt;
+			&nbsp;&nbsp;&nbsp;&lt;param&nbsp;name="ConversionPattern"&nbsp;value="%-5p&nbsp;%d{HH:mm:ss.SSS}&nbsp;%c{1}&nbsp;-&nbsp;%m%n"/&gt;
+			&nbsp;&nbsp;&lt;/layout&gt;
+			&nbsp;&lt;/appender&gt;
+
+			&nbsp;&lt;logger&nbsp;name="org.apache.metamodel"&gt;
+			&nbsp;&nbsp;&lt;level&nbsp;value="info"/&gt;
+			&nbsp;&lt;/logger&gt;
+
+			&nbsp;&lt;logger&nbsp;name="org.datacleaner"&gt;
+			&nbsp;&nbsp;&lt;level&nbsp;value="info"/&gt;
+			&nbsp;&lt;/logger&gt;
+
+			&nbsp;&lt;root&gt;
+			&nbsp;&nbsp;&lt;priority&nbsp;value="warn"/&gt;
+			&nbsp;&nbsp;&lt;appender-ref&nbsp;ref="consoleAppender"/&gt;
+			&nbsp;&nbsp;&lt;appender-ref&nbsp;ref="fileAppender"/&gt;
+			&nbsp;&lt;/root&gt;
+
+			&lt;/log4j:configuration&gt;</pre>
+		<p>This logging configuration specifies the INFO level as the
+			default level of logging. It appends (outputs) log messages to the
+			console (if available) and to a file with the path:
+			${user.home}.datacleaner/log/datacleaner.log
+		</p>
+		<p>We recommend using this default configuration as a template for
+			custom log configurations. Next we will explore how to modify the
+			configuration and create new logging outputs.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch12s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch12.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch12s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Logging configuration file&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Modifying logging levels</td></tr></table></div></body></html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Build list</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Build list</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE3UlEQVR42u1Wa2xTZRjuxMFounERHSDG8GMsBkY0MSjBAU4TxAVtRwYMHMI6ZAvoVBQcK8K4M4MxUWASCYPBQEAz0LFy1kq4ukuQsA1RxsZYe07P6Vk3/xKTPr7fd85pu9k5BPlhsjd50tNv6Z7neW/fMZkGYiD+7yGKHVmi6HGLsqdb9HmCBEiyJyjJXvrupXMx66EQeyVvHiMlIvSAIsInExQNsl+CLIvdkuLN+w9de9x/IyZwYoIcSa5DUSV25n5wcsnTHJVc8WqkiqSTiyFi7dMHP8GnSs39ksx+1zTkhVWml+7VuaSTa5B6ufdBYSBypVOGn6D0l4lxdtPID/bNwvyS5MzImkclN+quaKlnGWBQDHI1TK50+rgANcBESP/QE7NNCV84V6DsouPP9PVjPufuozQcS7sU4dxIu+FcNshVzbkBLkCVu8N8G8dOW7BjwisMWZ8lp83eMNa6s3o5dp5dHDxQ68Ca/baztz0tvZyLveou9aq5xB0b0MgVqAwBHaqsjWjB/rS7204vBMOO6myUOBfjq/P5wa1CJjY5rSgRsvFl1SpcvXEFbM5vtd7sUXOWhdbbt8ixFE45oa29VWs+wzmB/V4kA50kQFFkrRc+LH+1a93p1+ComoUN1a9jozAHm1xzUCyk49PqWcHCU2lYX5WO7ZXLcFI4ht17dqGu/mcuwCN1QKhxYk/pLtQ31IbIG67UofTr3XC5BRpNL3f8e8sNHD/xLU4Qbrb8xkRpZSg4OLNr9cnpWP1DKorOvIx1rjQU1aTiI+fzeOf78Vh0eBTm7x+JZUeSkb15KuLihsBqexO32loguJxISkqC2TwUtgwrd912p5U/m81m/jcmwit2YNv2rUgcnYjRhO07trJsBLmAZd88F1hS8RSWHh+H3MonkftjInKqHkP2SQsWfmfGvIo4WMsGY+4+C+Y6UhATE4OUlEmocZ/hzhk5P5ucgouXz+PS5Qv8mZ0xEaV796COsmPPzUFsbCyHPdeOpuZrYPyxS/ZO6ppXbsGCY0ORfcqCpc545NYMg10Yhrer4oNMxKIjI1B0xIa8gqWYROSFaz/hzVbXUAcruWWEa4sKtY4nrHUUYjKdZWTYcOWXenR2KThUcRAzZs7gOFRRzsrCMxCXUzr5bv7xiVhZ+Qzer56IVW76Z7UpweXnSERNPN5zJqP4WBYqXUdJdSNcPwnhcdOb7cKlc/qiCXc8y8SdjjYi8pMADU3XGznYs9EDQ6flD38jNf+Jt6baH8+ZsnjU8mczEwocrunIq7UEi+unYU1ZRvfZiwIam65SI/2KDm87XzTahpO4a05udDw1nD9y3Mi9ISAS9Ds+BYNYFggjCGMITxMmFAkzsLlhOjK3JJ86evTwymtEfuPmdbSTIz77ETs+csuFl43C094ZiE7OENoDFDGEwQSLLiRxxYEpsG0Z/zE9DyckUMf/4aWRM9Ie2nKd4R2v6sQh1wF/n+ShEYwaM02PvlgwaL7+7REmkN3n4au154rVPntuub6Iw+lX/v37gUi3WHjb6elWNef+gBxRb6Ufcvn+3wuo/s3aqPVcsSHn/binujc/8EsJe7Mx6q45l0PkauAhOe8d7D6X6UpVdVKVkyh9Ntx91fxegkRksVuNMsLEBPVSBDVS2R05agMxENHiL5Q1dh0PLklCAAAAAElFTkSuQmCC" alt="" /> <span>Build list</span>
+					</h1>
+					<div><p>Build a list containing a variable amount of elements. Adds the capability to save multiple values in a single field.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Add to existing list
+						</h3> <p>Add elements to this (optional) existing list</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;List&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Include null values
+						</h3>  <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Values
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Task runner</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file"><link rel="prev" href="ch10s03.html" title="Reference data"><link rel="next" href="ch10s05.html" title="Storage provider"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Task runner</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;10.&nbsp;Configuration file</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch10s05.html">Next</a></td></tr></table><hr></div><div class="section" title="Task runner"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration_file_task_runner"></a>Task runner</h2></div></div></div>
+		
+		<p>The task runner defines how DataCleaner's engine will
+			execute the tasks of an analysis job. Typically you shouldn't edit
+			this element. However, here are the two options:
+		</p>
+		<pre class="programlisting">&lt;multithreaded-taskrunner max-threads="30" /&gt;
+		</pre>
+		<p>Defines a multi threaded task runner with a thread pool of 30
+			available threads. Beware that although 30 might seem like a high
+			number that too small a pool of threads might cause issues because
+			some tasks schedule additional tasks and thus there's a risk of dead
+			lock when thread count is very low.
+		</p>
+
+		<pre class="programlisting">&lt;singlethreaded-taskrunner /&gt;</pre>
+		<p>Defines a single threaded task runner. On legacy hardware or
+			operating systems this setting will be better, but it will not take
+			advantage of the multi threading capabilities of modern architecture.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch10s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Reference data&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Storage provider</td></tr></table></div></body></html>

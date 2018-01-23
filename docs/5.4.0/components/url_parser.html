@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>URL parser</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Text</li>
+
+					<li class="active">URL parser</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACUklEQVR42u1XS2sTURTO33BfFQS1EkE3duvChXtfFN35I3xQXbhx50J8tVKpIEUliS11oUKbKhWLcUyIcUZbM41t82gymZnMi885NzbJ1MxYZjJFaj84cHPn3nM+zrnnuzeRyL+EaDS6ayvMk8CnvrsI03YI2DGmbIttAwL77iMzMMaMxltCgOsfwdKNd5C5VViGiXXQmOboG9c/HA4BYfAF9FWZBdTEGgxJaxLR2kQItEYYnOgtAfH6LCzLQn1+GfzZBL6cGAd/JoHMsTEUH6VhyrqDBK2lPT0hIJyfgGVaLFBqt/Nb+XmOBaRM5E4+RfX1IkylSYb20N5ABLiDw9BLChr5GlJ7uh9E/nQc5We51hxlxlhTm+Ww95IP3wTEa8lWWlduf/zrCf92YRKNhaqjHOJQ0j8B6a3YclS4OecZnDKhr8jYCPLhm4BRUVuOVKHi2u+fD42wg9cNVAbfBDp7nVB6nHH0OR3KVN8dlMezcIOlm/4J6GXV4YzajfSAvmWPP4GSLqLxo4ZK/KsrgUAZkGbFPx3adab2+n7xpUMJ3SAlA5wB8epMV6dKpoi1SYFlYPnWPLyQvzITQAcO2DpQlD0DVF8tMIWkrOQvT7PfnbLM7X8QUAnPJTxTTKi/L7Q74vBDaEsS20Oy3ZO7IH9pmkmrG9bFhgKqfIWtpWz09DbkT8WhFepdCdTeLELJlpo3pb2GRCmc94BdT5Ln+oefMBtGuz3tMc1RJjbWPLwX0d57SB8dRfrIKBv/h2/CbUugw6ZCtNhm/ifGwrTIDn7jF2Vg5F/UA/J7AAAAAElFTkSuQmCC" alt="" /> <span>URL parser</span>
+					</h1>
+					<div><p>Retrieve the individual parts of an URL, including protocol, domain, port, path and querystring.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Input column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Validate in dictionary</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Filter</li>
+
+					<li class="active">Validate in dictionary</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEElEQVR42mNgGEzA2NhYkh4YrwO+yTL8pyUedQDQjl1AvJksB3wF0UYS/79ZKvz/ZqOMH1sp/v+qwEJdB/xes+g/KeDvqxf/v1krUckBLrr///79+59U8LM+nzoO+HPqyH9ywPcIZ+o44O+LZwhDE3zwJrRfU9shUfD+3f+v8swo0UCWA76H2KH46tfKef9/zZ+MHS+Y8v/v29dgdb/XLoaknUO7/3+PciXPAV9VOP7/uXyOvOBPC/7/VZPv/9+fP///yAonzwHf/S1RDQ2yxR/8C6dCgv/bt/9f1bjBFoMS71cDMfIc8LMuD8UBf+7f/v/n9nXs+M6N/3///IEE/65NkOBfv/T/n7PHyUsDX+WY/v+5e5Os4P9RnAROgKCE+LOjkjwH/ChKIMtyUCh81RP5/z3cCcz/5qxNngN+zZtElgP+nDgI0T9nwv8/D+6QVw6AEtDfN6/IcsDPxkJI4fXwHtAR/eQ54NeUtv/kAlBFBCq6wbkmzJE8B/y5fom84D95GJJ7umoQJSE5Dvj78jnJCQ+URb/7mEE8cOEUOAuSXR3//fjh/8/OKvIaHsZS4MIHVvqR5QBQOf7nzLH/30xlSLL8qxIbsDLq+P/3+3dwMUy2A74aioODlFzwa0IT5U0yUFb8WZsLLg9w1n7oeHbf/+8pgbRpEw54o3RkOAAJ76Ih3kxMP3EzLTHDKIACAEkudMUp/Sl7AAAAAElFTkSuQmCC" alt="" /> <span>Validate in dictionary</span>
+					</h1>
+					<div><p>Filters values based on their existence in a dictionary</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					
+					<span class="label label-primary">Filter</span>
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					 <span class="label label-info">Alias:
+						Dictionary lookup</span> 
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#filterOutcomesPanel"
+						aria-controls="filterOutcomesPanel">Filter outcomes</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="filterOutcomesPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">VALID</span>
+						</h3> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">INVALID</span>
+						</h3> 
+					</li> 
+				</ul>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Dictionary
+						</h3>  <!-- type --> <span
+						class="label label-primary">Dictionary</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

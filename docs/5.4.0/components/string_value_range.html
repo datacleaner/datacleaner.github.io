@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>String value range</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Filter</li>
+
+					<li class="active">String value range</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJklEQVR42mNgGEzA2NhYkh4YrwO+yTL8JwX/3rPl/98Xz4hWT3UHwMBQcsAuIN48dBzwe9em/39fPv//99ev/3/fvv7/e/3S/191hTEc8Of8yf9/v337//fR/f8/6/Ko54A/N678Rwe/1yzCcAA6+JEeQqUocNMH+/irAsv/75EuYMP/vn6JGQUOGv+/qvP8/7V8DiREzhyj3AFfdQT//1o2+//fZ4////358//fd28w4hwjDRhLQhz5/h3lDvhz4iDOIMblgK+G4hAHfP1CuQP+/vgBNux7gs//r4qs4BDB5QCwPDCqQOkDHAXH9lMhBE4eIjoEkMHfP3/+f/e3pEIiNJb6/3vDsv9/X734//f3b3A2+/Pg7v/fOzcgsunmVUCxO+DQAsufOvL/e4AV/QoiUvGoA0YdQLYDfi2YAqkHdqz//1WOEVLoAOnfuzeDxX/Nn4y3bqDYAV/lmf//PrQLYtm0ToijZvZAHHVgB9AxTLjLhY8fqBMFX7X4//+5dQ1i6cblkBLv5tX/XzX5EGqgIfPNTBZSjf/9+/97oi8V04C1ErhdAPYZkAbxMRwKLJb/nDsBCa1JLVROhDYqqA6wUsSZXkBFOSxqqBMF2gL//9y9CYkCYMsIWxSAKi6w4758/v/NUoF6uQCcCA/vgQTr1A6IT6e0QRyzfzvcp6C2A01ywa+FUzGzIagy2r6OPtmQbgUREt5FQ7yZmH7iZlpihlEABQBK49eXCnNU/QAAAABJRU5ErkJggg==" alt="" /> <span>String value range</span>
+					</h1>
+					<div><p>A filter that filters out values outside a specified value range</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					
+					<span class="label label-primary">Filter</span>
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#filterOutcomesPanel"
+						aria-controls="filterOutcomesPanel">Filter outcomes</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="filterOutcomesPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">HIGHER</span>
+						</h3> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">VALID</span>
+						</h3> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">LOWER</span>
+						</h3> 
+					</li> 
+				</ul>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Lowest value
+						</h3> <p>The lowest valid string value, eg. AAA</p> <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Highest value
+						</h3> <p>The highest valid string value, eg. xxx</p> <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

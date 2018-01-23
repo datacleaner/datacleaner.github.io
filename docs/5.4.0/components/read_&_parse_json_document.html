@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Read & parse JSON document</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Read & parse JSON document</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,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" alt="" /> <span>Read & parse JSON document</span>
+					</h1>
+					<div><p>Parses a JSON document (as a string) and materializes the data structure it represents</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Json
+						</h3> <p>Column containing JSON documents to parse</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Data type
+						</h3>  <!-- type --> <span
+						class="label label-primary">Class&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

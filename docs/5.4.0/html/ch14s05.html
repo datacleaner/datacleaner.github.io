@@ -1,0 +1,75 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Parameterizable jobs</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch14.html" title="Chapter&nbsp;14.&nbsp;Command-line interface"><link rel="prev" href="ch14s04.html" title="Listing datastore contents and available components"><link rel="next" href="ch14s06.html" title="Dynamically overriding configuration elements"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Parameterizable jobs</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch14s04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;14.&nbsp;Command-line interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch14s06.html">Next</a></td></tr></table><hr></div><div class="section" title="Parameterizable jobs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section_parameterizable_jobs"></a>Parameterizable jobs</h2></div></div></div>
+		
+		<p>If you want to make a part of a job parameterizable/variable,
+			then it is possible to do so. Currently this is a feature only
+			supported by means of editing the .analysis.xml files though, since
+			the DataCleaner graphical user interface does not store job variables
+			when saving jobs.
+		</p>
+		<p>In the source section of your job, you can add variables which
+			are key/value pairs that will be referenced throughout your job. Each
+			variable can have a default value which will be used in case the
+			variable value is not specified. Here's a simple example:
+		</p>
+		<pre class="programlisting">
+			...
+
+			&lt;source&gt;
+			&nbsp;&nbsp;&lt;data-context&nbsp;ref="my_datastore"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;columns&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="column1"&nbsp;id="col_1"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="column2"&nbsp;id="col_2"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;/columns&gt;
+			&nbsp;&nbsp;&lt;variables&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;variable&nbsp;id="filename"&nbsp;value="/output/dc_output.csv"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;variable&nbsp;id="separator"&nbsp;value=","&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;/variables&gt;
+			&lt;/source&gt;
+
+			...
+		</pre>
+		<p>
+			In the example we've defined two variables:
+			<span class="emphasis"><em>filename</em></span>
+			and
+			<span class="emphasis"><em>separator</em></span>
+			. These we can refer to for specific property values, further down in
+			our job:
+		</p>
+
+		<pre class="programlisting">
+			...
+
+			&lt;analyzer&gt;
+			&nbsp;&nbsp;&lt;descriptor&nbsp;ref="Write&nbsp;to&nbsp;CSV&nbsp;file"/&gt;
+			&nbsp;&nbsp;&lt;properties&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name="File"&nbsp;ref="filename"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name="Quote&nbsp;char"&nbsp;value="&amp;quot;"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;property&nbsp;name="Separator&nbsp;char"&nbsp;ref="separator"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;/properties&gt;
+			&nbsp;&nbsp;&lt;input&nbsp;ref="col_1"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;input&nbsp;ref="col_2"&nbsp;/&gt;
+			&lt;/analyzer&gt;
+
+			...
+		</pre>
+
+		<p>
+			Now the property values of the
+			<span class="emphasis"><em>File</em></span>
+			and
+			<span class="emphasis"><em>Separator char</em></span>
+			properties in the
+			<span class="emphasis"><em>Write to CSV file</em></span>
+			have been made parameterizable. To execute the job with new variable
+			values, use
+			<span class="emphasis"><em>-var</em></span>
+			parameters from the command line, like this:
+		</p>
+
+		<pre class="programlisting">
+			DataCleaner-console.exe&nbsp;-job&nbsp;my_job.analysis.xml&nbsp;-var&nbsp;filename=/output/my_file.csv&nbsp;-var&nbsp;separator=;
+		</pre>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch14s04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch14.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch14s06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Listing datastore contents and available components&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Dynamically overriding configuration elements</td></tr></table></div></body></html>

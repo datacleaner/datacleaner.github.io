@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>XML encoder</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Encoding</li>
+
+					<li class="active">XML encoder</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABt0lEQVR42uXWzytEQRwA8E0OKEopBznxTzhx4cTFjwtycqBcFC78I5YQGwdKIWJ3/dhNzxKFm9oibKwfRX7MjJm+5s1kt7c8dnfm7ZKpd5lXM5/9/trnciUs7M6BVB+XzqUC0IJRBSgjdACUELoAaSN0AtJC6AakjHACkBLCKUDSiD89iLIG0Ir93YC1ZjAXuz3KDoCGZwWAhAYzD0BjhcDIswCg6Yr4u/mqzACIv11cTq9Dln2xd+4FvFDtLICeLsrwb/da9tnrPXwsGtkCvFSrH4DGi4FRDIxRQFNln1JDjAFgT5E45MoAvFKvD0A2O+XBlxu2vwyN5gMJdAN7CMcgLLoPeLUR0LAiwMyxCH+g68ccI3cur5c20aoxyN1x+gA0WcrD/8YfAmiiJDmAr5UDDvUASLBHhv9s+fuLR/JEhCwpuDngKWhSSwGNBGX41zts5wMx+hOKcIcXYYN6ESJPOa98xgfQC7+o6MsDrW0Y4G1Yp68NidEnDw7P2R4o3l/4+CCq0T+IWHRPht/bYn+oY6N4plIWEn7kPV6Q+b9jsjskw3viyc73gNm75rIbqf/0i8gBwDv/dEkCR4ClCAAAAABJRU5ErkJggg==" alt="" /> <span>XML encoder</span>
+					</h1>
+					<div><p>Encodes/escapes plain text into XML content</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Target format
+						</h3>  <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">Content</span>
+						 <span class="label label-default">Attribute</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

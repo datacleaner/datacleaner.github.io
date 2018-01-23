@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Select values from key/value map</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Select values from key/value map</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADkUlEQVR42u2Wy28bVRTGZ8e2ouuo4n8AUbFCbFvEjk1UEGqFWiq1iEVhUYpUoUqF0i66qRQrLRAlahGpE0ycOB5MPHaSOn4/aiex4xm/PZmkuHX8ILE/7rljJnGTNEFIDRK50k9z5sw353xzR3PnCsJBj+9/Nn9yb9RmYvT1G4z39ZvH+0yjHYa3YN6kb1hna46zVU+1DDZ73LXYTAMjv5wVfrJLTlmtIJHVEJVVBJdK8CXz8CzmMRtX4H4swxlJ47dQCvbAImy+eYzPJfCrJw7LTIxDsZXlJrzzmPQvQAwmMRVOQYqm4Y7JUNQn8KdySJdWEUgWkCpomE0oGJM8dmbAJUYXluDyRSB5w5DmwnB6Qvh9LgSHJwjHoyDE2QDEmQDsM35Mun2wMSamGS4vx9bJ0TXS2JmW7nHM6ve7qC7D7QvzeNofQTC+CKvksQoPbE4xl2Pu0jJkWYGiZDiZTAbZbJZD13P5PPKMQqHAKRaLKJVKBuVyuYMKVS1jeVllLHNUftSgaTorq6tca5UekYEpsVKpoFpd01nTWeuiplOroVar69R16l00dBoNNLbR1Gk20Wz+CerJDdyfmBKbJGAXotHHLwXqRQ9mdXYMNJj7vw3sZ+yk+yc56lWtVg8NHBrYbkCSpH2x/vDUv+KFBmiB2QotRM/nqEgtdakLyqmRywg7rnMo5rrwp6jbz3Ao3tMArXq4etVYBS98Dp6jGHda/EhF2kPfof1GjLNx7zrP3fz6AY6+9pRz46shXXf5LbSPvMLZ+OLNvQ3AZAJ6eoDeXnxwDhBeBb68xl7e0Q12wvi4pRe+OKKfM1rnH/LcyfdCTN/mnDgZ0HXvHENbEDitt3v2NsCf1Go1ZuDb2zBinNswZmC9/xu0Xo9xKKbcjStDmzNwRZ+B9UvHjRmgeE8DiqJ0QQ2fz/F36+3tgnJl52mERz7jUMx1U++jPvwuh+IdDdQP6itweboNHNg6UGe/2QM1UGO/xkMD/xkDL2tHRNs04yug/Rkl6tv2eLuzm34/dUjz9I8qxqU5qzAsup1PKs9Q0laRX15BtqhBKapYypeRzBYxrxQQl/OILeUQTWYRSmYQXFDgn5fhjafhS6R5TLkI2/sH2JE04UWF6xPpIhaUEuTcCq+bLWsoqBpU1s827RWFH83mjwbHHLcGxsRbA5bd+cEyucnozlCdF13jfTr1Blm/+yOWD4XD8b8ffwG3Ws5MsQ3LywAAAABJRU5ErkJggg==" alt="" /> <span>Select values from key/value map</span>
+					</h1>
+					<div><p>Given a specified list of keys, this transformer will select the values from a key/value map and place them as columns within the record</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Keys
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Map column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Map&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Types
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of Class&lt;Object&gt;</span>  <span class="label label-primary">Mapped with <i>Keys</i></span>
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Verify types
+						</h3> <p>Verify that expected type and actual type are the same</p> <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

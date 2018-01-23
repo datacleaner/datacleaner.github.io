@@ -7,9 +7,15 @@ permalink: /documentation
 <div class="center" style="margin-top: 3em;">
 	Most people who go here just want to find the
 	<h2>
+		Latest&nbsp;&nbsp;
 		<i class="fa fa-book" aria-hidden="true"></i>
-		<a class="fancyLink" href="docs/{{ site.docs[0] }}/html">
-			latest DataCleaner reference documentation
+		<a class="fancyLink" href="docs/{{ site.docs[0] }}/html" target="_blank">
+			Reference docs
+		</a>
+		&nbsp;&nbsp;and&nbsp;&nbsp;
+		<i class="fa fa-gears" aria-hidden="true"></i>
+		<a class="fancyLink" href="docs/{{ site.docs[0] }}/components" target="_blank">
+			Components
 		</a>
 	</h2>
 </div>
@@ -28,11 +34,17 @@ permalink: /documentation
 		</td>
 		<td>
 			<i class="fa fa-globe" aria-hidden="true"></i>
-			<a href="docs/{{doc_version}}/html">HTML</a>
+			<a href="docs/{{doc_version}}/html" target="_blank">HTML</a>
 		</td>
 		<td>
 			<i class="fa fa-book" aria-hidden="true"></i>
-			<a href="docs/{{doc_version}}/html_single">HTML single</a>
+			<a href="docs/{{doc_version}}/html_single" target="_blank">HTML single</a>
+		</td>
+		<td>
+			{% if doc_version != "5.2" %}
+			<i class="fa fa-gears" aria-hidden="true"></i>
+			<a href="docs/{{doc_version}}/components" target="_blank">Components</a>
+			{% endif %}
 		</td>
 	</tr>
 	{% endfor %}

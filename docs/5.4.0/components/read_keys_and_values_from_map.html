@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Read keys and values from map</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Read keys and values from map</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADqklEQVR42u2Wy08bVxTGZ9sum1Rik2XadJldpah/QLdRukINioKiQKVm1y6qqCiKsmmlLKqkkbDIo1YiWpUYx8XGeELwA4jf2AYbsPGM3x6Gh1vjR4L95d47ZjANtI6BsEiu9NO5c+6553y+9vFcjjvqcf9PXe89vVlD6B9QMfUP6Ez9Gn2DoSZ02/QPKTT7GM3xNJfKdo27BrNGO/zkMveHxWYVpAIiSRkhQYJ/KQdPNA3nYhrTYRGOOQHWYBxPZ2Kw+BZh9szD5IrgL2cYhqlZBp0biW/UPY8x7wJ4fxQTgRhsoTgcswJEaQ3eWArx3Cp80QxiGRnTEREjNqeFCLDzoYUl2D1B2NwB2FwBWJ0zeOaawbjTj/HnfvDTPvBTPlimvBhzeGAmjE4S7G6GueGjazTGQmLpnvFpZb+d5iU4PAE2n/QG4Q8vwmhzGrnfzVY+lSLq4gIEQYQoJhiJRALJZJJB11PpNNKETCbDyGazyOVyKvl8voEEScpjeVkiLDMkZmXIssLK6iqLNdqeUwETfKFQQLG4obChsLGDkkKphFKprFBWKO+golCpoPIaVYVqFdXqC9CaTMDg6ARfpQFkIRSaa4mXj79umd3201r0gxmtDQEVon5LgCiK/wtNXIp9t4MtX2yqF47h88xS37/HloBisbi3AFy7BtDvOgt8+z2YRaYO3KmpAurXv0D9s2Oo/XgGm3MXFV/8Mrq/+hSku5ltSwA0GuDECaCzE+d7AO4j4OoNsvPYJnkgXKopxT7+kDxzqB//AH19fSod5JkKoLb9EzAa1eP+6Reoc/RsqidQO3eKCaD2RbCb+ai9dfUMTpOTobZtAS39BkxnUdZ+yWzJ3an4iG3mUAW0yuGdwGF2QSsCfv1Zi9OfC7h948HBdkGrAjo+WWcd0nFy7eC7oBUB3V0TTAC1R9IFsdFv4Hj0A7P77oLyUXWB3dm+gAPtgjJ5zb6pgPoVPftrrvU+3n8XlMir8U0FsPdCg313QTsCNnt0rDi1++6CdgTs9otvuwuaBbytGxG9pqldQO9n1FF+7Y63N3vFt5KHxvy9XoTJ5jJyQ7zDulb4Bzl5FenlFSSzMsSshKV0HtFkFvNiBmEhjdmlFELRJGaiCfgXRHjnBbjDcXgicTanviC5+/uIpTGBRZHFR+JZLIg5CKkVljeZl5GRZEiknnnSzXO/6XQXHo6M39SO8De1hr15YBjbRr87NM9/rbE6jXwPSb3BYUMX93688+MVNxZL0AffKWcAAAAASUVORK5CYII=" alt="" /> <span>Read keys and values from map</span>
+					</h1>
+					<div><p>Reads all key/value pairs of a map, creating a record for each pair</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Map column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Map&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Value type
+						</h3> <p>Expected type of the values</p> <!-- type --> <span
+						class="label label-primary">Class&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Verify types
+						</h3> <p>Verify that expected value type and actual type are the same</p> <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

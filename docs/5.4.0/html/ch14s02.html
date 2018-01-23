@@ -1,0 +1,44 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Usage scenarios</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch14.html" title="Chapter&nbsp;14.&nbsp;Command-line interface"><link rel="prev" href="ch14s01.html" title="Executables"><link rel="next" href="ch14s03.html" title="Executing an analysis job"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Usage scenarios</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch14s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;14.&nbsp;Command-line interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch14s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Usage scenarios"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="cli_usage_scenarios"></a>Usage scenarios</h2></div></div></div>
+		
+		<p>The usage scenarios of DataCleaner's CLI are:</p>
+
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Executing an analysis job</p>
+			</li><li class="listitem">
+				<p>List registered datastores</p>
+			</li><li class="listitem">
+				<p>List schemas in a datastore</p>
+			</li><li class="listitem">
+				<p>List tables in a schema</p>
+			</li><li class="listitem">
+				<p>List columns in a table</p>
+			</li><li class="listitem">
+				<p>List available analyzers, transformers or filters</p>
+			</li></ol></div>
+
+		<p>
+			How these scenarios are attained is revealed by invoking your
+			executable with the
+			<span class="emphasis"><em>-usage</em></span>
+			argument:
+		</p>
+
+		<pre class="programlisting">
+			&gt;&nbsp;datacleaner-console.exe&nbsp;-usage
+			-conf&nbsp;(-configuration, --configuration-file) FILE
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;XML&nbsp;file&nbsp;describing&nbsp;the&nbsp;configuration&nbsp;of&nbsp;DataCleaner
+			-ds (-datastore, --datastore-name) VAL
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Name&nbsp;of&nbsp;datastore&nbsp;when&nbsp;printing&nbsp;a&nbsp;list&nbsp;of&nbsp;schemas,&nbsp;tables&nbsp;or&nbsp;columns
+			-job (--job-file) FILE
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;An&nbsp;analysis&nbsp;job&nbsp;XML&nbsp;file&nbsp;to&nbsp;execute
+			-list&nbsp;[ANALYZERS&nbsp;|&nbsp;TRANSFORMERS&nbsp;|&nbsp;FILTERS&nbsp;|&nbsp;DATASTORES&nbsp;|&nbsp;SCHEMAS&nbsp;|&nbsp;TABLES&nbsp;|&nbsp;COLUMNS]
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Used&nbsp;to&nbsp;print&nbsp;a&nbsp;list&nbsp;of&nbsp;various&nbsp;elements&nbsp;available&nbsp;in&nbsp;the&nbsp;configuration
+			-s (-schema, --schema-name) VAL
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Name&nbsp;of&nbsp;schema&nbsp;when&nbsp;printing&nbsp;a&nbsp;list&nbsp;of&nbsp;tables&nbsp;or&nbsp;columns
+			-t (-table, --table-name) VAL
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Name&nbsp;of&nbsp;table&nbsp;when&nbsp;printing&nbsp;a&nbsp;list&nbsp;of&nbsp;columns
+		</pre>
+
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch14s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch14.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch14s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Executables&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Executing an analysis job</td></tr></table></div></body></html>

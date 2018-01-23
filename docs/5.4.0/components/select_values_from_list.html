@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Select values from list</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Select values from list</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADMklEQVR42u2WS09aQRiG2bio23bRf9B02XV3/oeumrZp4sL4A7pr9B+4qppg7M2Y2KYWhYoCp1QOeEHuoKBw4BzuHI5aWuRik76dmYMIXoikiTSpkzyZyTvffN87OTkzo9H0ur39pBt+s2iaIminmyxrp3XL2qnFBvMt6E7Rzqu0aozWeJqryWmN1wbT1MyCfkjz0cLbRLmESEpBSJThi+fhjmXgjGawEZbg2BFhCybw1S/A4o3C5N7F8lYEX5xhGNa3GXRsJNqKaxdmzx44XwyrAQF8KAHHtghJPoRHSCORP4A3loWQVbARkbDEOy3EgJ0L7cVhdwfBuwLgtwKwOf34tuWH1emDddMHbsMLbt0Ly7oHZocbJsLKGsHuYpgaGp2jMRYSS9dYN9T1dpqX4HAH2HjNE4QvHIWRdxo1H0w2Lp0m7hIiRFGCJCUZyWQSqVSKQefTmQwyhGw2y8jlcsjn800KhUIDGbJcQLEoE4oMmfUKFEVl/+CAxRr5TWpglSuVSiiXj1SOVI7aqKhUKqhUqipVlWobNZVaDbVz1FXqddTrx6A1mYG5lVWuTgPIRCi0cy3QWnRjRlvDQI24PzFwlXZRXDcarVUul28M3Bg4b4Dn+Svx6/OTv6KjAXrAtEIPobMaTVIRXkBYH4Zj4Snru9E6GqAFzWYzBEFgp6DFYkE8HmfjE50m+Z0YwuCjeyD3Geu70ToaoAX7+vpYsZGREbZwYmICAwMD6O/vZzpNQnd0984tNk/7brSOBugOx8fH2Y79fj9GR0fZWK/XY3Jyko1pkuPgIF69fIgH92+zvhutowFJktqgn+Ssxr6t63Eb3WjnDFR79RfYne0GenYOVMk121MDFXI13hj4Zwxc14uIPtOafwF9n1Gheu6NdzmXxV8lD4358b2MZX7LqJnnHLbD0k/klQNkivtI5RRIORnxTAGxVA67UhZhMYPteBqhGDkdY0n49iR4dkW4wgm4Iwk2plqQvP29pKcxgajE4iOJHPakPMT0PsubKijIygpkUs+05uI073W657NL1rGZJW5sxnA57wzmUxYvhubpNMfqNPLNknpzC4Znmpv237c/bEWufQsqEXcAAAAASUVORK5CYII=" alt="" /> <span>Select values from list</span>
+					</h1>
+					<div><p>Given a specified list of indices, this transformer will select the values from a list and place them as columns within the record</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Element type
+						</h3>  <!-- type --> <span
+						class="label label-primary">Class&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Indices
+						</h3> <p>A list of (0-based) indices to use for fetching values from the list.</p> <!-- type --> <span
+						class="label label-primary">List of Number</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 List column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;List&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Verify types
+						</h3> <p>Verify that expected element type and actual type are the same</p> <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

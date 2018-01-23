@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Country standardizer</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Improve</li> 					<li>Location</li>
+
+					<li class="active">Country standardizer</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACPUlEQVR42u2Xy2sTURTG82+4r9VFF2o26k43IipdWFBcWBfduHHhShGUFsQnohSt0AS1NqE+q6bEWrBqoT5Q8hjTyTiZjo8kmEwySbOYTjoPPnNv7RgbY9Jqmi7mwAeXOTPn+3GZOeeOw7Gawul0rlkJ/RXgY4sLjZQNUPIYK8lXFeBz1yg0SYEq5sHverDyAAojYSFyw3xFAWatC9z2O5g+MAJhv4+umZb+msbctiGwWzy1ATIDEQsgcWrSKkDMsl6W7s7i0HIq5HschH1PKo1LgCRn6gaUULo2ANPqokWLX2ZoAfGQH0r4166kZnm8lTx4mjhX0nm8y3ghqaKVVyIZpHsDSF8PIRsVYJqmlVOFfG0AYrpwc6zjMV0buob3mbu4wu7GiWDrH9XHdSAsj8Ao6pahbs6BzT+HO9a5PADyQpIYTVyoarxY3aGNuMbtRW+0HSeDbdb1fwLwx8/UDVBNNoAN8P8AAutwaWoHbgpd8IpH4OIPoie8qcEAibP0Ww7Ij6Bo+YpOaBomhMJr3J4+TAHLjXvCTjxLXpyvyeeWB6AZRcuMdEh5KIrk6TeIH59A6vIHFMa/wpwzaJ50xYlUP1587wM389J6VpNnET/2amkAYqd/vhOqGrKDU4i1D1cdNuzmQUhuBnqh+NvOkP5PZ0rbjfqmYTkAmQvfjo6D3eqpf+Sud+PTzvvg9zxEZMOtpY/jcoCmHEhsgFUBkL4aRLJ7snkATT0VNx2gTGMNlK+e/0RfI+Ww42f8AK/DnpEHT2tiAAAAAElFTkSuQmCC" alt="" /> <span>Country standardizer</span>
+					</h1>
+					<div><p>Allows you to standardize the country names and codes used throughout your database</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#resultPanel"
+						aria-controls="resultPanel">Result metrics <small>(CountryStandardizationResult)</small></a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="resultPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Category count</span>
+						</h3>  
+						<span
+						class="label label-primary">Parameterized by value</span>
+						
+					</li> 
+				</ul>
+			</div>
+		</div>
+		 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Country column
+						</h3> <p>A column containing potentially unstandardized country names, codes, abbreviations.</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Default country
+						</h3> <p>Country to return if input value is missing or not recognized.</p> <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">Afghanistan</span>
+						 <span class="label label-default">Åland</span>
+						 <span class="label label-default">Albania</span>
+						 <span class="label label-default">Algeria</span>
+						 <span class="label label-default">American Samoa</span>
+						 <span class="label label-default">Andorra</span>
+						 <span class="label label-default">Angola</span>
+						 <span class="label label-default">Anguilla</span>
+						 <span class="label label-default">Antarctica</span>
+						 <span class="label label-default">Antigua and Barbuda</span>
+						 <span class="label label-default">Argentina</span>
+						 <span class="label label-default">Armenia</span>
+						 <span class="label label-default">Aruba</span>
+						 <span class="label label-default">Australia</span>
+						 <span class="label label-default">Austria</span>
+						 <span class="label label-default">Azerbaijan</span>
+						 <span class="label label-default">Bahamas</span>
+						 <span class="label label-default">Bahrain</span>
+						 <span class="label label-default">Bangladesh</span>
+						 <span class="label label-default">Barbados</span>
+						 <span class="label label-default">Belarus</span>
+						 <span class="label label-default">Belgium</span>
+						 <span class="label label-default">Belize</span>
+						 <span class="label label-default">Benin</span>
+						 <span class="label label-default">Bermuda</span>
+						 <span class="label label-default">Bhutan</span>
+						 <span class="label label-default">Bolivia</span>
+						 <span class="label label-default">Bonaire, Saint Eustatius and Saba</span>
+						 <span class="label label-default">Bosnia and Herzegovina</span>
+						 <span class="label label-default">Botswana</span>
+						 <span class="label label-default">Bouvet Island</span>
+						 <span class="label label-default">Brazil</span>
+						 <span class="label label-default">British Indian Ocean Territory</span>
+						 <span class="label label-default">Brunei</span>
+						 <span class="label label-default">Bulgaria</span>
+						 <span class="label label-default">Burkina Faso</span>
+						 <span class="label label-default">Burundi</span>
+						 <span class="label label-default">Cambodia</span>
+						 <span class="label label-default">Cameroon</span>
+						 <span class="label label-default">Canada</span>
+						 <span class="label label-default">Cape Verde</span>
+						 <span class="label label-default">Cayman Islands</span>
+						 <span class="label label-default">Central African Republic</span>
+						 <span class="label label-default">Chad</span>
+						 <span class="label label-default">Chile</span>
+						 <span class="label label-default">China</span>
+						 <span class="label label-default">Christmas Island</span>
+						 <span class="label label-default">Cocos (Keeling) Islands</span>
+						 <span class="label label-default">Colombia</span>
+						 <span class="label label-default">Comoros</span>
+						 <span class="label label-default">Congo (Brazzaville)</span>
+						 <span class="label label-default">Congo (Kinshasa)</span>
+						 <span class="label label-default">Cook Islands</span>
+						 <span class="label label-default">Costa Rica</span>
+						 <span class="label label-default">Côte d&#39;Ivoire</span>
+						 <span class="label label-default">Croatia</span>
+						 <span class="label label-default">Cuba</span>
+						 <span class="label label-default">Curaçao</span>
+						 <span class="label label-default">Cyprus</span>
+						 <span class="label label-default">Czech Republic</span>
+						 <span class="label label-default">Denmark</span>
+						 <span class="label label-default">Djibouti</span>
+						 <span class="label label-default">Dominica</span>
+						 <span class="label label-default">Dominican Republic</span>
+						 <span class="label label-default">Ecuador</span>
+						 <span class="label label-default">Egypt</span>
+						 <span class="label label-default">El Salvador</span>
+						 <span class="label label-default">Equatorial Guinea</span>
+						 <span class="label label-default">Eritrea</span>
+						 <span class="label label-default">Estonia</span>
+						 <span class="label label-default">Ethiopia</span>
+						 <span class="label label-default">Falkland Islands</span>
+						 <span class="label label-default">Faroe Islands</span>
+						 <span class="label label-default">Fiji</span>
+						 <span class="label label-default">Finland</span>
+						 <span class="label label-default">France</span>
+						 <span class="label label-default">French Guiana</span>
+						 <span class="label label-default">French Polynesia</span>
+						 <span class="label label-default">French Southern Lands</span>
+						 <span class="label label-default">Gabon</span>
+						 <span class="label label-default">Gambia</span>
+						 <span class="label label-default">Georgia</span>
+						 <span class="label label-default">Germany</span>
+						 <span class="label label-default">Ghana</span>
+						 <span class="label label-default">Gibraltar</span>
+						 <span class="label label-default">Greece</span>
+						 <span class="label label-default">Greenland</span>
+						 <span class="label label-default">Grenada</span>
+						 <span class="label label-default">Guadeloupe</span>
+						 <span class="label label-default">Guam</span>
+						 <span class="label label-default">Guatemala</span>
+						 <span class="label label-default">Guernsey</span>
+						 <span class="label label-default">Guinea</span>
+						 <span class="label label-default">Guinea-Bissau</span>
+						 <span class="label label-default">Guyana</span>
+						 <span class="label label-default">Haiti</span>
+						 <span class="label label-default">Heard and McDonald Islands</span>
+						 <span class="label label-default">Honduras</span>
+						 <span class="label label-default">Hong Kong</span>
+						 <span class="label label-default">Hungary</span>
+						 <span class="label label-default">Iceland</span>
+						 <span class="label label-default">India</span>
+						 <span class="label label-default">Indonesia</span>
+						 <span class="label label-default">Iran</span>
+						 <span class="label label-default">Iraq</span>
+						 <span class="label label-default">Ireland</span>
+						 <span class="label label-default">Isle of Man</span>
+						 <span class="label label-default">Israel</span>
+						 <span class="label label-default">Italy</span>
+						 <span class="label label-default">Jamaica</span>
+						 <span class="label label-default">Japan</span>
+						 <span class="label label-default">Jersey</span>
+						 <span class="label label-default">Jordan</span>
+						 <span class="label label-default">Kazakhstan</span>
+						 <span class="label label-default">Kenya</span>
+						 <span class="label label-default">Kiribati</span>
+						 <span class="label label-default">Korea, North</span>
+						 <span class="label label-default">Korea, South</span>
+						 <span class="label label-default">Kuwait</span>
+						 <span class="label label-default">Kyrgyzstan</span>
+						 <span class="label label-default">Laos</span>
+						 <span class="label label-default">Latvia</span>
+						 <span class="label label-default">Lebanon</span>
+						 <span class="label label-default">Lesotho</span>
+						 <span class="label label-default">Liberia</span>
+						 <span class="label label-default">Libya</span>
+						 <span class="label label-default">Liechtenstein</span>
+						 <span class="label label-default">Lithuania</span>
+						 <span class="label label-default">Luxembourg</span>
+						 <span class="label label-default">Macau</span>
+						 <span class="label label-default">Macedonia</span>
+						 <span class="label label-default">Madagascar</span>
+						 <span class="label label-default">Malawi</span>
+						 <span class="label label-default">Malaysia</span>
+						 <span class="label label-default">Maldives</span>
+						 <span class="label label-default">Mali</span>
+						 <span class="label label-default">Malta</span>
+						 <span class="label label-default">Marshall Islands</span>
+						 <span class="label label-default">Martinique</span>
+						 <span class="label label-default">Mauritania</span>
+						 <span class="label label-default">Mauritius</span>
+						 <span class="label label-default">Mayotte</span>
+						 <span class="label label-default">Mexico</span>
+						 <span class="label label-default">Micronesia</span>
+						 <span class="label label-default">Moldova</span>
+						 <span class="label label-default">Monaco</span>
+						 <span class="label label-default">Mongolia</span>
+						 <span class="label label-default">Montenegro</span>
+						 <span class="label label-default">Montserrat</span>
+						 <span class="label label-default">Morocco</span>
+						 <span class="label label-default">Mozambique</span>
+						 <span class="label label-default">Myanmar</span>
+						 <span class="label label-default">Namibia</span>
+						 <span class="label label-default">Nauru</span>
+						 <span class="label label-default">Nepal</span>
+						 <span class="label label-default">Netherlands</span>
+						 <span class="label label-default">New Caledonia</span>
+						 <span class="label label-default">New Zealand</span>
+						 <span class="label label-default">Nicaragua</span>
+						 <span class="label label-default">Niger</span>
+						 <span class="label label-default">Nigeria</span>
+						 <span class="label label-default">Niue</span>
+						 <span class="label label-default">Norfolk Island</span>
+						 <span class="label label-default">Northern Mariana Islands</span>
+						 <span class="label label-default">Norway</span>
+						 <span class="label label-default">Oman</span>
+						 <span class="label label-default">Pakistan</span>
+						 <span class="label label-default">Palau</span>
+						 <span class="label label-default">Palestine</span>
+						 <span class="label label-default">Panama</span>
+						 <span class="label label-default">Papua New Guinea</span>
+						 <span class="label label-default">Paraguay</span>
+						 <span class="label label-default">Peru</span>
+						 <span class="label label-default">Philippines</span>
+						 <span class="label label-default">Pitcairn</span>
+						 <span class="label label-default">Poland</span>
+						 <span class="label label-default">Portugal</span>
+						 <span class="label label-default">Puerto Rico</span>
+						 <span class="label label-default">Qatar</span>
+						 <span class="label label-default">Reunion</span>
+						 <span class="label label-default">Romania</span>
+						 <span class="label label-default">Russian Federation</span>
+						 <span class="label label-default">Rwanda</span>
+						 <span class="label label-default">Saint Barthélemy</span>
+						 <span class="label label-default">Saint Helena</span>
+						 <span class="label label-default">Saint Kitts and Nevis</span>
+						 <span class="label label-default">Saint Lucia</span>
+						 <span class="label label-default">Saint Martin (French part)</span>
+						 <span class="label label-default">Saint Pierre and Miquelon</span>
+						 <span class="label label-default">Saint Vincent and the Grenadines</span>
+						 <span class="label label-default">Samoa</span>
+						 <span class="label label-default">San Marino</span>
+						 <span class="label label-default">Sao Tome and Principe</span>
+						 <span class="label label-default">Saudi Arabia</span>
+						 <span class="label label-default">Senegal</span>
+						 <span class="label label-default">Serbia</span>
+						 <span class="label label-default">Seychelles</span>
+						 <span class="label label-default">Sierra Leone</span>
+						 <span class="label label-default">Singapore</span>
+						 <span class="label label-default">Sint Maarten</span>
+						 <span class="label label-default">Slovakia</span>
+						 <span class="label label-default">Slovenia</span>
+						 <span class="label label-default">Solomon Islands</span>
+						 <span class="label label-default">Somalia</span>
+						 <span class="label label-default">South Africa</span>
+						 <span class="label label-default">South Georgia and South Sandwich Islands</span>
+						 <span class="label label-default">Spain</span>
+						 <span class="label label-default">Sri Lanka</span>
+						 <span class="label label-default">Sudan</span>
+						 <span class="label label-default">South Sudan</span>
+						 <span class="label label-default">Suriname</span>
+						 <span class="label label-default">Svalbard and Jan Mayen</span>
+						 <span class="label label-default">Swaziland</span>
+						 <span class="label label-default">Sweden</span>
+						 <span class="label label-default">Switzerland</span>
+						 <span class="label label-default">Syria</span>
+						 <span class="label label-default">Taiwan</span>
+						 <span class="label label-default">Tajikistan</span>
+						 <span class="label label-default">Tanzania</span>
+						 <span class="label label-default">Thailand</span>
+						 <span class="label label-default">Timor-Leste</span>
+						 <span class="label label-default">Togo</span>
+						 <span class="label label-default">Tokelau</span>
+						 <span class="label label-default">Tonga</span>
+						 <span class="label label-default">Trinidad and Tobago</span>
+						 <span class="label label-default">Tunisia</span>
+						 <span class="label label-default">Turkey</span>
+						 <span class="label label-default">Turkmenistan</span>
+						 <span class="label label-default">Turks and Caicos Islands</span>
+						 <span class="label label-default">Tuvalu</span>
+						 <span class="label label-default">Uganda</span>
+						 <span class="label label-default">Ukraine</span>
+						 <span class="label label-default">United Arab Emirates</span>
+						 <span class="label label-default">United Kingdom</span>
+						 <span class="label label-default">United States Minor Outlying Islands</span>
+						 <span class="label label-default">United States of America</span>
+						 <span class="label label-default">Uruguay</span>
+						 <span class="label label-default">Uzbekistan</span>
+						 <span class="label label-default">Vanuatu</span>
+						 <span class="label label-default">Vatican City</span>
+						 <span class="label label-default">Venezuela</span>
+						 <span class="label label-default">Vietnam</span>
+						 <span class="label label-default">Virgin Islands, British</span>
+						 <span class="label label-default">Virgin Islands, U.S.</span>
+						 <span class="label label-default">Wallis and Futuna Islands</span>
+						 <span class="label label-default">Western Sahara</span>
+						 <span class="label label-default">Yemen</span>
+						 <span class="label label-default">Zambia</span>
+						 <span class="label label-default">Zimbabwe</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Output format
+						</h3> <p>The output format of the transformation.</p> <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">2-letter ISO code</span>
+						 <span class="label label-default">3-letter ISO code</span>
+						 <span class="label label-default">Country name</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

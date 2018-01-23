@@ -1,0 +1,38 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Template jobs</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop"><link rel="prev" href="ch02s06.html" title="Saving and opening jobs"><link rel="next" href="ch02s08.html" title="Writing cleansed data to files"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Template jobs</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s06.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02s08.html">Next</a></td></tr></table><hr></div><div class="section" title="Template jobs"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="template_jobs"></a>Template jobs</h2></div></div></div>
+		
+		<p>DataCleaner contains a feature where you can reuse a job for
+			multiple datastores or just multiple columns in the same datastore.
+			We call this feature 'template jobs'.
+		</p>
+		<p>When opening a job you are presented with a file chooser. When
+			you select a job file a panel will appear, containing some
+			information about the job as well as available actions:
+		</p>
+		<div class="mediaobject"><img src="template_job_01_filechooser.jpg"></div>
+		<p>If you click the 'Open as template' button you will be presented
+			with a dialog where you can map the job's original columns to a new
+			set of columns:
+		</p>
+		<div class="mediaobject"><img src="template_job_02_mapping.jpg"></div>
+		<p>First you need to specify the datastore to use. On the left side
+			you see the name of the original datastore, but the job is not
+			restricted to use only this datastore. Select a datastore from the
+			list and the fields below for the columns will become active.
+		</p>
+		<p>Then you need to map individual columns. If you have two
+			datastore that have the same column names, you can click the "Map
+			automatically" button and they will be automatically assigned.
+			Otherwise you need to map the columns from the new datastore's
+			available columns.
+		</p>
+		<p>Finally your job may contain 'Job-level variables'. These are
+			configurable properties of the job that you might also want to fill
+			out.
+		</p>
+		<p>Once these 2-3 steps have been completed, click the "Open job"
+			button, and DataCleaner will be ready for executing the job on a new
+			set of columns!
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s06.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch02s08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Saving and opening jobs&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Writing cleansed data to files</td></tr></table></div></body></html>

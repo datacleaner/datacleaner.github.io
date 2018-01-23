@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>String pattern matcher</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Improve</li> 					<li>Reference data</li>
+
+					<li class="active">String pattern matcher</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABvElEQVR42mNgGEzA2NhYkh4YrwMuq8z5T0s86gCgHbuAePPQd8Dz7lP//3z/9R8Efr3++v9u1Bb6OuDPj9//kcGHnffp6wB08OngI9o44Krp4v9vV934/2bptf/XbZcT5YC70Vv+v99y5//z3tOUO+DDjntwS0Bx/nLyuf+XdeZjdcB1hxX/P2y/hyL+uPwg+Q64HbThPzbw8/kXDLFf775jpAuw2hdf/l9SI9MBD3P2/KcU/P315/8V/QVkRoH63P9vllz9//fPX7Is//3++/9HJQcozwW3fNf9/3zqGfG+/v0HnGivGi+iYjbUnke0I15MPEvdcuBh7p7/P558Iin4Px97+v+m5xrKHHBFd/7/T0eekJ8AgVHxYtJZ8h3wsHAf5bng79//Vw0XkueAm+6rseaArxdfYeb3Z5/BlRI6+H7v/f9LKrPJTwNvll1DKVQelR4AG4itJATl91czL6IUSPdTd1CYCIGpH1SmP2s7AU4TxNQFNxxX/H857Tw4Cod+bYgL//70E8UB77fepa8DQMH77ebb/z8efPj/5czz/zc9Vo+wNuHwdQAS3kVDvJmYfuJmWmKGUQAFAHa8BdNYIh36AAAAAElFTkSuQmCC" alt="" /> <span>String pattern matcher</span>
+					</h1>
+					<div><p>Matches string values against a set of string patterns, producing a corresponding set of output columns specifying whether or not the values matched those string patterns</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Output type
+						</h3>  <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">True or false</span>
+						 <span class="label label-default">Corrected value or null</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 String patterns
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of StringPattern</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

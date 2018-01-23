@@ -1,0 +1,130 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Reference data</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file"><link rel="prev" href="ch10s02.html" title="Datastores"><link rel="next" href="ch10s04.html" title="Task runner"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Reference data</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;10.&nbsp;Configuration file</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch10s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Reference data"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration_file_reference_data"></a>Reference data</h2></div></div></div>
+		
+		<p>Reference data items (dictionaries, synonym catalogs and string patterns) are defined
+		in the configuration file in the element &lt;reference-data-catalog&gt;. Below some examples:</p>
+		
+		<div class="section" title="Dictionaries"><div class="titlepage"><div><div><h3 class="title"><a name="d5e774"></a>Dictionaries</h3></div></div></div>
+			
+			<p>Dictionaries are stored within the &lt;dictionaries&gt; element within the reference data section. Three types of dictionaries can be added.</p>
+			
+			<p>
+				<span class="emphasis"><em>Datastore dictionaries</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;dictionaries&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;datastore-dictionary&nbsp;name="Lastnames"&nbsp;description="My&nbsp;datastore&nbsp;based&nbsp;dictionary"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;datastore-name&gt;orderdb&lt;/datastore-name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;column-path&gt;EMPLOYEES.LASTNAME&lt;/column-path&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/datastore-dictionary&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/dictionaries&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+			<p>
+				<span class="emphasis"><em>Text file dictionaries</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;dictionaries&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;text-file-dictionary&nbsp;name="Firstnames"&nbsp;description="My&nbsp;file&nbsp;based&nbsp;dictionary"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;filename&gt;/path/to/first.txt&lt;/filename&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;encoding&gt;UTF-8&lt;/encoding&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/text-file-dictionary&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/dictionaries&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+			<p>
+				<span class="emphasis"><em>Value list dictionaries</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;dictionaries&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;value-list-dictionary&nbsp;name="Greetings"&nbsp;description="My&nbsp;simple&nbsp;value&nbsp;list"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;hello&lt;/value&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;hi&lt;/value&gt;	
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;greetings&lt;/value&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;value&gt;godday&lt;/value&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/value-list-dictionary&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/dictionaries&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+		</div>
+		<div class="section" title="Synonym catalogs"><div class="titlepage"><div><div><h3 class="title"><a name="d5e786"></a>Synonym catalogs</h3></div></div></div>
+			
+			<p>Synonym catalogs are stored within the &lt;synonym-catalogs&gt; element within the reference data section. Two types of dictionaries can be added.</p>
+			<p>
+				<span class="emphasis"><em>Text file synonym catalogs</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;synonym-catalogs&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;text-file-synonym-catalog name="textfile_syn" description="My text file synonyms"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;filename&gt;/path/to/synonyms.txt&lt;/filename&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;encoding&gt;UTF-8&lt;/encoding&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;case-sensitive&gt;false&lt;/case-sensitive&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/text-file-synonym-catalog&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/synonym-catalogs&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+			<p>
+				<span class="emphasis"><em>Datastore synonym catalogs</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;synonym-catalogs&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;datastore-synonym-catalog name="datastore_syn" description="My datastore synonyms"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;datastore-name&gt;orderdb&lt;/datastore-name&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;master-term-column-path&gt;CUSTOMERS.CUSTOMERNAME&lt;/master-term-column-path&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;synonym-column-path&gt;CUSTOMERS.CUSTOMERNUMBER&lt;/synonym-column-path&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;synonym-column-path&gt;CUSTOMERS.PHONE&lt;/synonym-column-path&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/datastore-synonym-catalog&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/synonym-catalogs&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+		</div>
+		<div class="section" title="String patterns"><div class="titlepage"><div><div><h3 class="title"><a name="d5e795"></a>String patterns</h3></div></div></div>
+			
+			<p>Dictionaries are stored within the &lt;string-patterns&gt; element within the reference data section. Two types of string patterns can be added.</p>
+			<p>
+				<span class="emphasis"><em>Regular expression (regex) string patterns</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;string-patterns&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;regex-pattern name="regex danish email" description="Danish email addresses"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;expression&gt;[a-z]+@[a-z]+\.dk&lt;/expression&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;match-entire-string&gt;true&lt;/match-entire-string&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/regex-pattern&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/string-patterns&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+			<p>
+				<span class="emphasis"><em>Simple string patterns</em></span>
+			</p>
+			<pre lang="xml" class="programlisting">
+				&lt;reference-data-catalog&gt;
+				&nbsp;&nbsp;&lt;string-patterns&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;simple-pattern name="simple email" description="Simple email pattern"&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;expression&gt;aaaa@aaaaa.aa&lt;/expression&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;/simple-pattern&gt;
+				&nbsp;&nbsp;&nbsp;...
+				&nbsp;&nbsp;&lt;/string-patterns&gt;
+				&lt;/reference-data-catalog&gt;
+			</pre>
+		</div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch10s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Datastores&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Task runner</td></tr></table></div></body></html>

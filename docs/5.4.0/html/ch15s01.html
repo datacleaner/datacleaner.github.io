@@ -1,0 +1,36 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Hadoop deployment overview</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"><link rel="prev" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"><link rel="next" href="ch15s02.html" title="Setting up Spark and DataCleaner environment"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Hadoop deployment overview</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch15.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch15s02.html">Next</a></td></tr></table><hr></div><div class="section" title="Hadoop deployment overview"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hadoop_deployment"></a>Hadoop deployment overview</h2></div></div></div>
+		
+		<p>Apache Hadoop is a distributed system with a number of key components of which a few are important to understand:</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>YARN</em></span>, which is often referred to as the 'operating system' of Hadoop. YARN is the managing entity which assigns resources to running a specific job or task.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>HDFS</em></span>, which is the Hadoop Distributed File System. This is the location where data is located, but also the place where executables are often shared so that a distributed process can be picked up on many nodes in the cluster.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Namenode</em></span>, is a dedicated node in the cluster which deals with HDFS and distribution of data to other nodes, so-called datanodes.
+				</p>
+			</li></ol></div>
+		<p>In addition, the DataCleaner Hadoop support is built using Apache Spark, which is a data processing framework that works with Hadoop as well as other clustering technologies. A few important concepts of Apache Spark are useful to understand for DataCleaner's deployment on Hadoop:</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Cluster manager</em></span>, which is the component that negotiates with the cluster - for instance Hadoop/YARN. From the perspective of Apache Spark, YARN is a <span class="emphasis"><em>cluster manager</em></span>.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Driver program</em></span>, which is the program that directs the cluster manager and tells it what to do. In Apache Spark for Hadoop you have two choices: To run the Driver program as an external process ('yarn-client') or to run the Driver program as a process inside YARN itself ('yarn-cluster').
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Executor</em></span>, which is a node in a Spark cluster that executes a partition (chunk) of a job.
+				</p>
+			</li></ol></div>
+		<p>In the top-part of the below image you see Hadoop/YARN as well as Apache Spark, and how they are componentized.</p>
+		<span class="inlinemediaobject"><img src="hadoop_deployment_overview.png"></span>
+		<p>In the lower part of the image you see DataCleaner's directory structure on HDFS. As you can see, the usual configuration and job files are used, but placed on HDFS. A special JAR file is placed on HDFS to act as executable for the Apache Spark executors.</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch15.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch15.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch15s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Setting up Spark and DataCleaner environment</td></tr></table></div></body></html>

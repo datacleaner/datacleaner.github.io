@@ -1,0 +1,114 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Listing datastore contents and available components</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch14.html" title="Chapter&nbsp;14.&nbsp;Command-line interface"><link rel="prev" href="ch14s03.html" title="Executing an analysis job"><link rel="next" href="ch14s05.html" title="Parameterizable jobs"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Listing datastore contents and available components</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch14s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;14.&nbsp;Command-line interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch14s05.html">Next</a></td></tr></table><hr></div><div class="section" title="Listing datastore contents and available components"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="cli_listing"></a>Listing datastore contents and available components</h2></div></div></div>
+		
+		<p>
+			The Command-Line Interface allows for listing of datastore
+			contents
+			and available components. The intended usage for this is to
+			aid in
+			hand-editing an analysis file, if this is desired. By using the
+			<span class="emphasis"><em>-list</em></span>
+			arguments you can get the metadata of your datastore and the
+			DataCleaner components that will allow you to manually compose an
+			analysis file.
+		</p>
+
+		<p>
+			Listing the contents of a datastore is pretty self-explanatory, if
+			you look at the output of the
+			<span class="emphasis"><em>-usage</em></span>
+			command. Here's a few examples, using the example database 'orderdb':
+		</p>
+
+		<pre class="programlisting">
+			&gt;&nbsp;datacleaner-console.exe&nbsp;-list&nbsp;datastores
+			Datastores:
+			-----------
+			Country codes
+			orderdb
+
+			&gt;&nbsp;datacleaner-console.exe&nbsp;-list&nbsp;tables&nbsp;-ds&nbsp;orderdb
+			Tables:
+			-------
+			CUSTOMERS
+			CUSTOMER_W_TER
+			DEPARTMENT_MANAGERS
+			DIM_TIME
+			EMPLOYEES
+			OFFICES
+			ORDERDETAILS
+			ORDERFACT
+			ORDERS
+			PAYMENTS
+			PRODUCTS
+			QUADRANT_ACTUALS
+			TRIAL_BALANCE
+
+			&gt;&nbsp;datacleaner-console.exe&nbsp;-list&nbsp;columns&nbsp;-ds&nbsp;orderdb&nbsp;-table&nbsp;employees
+			Columns:
+			--------
+			EMPLOYEENUMBER
+			LASTNAME
+			FIRSTNAME
+			EXTENSION
+			EMAIL
+			OFFICECODE
+			REPORTSTO
+			JOBTITLE
+		</pre>
+
+		<p>
+			Listing DataCleaner's components is done by setting the
+			<span class="emphasis"><em>-list</em></span>
+			argument to one of the three component types: ANALYZER, TRANSFORMER
+			or FILTER:
+		</p>
+
+		<pre class="programlisting">
+			&gt;&nbsp;datacleaner-console.exe&nbsp;-list&nbsp;analyzers
+
+			...
+
+			name:&nbsp;Matching&nbsp;analyzer
+			-&nbsp;Consumes&nbsp;multiple&nbsp;input&nbsp;columns&nbsp;(type:&nbsp;UNDEFINED)
+			-&nbsp;Property:&nbsp;name=Dictionaries,&nbsp;type=Dictionary,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=String&nbsp;patterns,&nbsp;type=StringPattern,&nbsp;required=false
+			name:&nbsp;Pattern&nbsp;finder
+			-&nbsp;Consumes&nbsp;2&nbsp;named&nbsp;inputs
+			&nbsp;&nbsp;&nbsp;Input&nbsp;column:&nbsp;Column&nbsp;(type:&nbsp;STRING)
+			&nbsp;&nbsp;&nbsp;Input&nbsp;column:&nbsp;Group&nbsp;column&nbsp;(type:&nbsp;STRING)
+			-&nbsp;Property:&nbsp;name=Discriminate&nbsp;text&nbsp;case,&nbsp;type=Boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Discriminate&nbsp;negative&nbsp;numbers,&nbsp;type=Boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Discriminate&nbsp;decimals,&nbsp;type=Boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Enable&nbsp;mixed&nbsp;tokens,&nbsp;type=Boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Ignore&nbsp;repeated&nbsp;spaces,&nbsp;type=Boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Upper&nbsp;case&nbsp;patterns&nbsp;expand&nbsp;in&nbsp;size,&nbsp;type=boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Lower&nbsp;case&nbsp;patterns&nbsp;expand&nbsp;in&nbsp;size,&nbsp;type=boolean,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Predefined&nbsp;token&nbsp;name,&nbsp;type=String,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Predefined&nbsp;token&nbsp;regexes,&nbsp;type=String,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Decimal&nbsp;separator,&nbsp;type=Character,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Thousands&nbsp;separator,&nbsp;type=Character,&nbsp;required=false
+			-&nbsp;Property:&nbsp;name=Minus&nbsp;sign,&nbsp;type=Character,&nbsp;required=false
+
+			...
+
+			&gt;&nbsp;datacleaner-console.exe&nbsp;-list&nbsp;transformers
+
+			...
+
+			name:&nbsp;Tokenizer
+			-&nbsp;Consumes&nbsp;a&nbsp;single&nbsp;input&nbsp;column&nbsp;(type:&nbsp;STRING)
+			-&nbsp;Property:&nbsp;name=Delimiters,&nbsp;type=char,&nbsp;required=true
+			-&nbsp;Property:&nbsp;name=Number&nbsp;of&nbsp;tokens,&nbsp;type=Integer,&nbsp;required=true
+			-&nbsp;Output&nbsp;type&nbsp;is:&nbsp;STRING
+			name:&nbsp;Whitespace&nbsp;trimmer
+			-&nbsp;Consumes&nbsp;multiple&nbsp;input&nbsp;columns&nbsp;(type:&nbsp;STRING)
+			-&nbsp;Property:&nbsp;name=Trim&nbsp;left,&nbsp;type=boolean,&nbsp;required=true
+			-&nbsp;Property:&nbsp;name=Trim&nbsp;right,&nbsp;type=boolean,&nbsp;required=true
+			-&nbsp;Property:&nbsp;name=Trim&nbsp;multiple&nbsp;to&nbsp;single&nbsp;space,&nbsp;type=boolean,&nbsp;required=true
+			-&nbsp;Output&nbsp;type&nbsp;is:&nbsp;STRING
+
+			...
+		</pre>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch14s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch14.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch14s05.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Executing an analysis job&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Parameterizable jobs</td></tr></table></div></body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Generate UUID</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Numbers</li>
+
+					<li class="active">Generate UUID</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACHklEQVR42u2Wz0rDQBDG+xq+RUsfQEQRT4ooiifvIiKCCB5EEI+KJ89eFUVQFJVaCoJWq7VSPEjR1j+IJjVNtG26uYw7aRM3IaltTIKCC9+lCTO/nflmmkDgN51wONzih+oCtO7x4KX+LsDw0Rus3RUhIxL4kAkUygQSnAyzl2JTAKFQ6CAYDG43DNCxz8F6tgiyLAMhxFIbuZI3AH1RHlJ8xTYxq7kryV0AvLlV8mS+AovX7+qt2aqk34i7AFh2c/LHDwKdB5webDVb0p8hTPveqzsAaDirnh+9yIZgc0nJ8LyLgfsRwNqt8fb3EoHYc1l1fm+0GqiN3vbw6QsyX1bca8FN4St5ivZcK3t3hAOuqMDuQ1ntOQuJgK4BiLKiB16ihmMDYHKrKZg6L7gHgOXUAm8yM45lN98chQvJnGj8VICeQ4cAca5icDd6Ag3H9pyVQIHHjgU9yUqm6qFb6p3BiAOAmaTY0PKxghiM8Ybf7yQFhmIO9gAumnoJsewC0yoWYsvkk9y7ooI1vYrn6Xple47eQLdPX4iqHzCZFcQyNa4ZOEMnC6eo6T8jFG44uyVjBWGnhbTkDOA7jcatIXYeSrBda+UFX13jngDYQaieoOM4cSboy8wzANTIiWBrTMcfJG5AoHkHYnl/AOwgtFXtC4AGoa10HGVfPGBWfyQPk4mC4SPGVwBXvop9B9CEL3olWwD24EteKvB/aucTS+d1i8MlUzgAAAAASUVORK5CYII=" alt="" /> <span>Generate UUID</span>
+					</h1>
+					<div><p>Generates a universally unique ID</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Prefix
+						</h3>  <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Postfix
+						</h3>  <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column in scope
+						</h3> <p>A column which represent the scope for which the ID will be generated. If eg. a source column is selected, an ID will be generated for each source record. If a transformed column is selected, an ID will be generated for each record generated that has this column.</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

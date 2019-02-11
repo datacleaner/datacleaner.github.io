@@ -6,7 +6,7 @@ date: 2019-02-11 08:41:00 -0700
 categories: www update
 ---
 
-Today we saw an [announcement from Neopost](https://www.neopost-group.com/en/news/as-part-of-its-back-to-growth-strategy-neopost-proceeds-with-the-divestment-of-human-inference) that they are divesting from the Data Quality space and have sold Human Inference to the Dutch company [EDM Media Group](https://edm.nl). With this sale, the DataCleaner commercial editions will get a new home with EDM instead of Neopost/Quadient.
+Today we saw an [announcement from Neopost](https://www.neopost-group.com/en/news/as-part-of-its-back-to-growth-strategy-neopost-proceeds-with-the-divestment-of-human-inference) that they are divesting from the Data Quality space and have sold [Human Inference](http://www.humaninference.com) to the Dutch company [EDM Media Group](https://edm.nl). With this sale, the DataCleaner commercial editions will get a new home with EDM instead of Neopost/Quadient.
 
 The open source community editions of DataCleaner (provided via this site) are unaffected. DataCleaner is still an [open source project on GitHub](https://github.com/datacleaner/DataCleaner). We congratulate the teams at Human Inference for a successful acquisition by a new owner that will no doubt be great tenants to the commercial brand of DataCleaner.
 

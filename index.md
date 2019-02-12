@@ -18,8 +18,8 @@ layout: page
 </div>
 
 <div class="databasesPanel">
-	<img src="/assets/databases1.jpg" alt=""/>
-	<img src="/assets/databases2.jpg" alt=""/>
+	<img src="/assets/databases1.jpg" alt="" />
+	<img src="/assets/databases2.jpg" alt="" />
 </div>
 
 <div class="databasesPanelBreaker">

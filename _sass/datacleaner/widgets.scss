@@ -209,18 +209,17 @@ a.site-title:hover {
 	margin-right: -10%;
 }
 
-.screenshotGallery div {
-	margin: 5px;
+.screenshotGallery {
+	// column-width: 200px;
+	column-count: 3;
+	// width: 100%;
+}
+
+.screenshotGallery img {
+	margin: 20px;
 	border: 1px solid #ccc;
-	float: left;
-	width: 300px;
 }
 
-.screenshotGallery div:hover {
+.screenshotGallery img:hover {
 	border: 1px solid #666;
-}
-
-.screenshotGallery div img {
-	width: 100%;
-	height: auto;
 }

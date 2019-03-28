@@ -38,12 +38,15 @@ div.center {
 .blue {
 	color: $blue-color
 }
+
 .green {
 	color: $green-color
 }
+
 .orange {
 	color: $orange-color
 }
+
 a.site-title:hover {
 	text-decoration: none;
 }
@@ -78,7 +81,7 @@ a.site-title:hover {
 .discussTable .topic .icon {
 	color: $grey-color-dark;
 	margin-left: 0.2em;
-	margin-right: 0.4em;	
+	margin-right: 0.4em;
 }
 
 .discussTable .author img.discussAvatar {
@@ -166,6 +169,7 @@ a.site-title:hover {
 	right: 0;
 	border: 0;
 	display: none;
+
 	@media (min-width: 1000px) {
 		display: block;
 	}
@@ -203,4 +207,19 @@ a.site-title:hover {
 .frontpageScreenshot.right {
 	float: right;
 	margin-right: -10%;
+}
+
+.screenshotGallery {
+	// column-width: 200px;
+	column-count: 3;
+	// width: 100%;
+}
+
+.screenshotGallery img {
+	margin: 20px;
+	border: 1px solid #ccc;
+}
+
+.screenshotGallery img:hover {
+	border: 1px solid #666;
 }

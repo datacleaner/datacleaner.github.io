@@ -1,0 +1,16 @@
+---
+layout: page
+title: Screenshots
+permalink: /screenshots
+---
+
+<div class="screenshotGallery">
+	{% for screenshot in site.screenshots %}
+	<div>
+		<a href="{{screenshot}}" data-lightbox="DataCleaner screenshot">
+			<img src="{{screenshot}}" alt="" />
+		</a>
+	</div>
+	{% endfor %}
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>

@@ -31,6 +31,17 @@ releases: [
 docs:
 - "5.4.0"
 - "5.2"
+screenshots: [
+  "/assets/screenshots/dc_5.0_b_large.png",
+  "/assets/screenshots/dc_5.0_n_large.png",
+  "/assets/screenshots/dc_5.6_a_large.png",
+  "/assets/screenshots/dc_5.6_b_large.png",
+  "/assets/screenshots/dc_5.0_g_large.png",
+  "/assets/screenshots/dc_4.0_k_large.png",
+  "/assets/screenshots/dc_4.0_e_large.png",
+  "/assets/screenshots/dc_pentaho_profile.png",
+  "/assets/screenshots/dc_pentaho_job.png"
+]
 
 google_analytics: "UA-110119916-1"
 

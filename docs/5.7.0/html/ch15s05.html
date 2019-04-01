@@ -1,0 +1,21 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Limitations of the Hadoop interface</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"><link rel="prev" href="ch15s04.html" title="Using Hadoop in DataCleaner desktop"><link rel="next" href="pt06.html" title="Part&nbsp;VI.&nbsp;Third party integrations"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Limitations of the Hadoop interface</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch15s04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="pt06.html">Next</a></td></tr></table><hr></div><div class="section" title="Limitations of the Hadoop interface"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hadoop_limitations"></a>Limitations of the Hadoop interface</h2></div></div></div>
+		
+
+		<p>While the Hadoop interface for DataCleaner allows distributed running of DataCleaner jobs on the Hadoop platform, there are a few limitations:</p>
+	
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p><span class="emphasis"><em>Datastore support</em></span></p>
+				<p>Currently we support a limited set of source datastores from HDFS. CSV files are the primary source here.
+				We do require that files on HDFS are UTF8 encoded and that only single-line values occur.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Non-distributable components</em></span></p>
+				<p>A few components are by nature not distributable. If your job depends on these, DataCleaner will resort to
+				executing the job on a single Spark executor, which may have a significant performance impact.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Hadoop Distributions without Namenode</em></span></p>
+				<p>Some Hadoop Distributions (such as MapR) have replaced the concept of Namenode with something else.
+				This is mostly fine, but it does mean that file paths with username+port of Namenodes are obviously not working.</p>
+			</li></ol></div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch15s04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch15.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="pt06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Using Hadoop in DataCleaner desktop&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Part&nbsp;VI.&nbsp;Third party integrations</td></tr></table></div></body></html>

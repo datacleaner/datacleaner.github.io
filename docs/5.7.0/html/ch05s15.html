@@ -1,0 +1,68 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Machine Learning analyzers</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch05.html" title="Chapter&nbsp;5.&nbsp;Analyze"><link rel="prev" href="ch05s14.html" title="Weekday distribution"><link rel="next" href="ch06.html" title="Chapter&nbsp;6.&nbsp;Write"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Machine Learning analyzers</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch05s14.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;5.&nbsp;Analyze</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch06.html">Next</a></td></tr></table><hr></div><div class="section" title="Machine Learning analyzers"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ml_analyzers"></a>Machine Learning analyzers</h2></div></div></div>
+		
+		<p>
+			DataCleaner offers a set of analyzers with the purpose of training or testing
+			Machine Learning models. The idea is that records can be used to build ("train") a
+			mathematical model that describes the value of any given attribute/column based on
+			the other attributes of the record. For example, you could classify or predict house
+			prices based on historical data given price and relevant factors for the price such as
+			size, location, condition and time of year.
+		</p>
+		<p>
+			There are two use-cases that are supported:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Classification</em></span>, which is the act of determining a class
+					of record. For example, you may want to classify what product most likely
+					fits a particular customer based on the attributes of the customer.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Regression</em></span>, which is determines a continuous value on
+					a numeric scale. For example, you might want try to predict the price of a house
+					based on the traits of the house.
+				</p>
+			</li></ol></div>
+		<p>
+			DataCleaner has built in support for the following types of Machine Learning models:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Random Forests</p>
+			</li><li class="listitem">
+				<p>Support Vector Machines</p>
+			</li><li class="listitem">
+				<p>Neural Networks</p>
+			</li></ol></div>
+		<p>
+			When training a model, you provide data that represents truthful observations. These records
+			have to include values for the attribute that you will be trying to classify or predict
+			using regression.
+		</p>
+		<p>
+			Attributes that affect the prediction or classification are called features. Feature has to be
+			numeric as to provide meaningful mathematical input to the model. So sometimes a
+			feature has to be extracted from a raw value instead of just applied as-is. For example, in textual
+			analysis where you're trying to determine the language or nature of a piece of text, you will
+			typically want to extract n-grams from the text. DataCleaner offers the following feature extraction
+			strategies (which you select when adding a column as input to the training component):
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p><span class="emphasis"><em>Direct (0.0 to 1.0)</em></span>, Takes numerical values as-is.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Scaled (Min-Max)</em></span>, Scales numerical values from the minimum to the maximum value observed.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Vector (One-Hot Encoding)</em></span>, Generates a feature for every distinct value encountered. The values of the feature will be either 0 or 1 to indicate whether or not the record has that particular value.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Vector (2-gram)</em></span>, Generates a feature for every 2-gram observed in the text.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Vector (3-gram)</em></span>, Generates a feature for every 3-gram observed in the text.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Vector (4-gram)</em></span>, Generates a feature for every 4-gram observed in the text.</p>
+			</li><li class="listitem">
+				<p><span class="emphasis"><em>Vector (5-gram)</em></span>, Generates a feature for every 5-gram observed in the text.</p>
+			</li></ol></div>
+		
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch05s14.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch05.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch06.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Weekday distribution&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;6.&nbsp;Write</td></tr></table></div></body></html>

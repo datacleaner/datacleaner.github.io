@@ -1,0 +1,32 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Extension metadata XML</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch20.html" title="Chapter&nbsp;20.&nbsp;Extension packaging"><link rel="prev" href="ch20s02.html" title="Single JAR file"><link rel="next" href="ch20s04.html" title="Component icons"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Extension metadata XML</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch20s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;20.&nbsp;Extension packaging</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch20s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Extension metadata XML"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="extensions_metadata_xml"></a>Extension metadata XML</h2></div></div></div>
+		
+		<p>
+			To improve the experience, you can optionally include metadata about
+			the extension in an XML file, bundled
+			<span class="emphasis"><em>within</em></span>
+			the JAR file itself.
+		</p>
+		<p>
+			The name of the extension metadata file has to be
+			<span class="emphasis"><em>datacleaner-extension.xml</em></span>
+			and be placed in the root directory of the JAR file. Here's an
+			example of how the file looks like:
+		</p>
+		<pre lang="xml" class="programlisting">
+			&lt;extension&nbsp;xmlns="http://eobjects.org/datacleaner/extension/1.0"&gt;
+			&nbsp;&nbsp;&lt;name&gt;My&nbsp;extension&lt;/name&gt;
+			&nbsp;&nbsp;&lt;package&gt;path.to.extension&lt;/package&gt;
+			&nbsp;&nbsp;&lt;description&gt;This&nbsp;is&nbsp;an&nbsp;example&nbsp;extension.&nbsp;I&nbsp;should&nbsp;put&nbsp;a&nbsp;short&nbsp;description&nbsp;here.&lt;/description&gt;
+			&nbsp;&nbsp;&lt;icon&gt;path/to/extension/ExtensionIcon.png&lt;/icon&gt;
+			&nbsp;&nbsp;&lt;author&gt;John&nbsp;Doe&lt;/author&gt;
+			&nbsp;&nbsp;&lt;url&gt;https://datacleaner.org/extensions&lt;/url&gt;
+			&nbsp;&nbsp;&lt;version&gt;1.0&lt;/version&gt;
+			&lt;/extension&gt;
+		</pre>
+		<p>The added value of this metadata is that DataCleaner can expose
+			this information to the user and also use it to manage updates of the
+			extension etc. The metadata file is however, completely optional.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch20s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch20.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch20s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Single JAR file&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Component icons</td></tr></table></div></body></html>

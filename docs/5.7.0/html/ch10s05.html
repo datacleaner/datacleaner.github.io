@@ -1,0 +1,61 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Storage provider</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file"><link rel="prev" href="ch10s04.html" title="Task runner"><link rel="next" href="ch11.html" title="Chapter&nbsp;11.&nbsp;Analysis job files"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Storage provider</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch10s04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;10.&nbsp;Configuration file</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch11.html">Next</a></td></tr></table><hr></div><div class="section" title="Storage provider"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration_file_storage_provider"></a>Storage provider</h2></div></div></div>
+		
+		<p>The storage provider is used for storing temporary data used
+			while executing an analysis job. There are two types of storage:
+			Large collections of (single) values and
+			"annotated rows", ie. rows that have been sampled or marked with
+			a specific category which will be of interest to the user to inspect.
+		</p>
+		<p>To explain the storage provider configuration let's look at the
+			default element:
+		</p>
+		<pre class="programlisting">
+			&lt;storage-provider&gt;
+			&nbsp;&lt;combined&gt;
+			&nbsp;&nbsp;&lt;collections-storage&gt;
+			&nbsp;&nbsp;&nbsp;&lt;berkeley-db/&gt;
+			&nbsp;&nbsp;&lt;/collections-storage&gt;
+			&nbsp;&nbsp;&lt;row-annotation-storage&gt;
+			&nbsp;&nbsp;&nbsp;&lt;in-memory&nbsp;max-rows-threshold="1000"&nbsp;max-sets-threshold="200"/&gt;
+			&nbsp;&nbsp;&lt;/row-annotation-storage&gt;
+			&nbsp;&lt;/combined&gt;
+			&lt;/storage-provider&gt; </pre>
+		<p>
+			The element defines a combined storage strategy.
+		</p>
+		<p>
+			Collections are stored using berkeley-db, an embedded database
+			by Oracle. This is the recommended strategy for collections.
+		</p>
+		<p>
+			Row annotations are stored in memory. There's a threshold of
+			1000 rows in maximum 200 sets. This means that if more than 1000 records are annotated
+			with the same category then additional records will not be saved (and
+			thus is not viewable by the user). Furthermore it means that only up until 200 sample
+			sets will be saved. Further annotations will not be sampled, but metrics still be counted.
+			Most user scenarios will not
+			require more than max. 1000 annotated records for inspection, but if
+			this is really neccessary a different strategy can be pursued:
+		</p>
+
+		<div class="sect2" title="Using MongoDB for annotated rows"><div class="titlepage"><div><div><h3 class="title"><a name="d5e883"></a>Using MongoDB for annotated rows</h3></div></div></div>
+			
+			<p>
+				If you have a local
+				<a class="link" href="http://www.mongodb.org/" target="_top">MongoDB</a>
+				instance, you can use this as a store for annotated rows. This is
+				how the configuration looks like:
+			</p>
+			<pre class="programlisting">
+				&nbsp;&nbsp;&lt;row-annotation-storage&gt;
+				&nbsp;&nbsp;&nbsp;&lt;custom-storage-provider&nbsp;class-name="org.datacleaner.storage.MongoDbStorageProvider"/&gt;
+				&nbsp;&nbsp;&lt;/row-annotation-storage&gt; </pre>
+			<p>The MongoDB storage provider solution has shown very good
+				performance metrics, but does add more complexity to the
+				installation, which is why it is still considered experimental and
+				only for savvy users.
+			</p>
+		</div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch10s04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch10.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch11.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Task runner&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;11.&nbsp;Analysis job files</td></tr></table></div></body></html>

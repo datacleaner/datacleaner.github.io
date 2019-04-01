@@ -1,0 +1,70 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Processing framework</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch17.html" title="Chapter&nbsp;17.&nbsp;Architecture"><link rel="prev" href="ch17s01.html" title="Data access"><link rel="next" href="ch18.html" title="Chapter&nbsp;18.&nbsp;Executing jobs through code"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Processing framework</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch17s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;17.&nbsp;Architecture</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch18.html">Next</a></td></tr></table><hr></div><div class="section" title="Processing framework"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture_processing_framework"></a>Processing framework</h2></div></div></div>
+		
+
+		<p>The way DataCleaner processes data is
+			slightly different compared
+			to most similar (ETL-like) tools. Firstly in the way multithreading
+			is applied, secondly in the way DataCleaner may sometimes optimize
+			the graph at execution time.
+		</p>
+
+		<p>
+			<span class="emphasis"><em>Multithreading:</em></span>
+			The multithreading strategy in DataCleaner enables the tool to have
+			the minimum amount of blocking and buffering and the maximum amount
+			of parallelism and potentially also distribution. Most ETL-like tools
+			apply a threading strategy where each component in a job has its own
+			thread-management as well as an input- and an output-buffer. In
+			DataCleaner the thread management is made such that every record is
+			processed in parallel - each unit of work is stepping through the
+			complete job graph in one single pass. This has a number of
+			interesting traits:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>There is a high degree of automatic 'load balancing' among
+					the components - less constraints and bottlenecks around the
+					slowest components in the job.
+				</p>
+			</li><li class="listitem">
+				<p>The system lends itself to highly distributed processing
+					because statefulness is the exception instead of the
+					rule.
+				</p>
+			</li><li class="listitem">
+				<p>There is less waste in the form of buffers inbetween the
+					components of a job.
+				</p>
+			</li><li class="listitem">
+				<p>One downside to this approach is that the order of the
+					processed records cannot be guaranteed. This is only very rarely
+					required in the domain of data profiling and analysis, and if it is
+					required there are technical workarounds to apply.
+				</p>
+			</li></ol></div>
+
+		<p>
+			<span class="emphasis"><em>Graph optimization:</em></span>
+			While a job graph (see
+			<a class="link" href="ch02s04.html" title="Wiring components together">wiring components together</a>
+			) may show a particular following order, the engine may at runtime do
+			certain optimizations to it. Some components may provide optimization
+			strategies that involves changing the source query so that the number
+			of (or content of) processed records is changed. Obviously this is a
+			side-effect of using a component that will only be applied in cases
+			where it does not impact other components in a job. The principle is
+			sometimes also referred to as 'Push down optimization'.
+		</p>
+		<p>
+			An example of this is a 'Null check' filter: If a Null check is
+			applied on a source column and all other components require either a
+			NULL or a NOT_NULL outcome (either explicitly or implicitly), then
+			the 'Null check' filter may add a predicate to the source query to
+			filter out all irrelevant records. For more information on this
+			principle, please read the blog entry '
+			<a class="link" href="http://kasper.eobjects.org/2011/12/push-down-query-optimization-in.html" target="_top">Push down query optimization in DataCleaner</a>
+			' by Kasper S&oslash;rensen.
+		</p>
+
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch17s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch17.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch18.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Data access&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;18.&nbsp;Executing jobs through code</td></tr></table></div></body></html>

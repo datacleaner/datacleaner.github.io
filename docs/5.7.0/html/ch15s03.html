@@ -1,0 +1,78 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Launching DataCleaner jobs using Spark</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"><link rel="prev" href="ch15s02.html" title="Setting up Spark and DataCleaner environment"><link rel="next" href="ch15s04.html" title="Using Hadoop in DataCleaner desktop"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Launching DataCleaner jobs using Spark</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch15s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch15s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Launching DataCleaner jobs using Spark"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hadoop_launch"></a>Launching DataCleaner jobs using Spark</h2></div></div></div>
+		
+
+		<p>Go to the Spark installation path to run the job. Use the following command line template:</p>
+
+		<pre class="programlisting">
+			bin/spark-submit --class org.datacleaner.spark.Main --master yarn-cluster /path/to/DataCleaner-spark.jar
+			/path/to/conf.xml /path/to/job_file.analysis.xml ([/path/to/custom_properties.properties])
+		</pre>
+		
+		<p>
+			A convenient way to organize it is in a shell script like the below, where every individual argument can be edited line by line:
+		</p>
+		
+		<pre class="programlisting">
+			#!/bin/sh
+			SPARK_HOME=/path/to/apache-spark
+			SPARK_MASTER=yarn-cluster
+			DC_PRIMARY_JAR=/path/to/DataCleaner-spark.jar
+			DC_EXTENSION_JARS=/path/to/extension1.jar,/path/to/extension2.jar
+			DC_CONF_FILE=hdfs:///path/to/conf.xml
+			DC_JOB_FILE=hdfs:///path/to/job_file.analysis.xml
+			DC_PROPS=hdfs:///path/to/custom_properties.properties
+			
+			DC_COMMAND="$SPARK_HOME/bin/spark-submit"
+			DC_COMMAND="$DC_COMMAND --class org.datacleaner.spark.Main"
+			DC_COMMAND="$DC_COMMAND --master $SPARK_MASTER"
+			
+			echo "Using DataCleaner executable: $DC_PRIMARY_JAR"
+			if [ "$DC_EXTENSION_JARS" != "" ]; then
+			&nbsp;&nbsp;echo "Adding extensions: $DC_EXTENSION_JARS"
+			&nbsp;&nbsp;DC_COMMAND="$DC_COMMAND --jars $DC_EXTENSION_JARS"
+			fi
+
+			DC_COMMAND="$DC_COMMAND $DC_PRIMARY_JAR $DC_CONF_FILE $DC_JOB_FILE $DC_PROPS"
+			
+			echo "Submitting DataCleaner job $DC_JOB_FILE to Spark $SPARK_MASTER"
+			$DC_COMMAND
+		</pre>
+
+		<p>The example makes it clear that there are a few more parameters to invoking the job. Let's go through them:</p>
+		
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>SPARK_MASTER</em></span> represents the location of the Driver program, see the section on <a class="link" href="ch15s01.html" title="Hadoop deployment overview">Hadoop deployment overview</a>.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>DC_EXTENSION_JARS</em></span> allows you to add additional JAR files with extensions to DataCleaner.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>DC_PROPS</em></span> is maybe the most important one. It allows you to add a .properties file which can be used for a number of things:
+				</p>
+				<div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+						<p>
+							Special property
+							<span class="emphasis"><em>datacleaner.result.hdfs.path</em></span>
+							which allows you to specify the filename (on HDFS) where the analysis result (.analysis.result.dat) file is stored. It defaults to
+							<span class="emphasis"><em>/datacleaner/results/[job name]-[timestamp].analysis.result.dat</em></span>
+						</p>
+					</li><li class="listitem">
+						<p>
+							Special property
+							<span class="emphasis"><em>datacleaner.result.hdfs.enabled</em></span>
+							which can be either 'true' (default) or 'false'. Setting this property to false will disable result gathering completely from the
+							DataCleaner job, which gives a significant increase in performance, but no analyzer results are gathered or written. This is thus only
+							relevant for ETL-style jobs where the purpose of the job is to create/insert/update/delete from other datastores or files.
+						</p>
+					</li><li class="listitem">
+						<p>Properties to <a class="link" href="ch14s06.html" title="Dynamically overriding configuration elements">override configuration defaults</a>.</p>
+					</li><li class="listitem">
+						<p>Properties to <a class="link" href="ch14s05.html" title="Parameterizable jobs">set job variables/parameters</a>.</p>
+					</li></ol></div>
+			</li></ol></div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch15s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch15.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch15s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Setting up Spark and DataCleaner environment&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Using Hadoop in DataCleaner desktop</td></tr></table></div></body></html>

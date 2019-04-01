@@ -1,0 +1,47 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Data access</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch17.html" title="Chapter&nbsp;17.&nbsp;Architecture"><link rel="prev" href="ch17.html" title="Chapter&nbsp;17.&nbsp;Architecture"><link rel="next" href="ch17s02.html" title="Processing framework"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Data access</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch17.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;17.&nbsp;Architecture</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch17s02.html">Next</a></td></tr></table><hr></div><div class="section" title="Data access"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="architecture_data_access"></a>Data access</h2></div></div></div>
+		
+
+		<p>In DataCleaner all sources of data are called 'datastores'. This
+			concept covers both sources that are read/parsed locally and those
+			that are 'connected to', eg. databases and applications. Some
+			datastores can also be written to, for instance relational databases.
+		</p>
+
+		<p>
+			DataCleaner uses the
+			<a class="link" href="http://metamodel.apache.org" target="_top">Apache MetaModel framework</a>
+			for data access. From DataCleaner's perspective, Apache MetaModel
+			provides a
+			number of features:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>A common way of interacting with different datastores.</p>
+			</li><li class="listitem">
+				<p>A programmatic query syntax that abstracts away
+					database-specific SQL dialects, and that is usable also for non-SQL
+					oriented datastores (files etc.).
+				</p>
+			</li><li class="listitem">
+				<p>Out-of-the-box connectivity to a lot of sources, eg. CSV
+					files, relational databases, Excel spreadsheets and a lot more.
+				</p>
+			</li><li class="listitem">
+				<p>A framework for modelling new sources using the same common
+					model.
+				</p>
+			</li></ol></div>
+
+		<p>
+			DataCleaners datastore model is also extensible in the way that
+			you
+			can yourself implement new datastores in order to hook up
+			DataCleaner
+			to legacy systems, application interfaces and more. For more
+			information refer to the
+			<a class="link" href="ch19s01.html" title="Extension development tutorials">Developer resources</a>
+			chapter.
+		</p>
+
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch17.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch17.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch17s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;17.&nbsp;Architecture&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Processing framework</td></tr></table></div></body></html>

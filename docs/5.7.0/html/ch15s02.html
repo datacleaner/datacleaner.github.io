@@ -1,0 +1,141 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Setting up Spark and DataCleaner environment</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch15.html" title="Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface"><link rel="prev" href="ch15s01.html" title="Hadoop deployment overview"><link rel="next" href="ch15s03.html" title="Launching DataCleaner jobs using Spark"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Setting up Spark and DataCleaner environment</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch15s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;15.&nbsp;Apache Hadoop and Spark interface</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch15s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Setting up Spark and DataCleaner environment"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hadoop_spark_setup"></a>Setting up Spark and DataCleaner environment</h2></div></div></div>
+		
+		<p>
+			In order to work, Apache Spark requires either of environmental variables
+			<span class="emphasis"><em>HADOOP_CONF_DIR</em></span>
+			or
+			<span class="emphasis"><em>YARN_CONF_DIR</em></span>
+			to a directory containing your Hadoop/Yarn configuration files such as
+			<span class="emphasis"><em>core-site.xml</em></span>
+			,
+			<span class="emphasis"><em>yarn-site.xml</em></span>
+			etc.
+		</p>
+		
+		<div class="section" title="Upload configuration file to HDFS"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1116"></a>Upload configuration file to HDFS</h3></div></div></div>
+			
+			
+			<p>
+				DataCleaner on Hadoop needs a regular
+				<a class="link" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file">DataCleaner configuration file</a> (conf.xml).
+				It's best to upload this to the hadoop distributed file system (HDFS).
+				We recommend putting this file into the path
+				<span class="emphasis"><em>/datacleaner/conf.xml</em></span>
+				.
+	
+				Simple example of a configuration file (conf.xml) with a CSV datastore based on a HDFS file or directory:
+			</p>
+			
+			<pre class="programlisting">
+				&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+				&lt;configuration xmlns="http://eobjects.org/analyzerbeans/configuration/1.0"&gt;
+				&nbsp;&lt;datastore-catalog&gt;
+				&nbsp;&nbsp;&lt;csv-datastore name="mydata"&gt;
+				&nbsp;&nbsp;&nbsp;&lt;filename&gt;hdfs://bigdatavm:9000/path/to/data.txt&lt;/filename&gt;
+				&nbsp;&nbsp;&nbsp;&lt;multiline-values&gt;false&lt;/multiline-values&gt;
+				&nbsp;&nbsp;&lt;/csv-datastore&gt;
+				&nbsp;&lt;/datastore-catalog&gt;
+				&lt;/configuration&gt;
+			</pre>
+			
+			<p>
+				Notice the filename which is here specified with scheme, hostname and port:
+			</p>
+			
+			<pre class="programlisting">
+				&lt;filename&gt;hdfs://bigdatavm:9000/path/to/data.txt&lt;/filename&gt;
+			</pre>
+			
+			<p>
+				This here refers to the Hadoop Namenode's hostname and port.
+			</p>
+			<p>
+				It can also be specified more implicityly, without the username and port:
+			</p>
+			
+			<pre class="programlisting">
+				&lt;filename&gt;hdfs:///path/to/data.txt&lt;/filename&gt;
+			</pre>
+			
+			<p>
+				Or even without scheme:
+			</p>
+			
+			<pre class="programlisting">
+				&lt;filename&gt;/path/to/data.txt&lt;/filename&gt;
+			</pre>
+		</div>
+
+		<div class="section" title="Upload job file to HDFS"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1129"></a>Upload job file to HDFS</h3></div></div></div>
+			
+			
+			<p>
+				Upload the DataCleaner job you wish to run (a DataCleaner .analysis.xml job file) to HDFS.
+				We recommend putting this file into a path such as <span class="emphasis"><em>/datacleaner/jobs/myjob.xml</em></span>.
+				The jobs can be built using the DataCleaner desktop UI, but do ensure that they map well to the configuration file also on HDFS.
+			</p>
+			<p>
+				Example job file based on the above datastore:
+			</p>
+			<pre class="programlisting">
+				&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+				&lt;job xmlns="http://eobjects.org/analyzerbeans/job/1.0"&gt;
+				&nbsp;&lt;source&gt;
+				&nbsp;&nbsp;&lt;data-context ref="mydata" /&gt;
+				&nbsp;&nbsp;&lt;columns&gt;
+				&nbsp;&nbsp;&nbsp;&lt;column id="col_country" path="country" /&gt;
+				&nbsp;&nbsp;&nbsp;&lt;column id="col_company" path="company" /&gt;
+				&nbsp;&nbsp;&lt;/columns&gt;
+				&nbsp;&lt;/source&gt;
+				&nbsp;&lt;analysis&gt;
+				&nbsp;&nbsp;&lt;analyzer&gt;
+				&nbsp;&nbsp;&nbsp;&lt;descriptor ref="Create CSV file"/&gt;
+				&nbsp;&nbsp;&nbsp;&lt;properties&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="File" value="hdfs:///path/to/output.csv"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Separator char" value="&amp;#44;"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Quote char" value="&amp;quot;"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Escape char" value="\"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Include header" value="true"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Encoding" value="UTF-8"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Fields" value="[COUNTRY,CUSTOMERNUMBER]"/&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="Overwrite file if exists" value="true"/&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/properties&gt;
+				&nbsp;&nbsp;&nbsp;&lt;input ref="col_country" name="Columns"/&gt;
+				&nbsp;&nbsp;&nbsp;&lt;input ref="col_company" name="Columns"/&gt;
+				&nbsp;&nbsp;&nbsp;&lt;/analyzer&gt;
+				&nbsp;&lt;/analysis&gt;
+				&lt;/job&gt;
+			</pre>
+			
+			<p>This particular job is very simplistic - it just copies data from A to B. Notes about the job file contents:</p>
+			
+			<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+					<p>
+						The job is referring to <span class="emphasis"><em>mydata</em></span> which was the name of the CSV datastore
+						defined in the configuration file.
+					</p>
+				</li><li class="listitem">
+					<p>
+						There is another HDFS file reference used in the "File" property.
+						The filename format is the same as in the configuration file.
+					</p>
+				</li></ol></div>
+			
+			<p>If your desktop application has access to the namenode then you can build this job in the desktop application, save it and run it on spark. There is nothing particular about this job that makes it runnable on spark, except that the file references involved are resolvable from the hadoop nodes.</p>
+		</div>
+		
+		<div class="section" title="Upload executables to HDFS"><div class="titlepage"><div><div><h3 class="title"><a name="d5e1143"></a>Upload executables to HDFS</h3></div></div></div>
+			
+			
+			<p>In the installation of DataCleaner you will find the file 'DataCleaner-spark.jar'.</p>
+
+			<p>This jar file contains the core of what is needed to run DataCleaner with Apache Spark on Hadoop. It contains also the standard components of DataCleaner.</p>
+
+			<p>Upload this jar file to HDFS in the folder <span class="emphasis"><em>/datacleaner/lib</em></span>.</p>
+			<p>Upload your DataCleaner license file to <span class="emphasis"><em>/datacleaner/hi_datacleaner.lic</em></span>.</p>
+			<p>Upload any extension jar files that you need (for instance Groovy-DataCleaner.jar) to that same folder.</p>
+
+		</div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch15s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch15.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch15s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Hadoop deployment overview&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Launching DataCleaner jobs using Spark</td></tr></table></div></body></html>

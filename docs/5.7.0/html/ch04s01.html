@@ -1,0 +1,39 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Synonym lookup</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Improve"><link rel="prev" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Improve"><link rel="next" href="ch04s02.html" title="Table lookup"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Synonym lookup</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;4.&nbsp;Improve</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch04s02.html">Next</a></td></tr></table><hr></div><div class="section" title="Synonym lookup"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synonym_lookup_transformer"></a>Synonym lookup</h2></div></div></div>
+		
+		<p>
+			The Synonym lookup transformation is a critical part of DataCleaner's
+			ability to standardize and cleanse data. Using this component you can
+			look up values in a
+			<a class="link" href="ch08.html" title="Chapter&nbsp;8.&nbsp;Synonyms (aka. Synonym catalogs)">synonym catalog</a>
+			and have it replaced with its master term, if it is found to be a
+			synonym.
+		</p>
+		<p>Below is a screenshot of the synonym lookup's configuration
+			panel:
+		</p>
+		<div class="mediaobject"><img src="transformer_reference_synonym_lookup.png"></div>
+		<p>
+			The configuration of the Synonym lookup is simple:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Select the column to apply the lookup function to.</p>
+			</li><li class="listitem">
+				<p>Use the 'Retain original value' option to determine if
+					unmatched values (non-synonyms) should be retained or if a null
+					value should be returned if there is no match.
+				</p>
+			</li><li class="listitem">
+				<p>Select the synonym catalog to use for lookups.</p>
+			</li></ol></div>
+
+		<p>
+			If your synonym catalog contains all the allowed values for a
+			particula column, it can be a good idea to uncheck the 'Retain
+			original value' checkbox and then do a simple null-check on the
+			resulting output column. If null values are found, it's because there
+			are values in the column that the synonym catalog is not able to
+			standardize.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch04.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch04s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;4.&nbsp;Improve&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Table lookup</td></tr></table></div></body></html>

@@ -1,0 +1,73 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Adding components to the job</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop"><link rel="prev" href="ch02s02.html" title="Connecting to your datastore"><link rel="next" href="ch02s04.html" title="Wiring components together"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Adding components to the job</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Adding components to the job"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="adding_components"></a>Adding components to the job</h2></div></div></div>
+		
+		<p>There are a few different kinds of components that you can add
+			to your
+			job:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Analyzers</em></span>
+					, which are the most important components. Actually, without at
+					least one analyzer the job will not run (if you execute the job
+					without adding one, DataCleaner will suggest adding a basic one
+					that will save the output to a file). An analyzer is a component
+					that inspects the data that it receives and generates a result or a
+					report. The majority of the data profiling cruft is created as
+					analyzers.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Transformers</em></span>
+					are components used to modify the data before analyzing it.
+					Sometimes it's neccessary to extract parts of a value or combine
+					two
+					values to correctly get an idea about a particular measure. In
+					other scenarios, transformers can be used to perform reference data
+					lookups or other similar tasks and place the results of an
+					operation into the stream of data in the job.
+				</p>
+				<p>
+					The result of a transformer is a set of output columns. These
+					columns work exactly like regular columns in your job, except that
+					they have a preceding step in the flow before they become
+					materialized.
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>Filters</em></span>
+					are components that split the flow of processing in a job. A filter
+					will have a number of possible outcomes and depending on the
+					outcome of a filter, a particular row might be processed by
+					different sub-flows. Filters are often used simply to disregard
+					certain rows from the analysis, eg. null values or values outside
+					the range of interest.
+				</p>
+			</li></ol></div>
+		<p>Each of these
+			components will be presented as a node in the job
+			graph. Double-clicking a component (graph node) will bring its
+			configuration dialog.
+		</p>
+		<p>
+			Transformers and filters are added to your job using the "Transform"
+			and "Improve"
+			menus. The menus are available in component library on the left
+			or by right-clicking on an empty space in the canvas.
+			Please refer to
+			the reference chapter
+			<a class="link" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Transform">Transformations</a>
+			for more
+			information on specific transformers and filters.
+		</p>
+		<p>
+			Analyzers are added to your job using the "Analyze" menu (in most
+			cases), but also "Write" menu for analyzers that save output to a
+			datastore. Please
+			refer to the reference chapter
+			<a class="link" href="ch05.html" title="Chapter&nbsp;5.&nbsp;Analyze">Analyzers</a>
+			for more
+			information on specific analyzers.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch02s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Connecting to your datastore&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Wiring components together</td></tr></table></div></body></html>

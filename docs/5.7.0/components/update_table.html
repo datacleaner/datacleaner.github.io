@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Update table</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Write</li> 
+
+					<li class="active">Update table</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACmUlEQVR4Xu2Xz2/SYBjHe/MfMjExcTuoMV49eTDxNOOiZw9G7+5kooI/xpxoNJ5gbCstAxw6fo2YTU1USgcSJm6lWX/Qkkiy5LFvS1n7thQVBhfe5JOW53ne5/tt6dsfBDHuEQiH3z6h1pjHZKzoowz8FF30k3TxUbTDigUzhkA11roe9Xo/DbO/rkGvMQvh0BviVeq9dDmrwjgIZfIHyICAJ0aFZoAngsnxGQhncjzx8l0qyfM8CKJkIIk6omhBkg1kCSS5adA0kGXZgmKgKNDUcnZUA1UFRWkB0lxK5ygimEglVVSgJba2Po0EpIUObGmjY0DR3JsG2u22jeOIIS1BECYGJgbcDYwCTwMkSdroFfs9S9joFXObOzHgaWB5NQq3qC9wha7AOXofzsc4fR/FUO5YDdzbqMA0zXtyl9ruKeYW+ysD6EFyMy84xHoxk6jrjf6XroHspmFg/pvoELFyhuIcsees6ljfbmveLWY7A4HEh3W8uZVTJAevyy04HW04clL7sK+YW8xm4FqcqeKNrZxcbegTnzKKw8TD70pfMbeYzcAluiaaDZHAC+3UPmOO8H09EsFN3MiLfcXcYjYDZ2nuED9aLwIltXtNXIjzfcXcYkMzgO4RqOG/ggyg1zR9FQzyF8xmD7B3QllvjMdwUE2DEyGS1gxcT7C7ZkM3vC7CO5mfkGZ2IFMqQ479AYVKDbJsBfLlKhS07cedKmxX6vC5WodirQGl+i9g9zio7O3DrrZd3iwkCV9kZQYXteK1DP3R5IN5On7fZDG23t3HQblFy+8FjWAkdFX/PJumG7fx5lbcbkRoDvaVN9iYovmEU8QdVIvPH8rodyYMhnzk+LgYZU9oQnNTMT6lbVuIzv4cyuH1g44/TES22PyVTuYAAAAASUVORK5CYII=" alt="" /> <span>Update table</span>
+					</h1>
+					<div><p>Update records in a table in a registered datastore. This component allows you to map the values available in the flow with the columns of the target table, in order to update the values of these columns in the datastore.</p><p>To understand the configuration of the Update table component, consider a typical SQL update statement:</p><p><blockquote>UPDATE table SET name = 'John Doe' WHERE id = 42</blockquote></p><p>Here we see that there is a condition (WHERE id=42) and a value to update (name should become 'John Doe'). This is what the two inputs are referring to. But obviously you are not dealing with constant values like 'John Doe' or '42'. You have a field in your DC job that you want to map to fields in your database.</p><p>Usually the 'condition value' would be a mapping of the key that you have in your job towards the key that is in the database. The 'values to update' property would include the columns that you wish to update based on the values you have in your job.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					<span class="label label-primary">Analyzer</span>
+					
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#resultPanel"
+						aria-controls="resultPanel">Result metrics <small>(WriteDataResult)</small></a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="resultPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Errornous rows</span>
+						</h3>  
+						
+						<span class="label label-primary">Not
+							parameterized</span>
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Inserts</span>
+						</h3>  
+						
+						<span class="label label-primary">Not
+							parameterized</span>
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Updates</span>
+						</h3>  
+						
+						<span class="label label-primary">Not
+							parameterized</span>
+					</li> 
+				</ul>
+			</div>
+		</div>
+		 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Values
+						</h3> <p>Values to update in the table</p> <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Column names
+						</h3> <p>Names of columns in the target table, on which the values will be updated.</p> <!-- type --> <span
+						class="label label-primary">List of String</span>  <span class="label label-primary">Mapped with <i>Values</i></span>
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Condition values
+						</h3> <p>Values that make up the condition of the table update</p> <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Condition column names
+						</h3> <p>Names of columns in the target table, which form the conditions of the update.</p> <!-- type --> <span
+						class="label label-primary">List of String</span>  <span class="label label-primary">Mapped with <i>Condition values</i></span>
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Datastore
+						</h3> <p>Datastore to write to</p> <!-- type --> <span
+						class="label label-primary">UpdateableDatastore</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Schema name
+						</h3> <p>Schema name of target table</p> <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Table name
+						</h3> <p>Table to target (update)</p> <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Buffer size
+						</h3> <p>How much data to buffer before committing batches of data. Large batches often perform better, but require more memory.</p> <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">Huge (1M values)</span>
+						 <span class="label label-default">Large (100k values)</span>
+						 <span class="label label-default">Medium (10k values)</span>
+						 <span class="label label-default">Small (1000 values)</span>
+						 <span class="label label-default">Tiny (100 values)</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 How to handle updation errors?
+						</h3>  <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">Stop the job</span>
+						 <span class="label label-default">Save errornuos records to file</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Error log file location
+						</h3> <p>Directory or file path for saving erroneous records</p> <!-- type --> <span
+						class="label label-primary">File</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Additional error log values
+						</h3> <p>Additional values to write to error log</p> <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -7,6 +7,7 @@ description: >
   Open source software for data quality, data profiling, data warehousing, data wrangling,
   master data management, business intelligence and governance.
 releases: [
+  {"version": "5.7.0"},
   {"version": "5.6.0"},
   {"version": "5.5.0"},
   {"version": "5.4.2"},
@@ -29,6 +30,7 @@ releases: [
   {"version": "4.0","sourceforge":true}
 ]
 docs:
+- "5.7.0"
 - "5.4.0"
 - "5.2"
 screenshots: [

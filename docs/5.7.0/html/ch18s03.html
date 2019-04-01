@@ -1,0 +1,211 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Step 2: Job</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch18.html" title="Chapter&nbsp;18.&nbsp;Executing jobs through code"><link rel="prev" href="ch18s02.html" title="Step 1: Configuration"><link rel="next" href="ch18s04.html" title="Step 3: Execution"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Step 2: Job</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch18s02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;18.&nbsp;Executing jobs through code</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch18s04.html">Next</a></td></tr></table><hr></div><div class="section" title="Step 2: Job"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section_development_configuration_job"></a>Step 2: Job</h2></div></div></div>
+		<div class="mediaobject" align="right"><img src="dev_job_execution_job.png" align="right"></div>
+		
+		<p>Like with the configuration, we can choose to either load the
+			job we want to run from a file, or build it programmatically.
+		</p>
+		<p>Let's start by simply loading a job from a file. We'll need to
+			use the JaxbJobReader class:
+		</p>
+		<pre class="programlisting">
+			InputStream&nbsp;inputStream&nbsp;=&nbsp;new&nbsp;FileInputStream("my_job.analysis.xml");
+			JaxbJobReader&nbsp;jobReader&nbsp;=&nbsp;new&nbsp;JaxbJobReader(configuration);
+			AnalysisJob&nbsp;analysisJob&nbsp;=&nbsp;jobReader.read(inputStream);
+		</pre>
+		<p>
+			Note that this is the 'vanilla' case. You can also use the
+			JaxbJobReader to read metadata about a job, and even to read a job
+			'as a template', which makes it possible to instantiate the job with
+			certain replacements. For an example of how this functionality is
+			used in DataCleaner's desktop application, see the
+			<a class="link" href="ch02s07.html" title="Template jobs">template jobs</a>
+			section.
+		</p>
+		<p>
+			The other way of producing a job is to build it
+			programmatically. This is quite involved process that varies quite a
+			lot depending on what kind of job you want to build. But the API has
+			been designed to make it as easy as possible.
+		</p>
+		<p>To give an overview of the API, consider this list of important
+			classes:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					<span class="emphasis"><em>AnalysisJobBuilder</em></span>
+					:
+					Represents a mutable job that is being built. This builder object
+					contains source columns of the job, and all the components that
+					consume source columns (or sometimes transformed columns).
+				</p>
+			</li><li class="listitem">
+				<p>
+					<span class="emphasis"><em>TransformerComponentBuilder</em></span>
+					,
+					<span class="emphasis"><em>FilterComponentBuilder</em></span>
+					, and
+					<span class="emphasis"><em>AnalyzerComponentBuilder</em></span>
+					:
+					, represents mutable components of the job that is being built.
+					These can each have configuration properties, filter requirements,
+					input and output columns.
+				</p>
+			</li></ol></div>
+
+		<div class="tip" title="Tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3>
+			<p>Be aware of the unfortunate similarity between the
+				'AnalyzerComponentBuilder' class name and the 'AnalysisJobBuilder'
+				class
+				name. To rid the confusion, remember that the 'analysis'
+				represents
+				the full scope of the job, whereas an 'analyzer' is just a
+				single
+				active part ('component') of the job.
+			</p>
+		</div>
+
+		<p>Let's see an example of building a job programmatically. And to
+			ensure that we don't miss important insights, we'll make it a fairly
+			non-trivial job with both filters, transformers and analyzers. The
+			job
+			will encompass:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Three source columns from the datastore 'my database': Name,
+					Age and Company_name.
+				</p>
+			</li><li class="listitem">
+				<p>All records where 'Company_name' is null will be inserted into
+					the
+					datastore called 'my CSV file'. In the CSV file the columns are
+					called 'fullname' and 'age_years'.
+				</p>
+			</li><li class="listitem">
+				<p>All records where 'Company_name' isn't null will 1) have their
+					working address looked up in another table of the database, and 2)
+					the name and the working address will be passed on to a 'Pattern
+					finder' analyzer.
+				</p>
+			</li></ol></div>
+		<pre class="programlisting">
+			Datastore&nbsp;myDatabase&nbsp;=&nbsp;configuration.getDatastoreCatalog().getDatastore("my&nbsp;database");
+			Datastore&nbsp;myCsvFile&nbsp;=&nbsp;configuration.getDatastoreCatalog().getDatastore("my&nbsp;CSV&nbsp;file");
+
+			AnalysisJobBuilder&nbsp;builder&nbsp;=&nbsp;new&nbsp;AnalysisJobBuilder(configuration);
+			builder.setDatastore(myDatabase);
+			builder.addSourceColumns("public.persons.Name","public.persons.Age","public.persons.Company_name")
+
+			InputColumn&lt;?&gt;&nbsp;nameColumn&nbsp;=&nbsp;builder.getSourceColumnByName("Name");
+			InputColumn&lt;?&gt;&nbsp;ageColumn&nbsp;=&nbsp;builder.getSourceColumnByName("Age");
+			InputColumn&lt;?&gt;&nbsp;companyColumn&nbsp;=&nbsp;builder.getSourceColumnByName("Company_name");
+
+			//&nbsp;add&nbsp;a&nbsp;filter&nbsp;to&nbsp;check&nbsp;for&nbsp;null&nbsp;'company'
+			FilterComponentBuilder&lt;NullCheckFilter&gt;&nbsp;nullCheckBuilder&nbsp;=&nbsp;builder.addFilter(NullCheckFilter.class);
+			nullCheckBuilder.addInputColumn(companyColumn);
+
+			//&nbsp;add&nbsp;a&nbsp;InsertIntoTable&nbsp;analyzer&nbsp;to&nbsp;write&nbsp;the&nbsp;records&nbsp;without&nbsp;a&nbsp;company&nbsp;to&nbsp;the&nbsp;csv&nbsp;file
+			AnalyzerComponentBuilder&lt;InsertIntoTableAnalyzer&gt;&nbsp;insertBuilder&nbsp;=&nbsp;builder.addAnalyzer(InsertIntoTableAnalyzer.class);
+			insertBuilder.addInputColumns(nameColumn,&nbsp;ageColumn);
+			insertBuilder.setConfiguredProperty("Datastore",&nbsp;myCsvFile);
+			insertBuilder.setConfiguredProperty("Columns",&nbsp;new&nbsp;String[]&nbsp;{"fullname","age_years"});
+			insertBuilder.setRequirement(nullCheckBuilder.getOutcome(NullCheckFilter.Category.NULL));
+
+			//&nbsp;add&nbsp;a&nbsp;lookup&nbsp;for&nbsp;the&nbsp;company&nbsp;working&nbsp;address
+			&nbsp;&nbsp;&nbsp;&nbsp;TransformerComponentBuilder&lt;TableLookupTransformer&gt;&nbsp;lookupBuilder&nbsp;=
+			builder.addTransformer(TableLookupTransformer.class);
+			lookupBuilder.addInputColumn(companyColumn);
+			lookupBuilder.setConfiguredProperty("Datastore",&nbsp;myDatabase);
+			lookupBuilder.setConfiguredProperty("Schema&nbsp;name",&nbsp;"public");
+			lookupBuilder.setConfiguredProperty("Table&nbsp;name",&nbsp;"companies");
+			lookupBuilder.setConfiguredProperty("Condition&nbsp;columns",&nbsp;new&nbsp;String[]&nbsp;{"name"});
+			lookupBuilder.setConfiguredProperty("Output&nbsp;columns",&nbsp;new&nbsp;String[]&nbsp;{"address"});
+			lookupBuilder.setRequirement(nullCheckBuilder.getOutcome(NullCheckFilter.Category.NOT_NULL));
+
+			//&nbsp;reference&nbsp;the&nbsp;'working&nbsp;address'&nbsp;column&nbsp;and&nbsp;give&nbsp;it&nbsp;a&nbsp;proper&nbsp;name
+			MutableInputColumn&lt;?&gt;&nbsp;addressColumn&nbsp;=&nbsp;lookupBuilder.getOutputColumns().get(0);
+			addressColumn.setName("Working&nbsp;address");
+
+			//&nbsp;add&nbsp;the&nbsp;Pattern&nbsp;finder&nbsp;analyzer
+			PatternFinder&nbsp;patternFinder&nbsp;=&nbsp;jobBuilder.addAnalyzer(PatternFinder.class);
+			patternFinder.addInputColumns(nameColumn,&nbsp;addressColumn);
+
+			//&nbsp;validate&nbsp;and&nbsp;produce&nbsp;to&nbsp;AnalysisJob
+			AnalysisJob&nbsp;analysisJob&nbsp;=&nbsp;jobBuilder.toAnalysisJob();
+		</pre>
+
+		<p>Things to note from this example:</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>Notice how the filter requirements are set up using the
+					.setRequirement(...) method on the succeeding components.
+				</p>
+			</li><li class="listitem">
+				<p>There aren't any explicit filter requirements set on the
+					'Pattern finder' analyzer. This isn't necesary since it depends on
+					a transformed input column ('Working address') which itself has the
+					requirement. DataCleaner will figure out the transitive
+					requirements automatically.
+				</p>
+			</li><li class="listitem">
+				<p>
+					One piece of 'magic' is how to set the properties of the components
+					correctly. We can see that we call
+					<span class="emphasis"><em>.setConfiguredProperty(String,Object)</em></span>
+					, but not how to figure out
+					what to pass as arguments. There are two
+					proper ways to figure this out...
+				</p>
+				<div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+						<p>You can use DataCleaner's command line to list all
+							components of a specific type, e.g.:
+						</p>
+						<pre class="programlisting">
+							&gt;&nbsp;DataCleaner-console.exe&nbsp;-list&nbsp;ANALYZERS
+							...
+							name:&nbsp;Insert&nbsp;into&nbsp;table
+							&nbsp;-&nbsp;Consumes&nbsp;2&nbsp;named&nbsp;inputs
+							&nbsp;&nbsp;&nbsp;Input&nbsp;columns:&nbsp;Additional&nbsp;error&nbsp;log&nbsp;values&nbsp;(type:&nbsp;Object)
+							&nbsp;&nbsp;&nbsp;Input&nbsp;columns:&nbsp;Values&nbsp;(type:&nbsp;Object)
+							&nbsp;-&nbsp;Property:&nbsp;name=Column&nbsp;names,&nbsp;type=String,&nbsp;required=true
+							&nbsp;-&nbsp;Property:&nbsp;name=Datastore,&nbsp;type=UpdateableDatastore,&nbsp;required=true
+							...
+						</pre>
+					</li><li class="listitem">
+						<p>
+							Or you can simply open up the component class in an IDE to
+							inspect it's @Configured properties. For instance, if we look at
+							<span class="emphasis"><em>InsertIntoTableAnalyzer.java</em></span>
+							we'll see:
+						</p>
+						<pre class="programlisting">
+							...
+
+							@Inject
+							@Configured
+							@Description("Names&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;target&nbsp;table.")
+							@ColumnProperty
+							String[]&nbsp;columnNames;
+
+							@Inject
+							@Configured
+							@Description("Datastore&nbsp;to&nbsp;write&nbsp;to")
+							UpdateableDatastore&nbsp;datastore;
+
+							...
+						</pre>
+						<p>From these fields we can infer that there will be two
+							configured properties, 'Column names' and 'Datastore'.
+						</p>
+					</li></ol></div>
+			</li></ol></div>
+
+		<p>
+			Either way we do it, we now have an
+			<span class="emphasis"><em>AnalysisJob</em></span>
+			with the variable name 'analysisJob'. Then we can proceed to
+			actually
+			executing the job.
+		</p>
+
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch18s02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch18.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch18s04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Step 1: Configuration&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Step 3: Execution</td></tr></table></div></body></html>

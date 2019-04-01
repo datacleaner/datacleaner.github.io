@@ -1,0 +1,103 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Installing the desktop application</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop"><link rel="prev" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop"><link rel="next" href="ch02s02.html" title="Connecting to your datastore"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Installing the desktop application</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch02s02.html">Next</a></td></tr></table><hr></div><div class="section" title="Installing the desktop application"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installing_datacleaner"></a>Installing the desktop application</h2></div></div></div>
+		
+
+		<p>These are the system requirements of DataCleaner:</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				A computer (with a graphical display, except if run in command-line
+				mode).
+			</li><li class="listitem">
+				A
+				<a class="link" href="http://www.java.com" target="_top">Java Runtime Environment</a>
+				(JRE), version 7 or higher.
+			</li><li class="listitem">
+				A DataCleaner software license file for professional editions. If you've requested a free
+				trial or purchased DataCleaner online, this file will have been sent
+				to your email address.
+			</li></ol></div>
+
+		<p>
+			Start the installation procedure using the installer program.
+			The
+			installer program is an executable JAR file, which is executable
+			on
+			most systems if you simply double-click it.
+		</p>
+
+		<div class="tip" title="Tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3>
+			<p>If the installer does not launch when you double-click it,
+				open
+				a command prompt and enter:
+			</p>
+			<div class="blockquote"><blockquote class="blockquote">
+				java -jar DataCleaner-[edition]-[version]-install.jar
+			</blockquote></div>
+		</div>
+
+		<p>Troubleshooting</p>
+		<p>Usually the installation procedure is trivial and
+			self-explanatory. But in case something is not working as expected,
+			please check the following points:
+		</p>
+
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					On Windows systems, if you do not have
+					<span class="emphasis"><em>Administrative privileges</em></span>
+					on the machine, we encourage you to install DataCleaner in your
+					user's directory instead of in 'Program Files'.
+				</p>
+			</li><li class="listitem">
+				<p>
+					On some Windows systems you can get a warning '
+					<span class="emphasis"><em>There is no script engine for file extension '.js'
+					</em></span>
+					'. This happens when .js files (JavaScript) files are associated
+					with an editor instead of Windows' built-in scripting engine. To
+					resolve this issue, please refer to these help links:
+				</p>
+				<div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+						<p>
+							<a class="link" href="http://answers.microsoft.com/en-us/windows/forum/windows_7-system/fix-there-is-no-script-engine-for-file-extension/95d58867-3f31-45e3-aeaf-32ecea4d33c1" target="_top">answers.microsoft.com</a>
+							, which address the issue and recommends...
+						</p>
+					</li><li class="listitem">
+						<p>
+							<a class="link" href="http://www.winhelponline.com/articles/230/1/Error-There-is-no-script-engine-for-file-extension-when-running-js-files.html" target="_top">winhelponline.com</a>
+							, which has a fix for the issue
+						</p>
+					</li></ol></div>
+			</li><li class="listitem">
+				<p>If you have issues with locating or selecting the software
+					license file, you can skip the step in the installer by copying the
+					license file manually to this folder: '~/.datacleaner' (where ~ is
+					your User's home folder). Note that on Windows machines it is
+					prohibited by Windows explorer to create directories starting with
+					dot (.), but it can be done using the command prompt:
+				</p>
+				<div class="blockquote"><blockquote class="blockquote">
+					mkdir .datacleaner
+				</blockquote></div>
+			</li><li class="listitem">
+				<p>
+					If you have problems with running out of heap memory, you can adjust
+					the amount of memory allocated in the file 'DataCleaner.l4j', alternatively
+					the file 'DataCleaner-console.l4j' if you are running from console.
+				</p>
+
+				<p>
+					In order to increase Java heap memory you can use the following
+					parameters:
+					</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							<code class="code">-Xms</code> - set the minimum heap size
+						</li><li class="listitem">
+							<code class="code">-Xmx</code> - set the maximum heap size
+						</li></ul></div><p>
+				</p>
+				<p>
+					Eg. <code class="code">-Xmx4g</code> to set the maximum size of the heap to 4 GB.
+				</p>
+			</li></ol></div>
+
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch02.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch02s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Getting started with DataCleaner desktop&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Connecting to your datastore</td></tr></table></div></body></html>

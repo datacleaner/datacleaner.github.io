@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Date mask matcher</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Date and time</li>
+
+					<li class="active">Date mask matcher</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACQUlEQVR4Xu2Vz08TQRTH+Te8Y4iBREnjxUThYsJNvXPgot5M/AOICYGLFy4eIFQsAikaE/wRwo8gRjBFMCnF/lhMtaW0W2hZbdltS3/s5tE3ZqfdnVZthxIS+5LvYWfefN9nZ+fttLScp7BYLBfOQua6NHDS3WqFRqoJUKyxVNQ7c20STYB/AfBenQRxaB2Olnch7TkkSs4HINK/Bp4rNibfLC4ALKKmclAtColjCD14z6w7FYCfLwRzvaoRe+Jk1nMBiIMOQwHFIULw/hII1+0gdM+Qt05txQw51XaiZgChyw5aTqXG+8NfSvMdz+DoQwjEAQd8vWiFwwkPzSvIWfB2TvADxEe3qSketvK5nZsvybjyWSTPCKFsRmk+7pzZr2aAjE+ihv7bs38EQAXvLtB8eTXMD6Cm88QMPwO+4d8AsE31yO4m+QH0719QcnQsNuKCfDwNeSnDAOC5oAARmR8gG5apoe/aNBmT7MaWxBbV8/23Zul4ynnAD/DrjZ8aGjqgiqRpH82Pj20z8zUD/Oido4ZqtgD+O68ZU12BvnnQVI3kapoG33peMTk1A6CSC4ESRPFQRh59Anf7OJ33XLZB9PGm4X8hTXkZn7oB8JI5DiSoOQbeCXgRYZuqmd+dokfaFQP3paeMT90AKK/lOcgf9wyFKkXi7XfSCeb13AAo/A+EHq6AshEFLV/abjwb8loYgvcWmTVmcQEYVNxi4YadyN1Websr6fQA6lQT4PwDlAkTG6XKAOWBSY2Uud7/GydUHaXgbCA1KQAAAABJRU5ErkJggg==" alt="" /> <span>Date mask matcher</span>
+					</h1>
+					<div><p>Matches String values against a set of date masks, producing a corresponding set of output columns, specifying whether or not the strings could be interpreted as dates given those date masks</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Date masks
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Output type
+						</h3>  <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">True or false</span>
+						 <span class="label label-default">Corrected value or null</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

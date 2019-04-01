@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>XML encoder</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Encoding</li>
+
+					<li class="active">XML encoder</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACOElEQVR4XrWUvWsUQRjGj2BhBANCIEWw0n8iVWy0ik0+GhUrCwNpAprG/CP5IBENWiQgJKLonZrcIWcMCpoucKCYHDFRQYk6O+4wmZ1j92af9z7e210f+DU78zzPy87s5nIgb7ZLdwpmpBKGc3C9blYiYTgH9Lp5HQvDOTTyupkdCcM5NPO6uWxhCIdWXjebJQzg0M7r5rcVmjlwvG5HS6GRA9fr9jQVmjhgRiphOAfMSCUMzxrsI0JD1mAfERpiPB/VgdS3j3SNCfYRocHFryzbAeTmHbLGBfuI0BAiFk5rJX/bAcSDc/W1RwNkbyuwjwgNIfLFNVvuf92MPbfPvuS1tzpIPI3APiI0hPif1mqv//Vk7Ln6+8M+t4NUN7T3+CLxph5ALJ7Ryve0Ur4W9/vja+ZoZHlKq6NqfZD9svaeDpGcxAPI9Ru14L1XZC0aZL5by+K4Vj8r0SDq4J32ng1rMZNygOCMA8niTbKGiNkT5r5ctZ9qNMj37eQDiHt95vX/M0gt7vaSQsQOULhiBviQzQCyNGFD/M9PSFmseO6kfUOxIzh8b45gJN0R+NWSDZMvr5NSW2wv4W24hG/MJbxM9nY8gFg6a26+Mj+gP6aoh4QFxD/DovkML5E9iQeQ5Vu14MoKCQqx67sF8yO6QNYagX1E7mZ1sGULZH6MBEX8t1/xw/O2XHm/zDd+igQlBfuIwo3y7XTt9e4skZA0YB9RuDH4dgM1+6UmBfuI0JA12EeEhqzBvmP/dEkC9o9LNQAAAABJRU5ErkJggg==" alt="" /> <span>XML encoder</span>
+					</h1>
+					<div><p>Encodes/escapes plain text into XML content</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Target format
+						</h3>  <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">Content</span>
+						 <span class="label label-default">Attribute</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

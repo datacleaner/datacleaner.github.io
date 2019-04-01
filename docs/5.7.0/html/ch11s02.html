@@ -1,0 +1,58 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Source section</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch11.html" title="Chapter&nbsp;11.&nbsp;Analysis job files"><link rel="prev" href="ch11s01.html" title="XML schema"><link rel="next" href="ch12.html" title="Chapter&nbsp;12.&nbsp;Logging"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Source section</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch11s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;11.&nbsp;Analysis job files</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch12.html">Next</a></td></tr></table><hr></div><div class="section" title="Source section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="job_files_source_section"></a>Source section</h2></div></div></div>
+		
+		<p>The source section of the job file format is probably the most
+			interesting one to manually edit or review. Here's an example source
+			section:
+		</p>
+		<pre class="programlisting">
+			&lt;source&gt;
+			&nbsp;&nbsp;&lt;data-context&nbsp;ref="orderdb"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;columns&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.EMPLOYEENUMBER"&nbsp;id="col_0"&nbsp;type="INTEGER"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.LASTNAME"&nbsp;id="col_1"&nbsp;type="VARCHAR"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.FIRSTNAME"&nbsp;id="col_2"&nbsp;type="VARCHAR"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.EXTENSION"&nbsp;id="col_3"&nbsp;type="VARCHAR"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.EMAIL"&nbsp;id="col_4"&nbsp;type="VARCHAR"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.OFFICECODE"&nbsp;id="col_5"&nbsp;type="VARCHAR"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.REPORTSTO"&nbsp;id="col_6"&nbsp;type="INTEGER"&nbsp;/&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;column&nbsp;path="PUBLIC.EMPLOYEES.JOBTITLE"&nbsp;id="col_7"&nbsp;type="VARCHAR"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;/columns&gt;
+			&nbsp;&nbsp;&lt;variables&gt;
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;variable&nbsp;id="employee&nbsp;type"&nbsp;value="Sales&nbsp;Rep"&nbsp;/&gt;
+			&nbsp;&nbsp;&lt;/variables&gt;
+			&lt;/source&gt; </pre>
+		<p>
+			From this source section we can derive these interesting facts:
+		</p>
+		<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+				<p>
+					The job is using the datastore called 'orderdb'. How this datastore
+					is configured, the job is not aware of, since it is defined in the
+					<span class="emphasis"><em>configuration</em></span>
+					. Potentially the job could be used with multiple similar
+					datastores, as long as their name was 'orderdb'.
+				</p>
+			</li><li class="listitem">
+				<p>
+					The columns defined make up the base of the source query that
+					the job will fire. Each column is assigned an artificial ID, and a
+					hint about it's data type is provided. This information is there to
+					be able to detach or replace a column with a new definition. That
+					means that if you've spend a long time building the perfect job,
+					but want to apply it to a different column, you can potentially
+					"just" change the column definition here and retain the original
+					column ID.
+				</p>
+			</li><li class="listitem">
+				<p>
+					In this source section we also see some variables. This is an
+					optional sub-section and not that common. The variables are
+					property values that can be replaced at runtime with new values.
+					See the chapter
+					<a class="link" href="ch14s05.html" title="Parameterizable jobs">Parameterizable jobs</a>
+					for more information and examples.
+				</p>
+			</li></ol></div>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch11s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch11.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch12.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">XML schema&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;12.&nbsp;Logging</td></tr></table></div></body></html>

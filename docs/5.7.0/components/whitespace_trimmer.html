@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Whitespace trimmer</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Text</li>
+
+					<li class="active">Whitespace trimmer</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB9klEQVR4Xu1Uvy9DURT+DFj82AxIDIxC0iaM/gKDsDEajGxMlZglQhCpJor2vSYG0UUY/AMkloYgEYtEG0IEVX19zmnubZ9DeZZq4n3Jybv3nO+e891z732ABw8ePFQislGM2CZstmwEwzLO0HFtOQNpsgsritm7FTRK/q+Qi2K/kDiGPRlnSAFCzLbku8ZzEK05ExYVvqFESR4/h9EiebpYfmyjKrmIOiuGsbwAEy+S7xrUwilOQt85y8BCfmxiUvKcAjRSIdSrDlw5/b8Ctf+Uk2Qi8GfW0at2dCJ5UgAXtyKYYR/doVEn1zUKBaNIaB8VP1OCepxcLUAa7f7oKYRmJ9c1qOVLnMTZcjuGgPItOrmy8AcRJu4yG+h28n/E+TxqeWH+0tFF1P70GtrVzm4T06jRfl1Mzw9XUP2yijYSGlQidnXMFbKbGJI7kUZnO6j5UoDG7TwalOB7GfsWtCAuC0qjXe1ofikB3D3FfZCxknhcRhMJeCN74vcs4/xn47fNHOayTwrg43kNo4tbrzoQL2b4AXT5JngRvX1DxjQo8ZbijPNcdkd06uF1HZ3M69tN2aWsmNzAMS+kM+4vOAXojgyonR3z/FNRA1n6e16TwM30Bjr0Oln0SwH/G36/3/5LqwgBB2SX6ltW8/l8AXkiHjyUHe+y9WJpM1XV6gAAAABJRU5ErkJggg==" alt="" /> <span>Whitespace trimmer</span>
+					</h1>
+					<div><p>Trims your String values either on left, right or both sides.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Trim left
+						</h3>  <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Trim right
+						</h3>  <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Trim multiple to single space
+						</h3>  <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Columns
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

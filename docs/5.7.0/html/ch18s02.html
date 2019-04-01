@@ -1,0 +1,55 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Step 1: Configuration</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="ch18.html" title="Chapter&nbsp;18.&nbsp;Executing jobs through code"><link rel="prev" href="ch18s01.html" title="Overview of steps and options"><link rel="next" href="ch18s03.html" title="Step 2: Job"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Step 1: Configuration</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch18s01.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;18.&nbsp;Executing jobs through code</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch18s03.html">Next</a></td></tr></table><hr></div><div class="section" title="Step 1: Configuration"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section_development_configuration_configuration"></a>Step 1: Configuration</h2></div></div></div>
+		<div class="mediaobject" align="right"><img src="dev_job_execution_configuration.png" align="right"></div>
+		
+		<p>
+			The configuration for DataCleaner is represented in the class
+			<span class="emphasis"><em>DataCleanerConfiguration</em></span>
+			(previously 'AnalyzerBeansConfiguration').
+			You need a
+			DataCleanerConfiguration as a prerequisite for most of
+			the coming
+			operations.
+		</p>
+		<p>
+			The easiest and probably most convenient option for acquiring an
+			DataCleanerConfiguration instance is to load it from a file,
+			typically named conf.xml (See the
+			<a class="link" href="ch10.html" title="Chapter&nbsp;10.&nbsp;Configuration file">Configuration file</a>
+			chapter for more details on this file format). To load the file, use
+			the JaxbConfigurationReader class, like this:
+		</p>
+		<pre class="programlisting">
+			InputStream&nbsp;inputStream&nbsp;=&nbsp;new&nbsp;FileInputStream("conf.xml");
+			JaxbConfigurationReader&nbsp;configurationReader&nbsp;=&nbsp;new&nbsp;JaxbConfigurationReader();
+			DataCleanerConfiguration&nbsp;configuration&nbsp;=&nbsp;configurationReader.read(inputStream);
+		</pre>
+		<p>Alternatively, you can build the configuration programmatically,
+			through code. This is typically more cumbersome, but in some cases
+			also quite useful if the configuration is to be build dynamically or
+			something like that.
+		</p>
+		<p>Here's an example where we configure
+			DataCleaner with 2 example
+			datastores and a threadpool of 10
+			threads:
+		</p>
+		<pre class="programlisting">
+			Datastore&nbsp;datastore1&nbsp;=&nbsp;new&nbsp;CsvDatastore("my&nbsp;CSV&nbsp;file",&nbsp;"some_data.csv");
+			boolean&nbsp;multipleConnections&nbsp;=&nbsp;true
+			Datastore&nbsp;datastore2&nbsp;=&nbsp;new&nbsp;JdbcDatastore("my&nbsp;database",
+			&nbsp;&nbsp;&nbsp;&nbsp;"jdbc:vendor://localhost/database",&nbsp;"com.database.Driver",
+			&nbsp;&nbsp;&nbsp;&nbsp;"username",&nbsp;"password",&nbsp;multipleConnections);
+
+			DataCleanerConfigurationImpl&nbsp;configuration&nbsp;=&nbsp;new&nbsp;DataCleanerConfigurationImpl();
+			configuration&nbsp;=&nbsp;configuration.replace(new&nbsp;MultiThreadedTaskRunner(10));
+			configuration&nbsp;=&nbsp;configuration.replace(new&nbsp;DatastoreCatalogImpl(datastore1,&nbsp;datastore2));
+		</pre>
+		<p>
+			Either way we do it, we now have an
+			<span class="emphasis"><em>DataCleanerConfiguration</em></span>
+			with the variable name 'configuration'. Then we can proceed to
+			defining the job to run.
+		</p>
+	</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch18s01.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch18.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch18s03.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Overview of steps and options&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Step 2: Job</td></tr></table></div></body></html>

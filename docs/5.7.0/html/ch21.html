@@ -1,0 +1,36 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;21.&nbsp;Embedding DataCleaner</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1"><link rel="home" href="index.html" title="Reference documentation"><link rel="up" href="pt07.html" title="Part&nbsp;VII.&nbsp;Developer's guide"><link rel="prev" href="ch20s04.html" title="Component icons"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;21.&nbsp;Embedding DataCleaner</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch20s04.html">Prev</a>&nbsp;</td><th width="60%" align="center">Part&nbsp;VII.&nbsp;Developer's guide</th><td width="20%" align="right">&nbsp;</td></tr></table><hr></div><div class="chapter" title="Chapter&nbsp;21.&nbsp;Embedding DataCleaner"><div class="titlepage"><div><div><h2 class="title"><a name="embedding_datacleaner"></a>Chapter&nbsp;21.&nbsp;Embedding DataCleaner</h2></div></div></div>
+
+	
+
+	<p>
+		It is possible to embed DataCleaner into other Java applications.
+		This allows a simple way to add Data Quality Analysis (DQA) and Data
+		Profiling functionality as an addition to the applications that you
+		are building.
+	</p>
+
+	<p>
+		The simplest way to embed DataCleaner is simply by doing what
+		DataCleaner's main executable does - instantiate the
+		<span class="emphasis"><em>Bootstrap</em></span>
+		class with default arguments:
+	</p>
+
+	<pre class="programlisting">
+		BootstrapOptions&nbsp;bootstrapOptions&nbsp;=&nbsp;new&nbsp;DefaultBootstrapOptions(args);
+		Bootstrap&nbsp;bootstrap&nbsp;=&nbsp;new&nbsp;Bootstrap(bootstrapOptions);
+		bootstrap.run();
+	</pre>
+
+	<p>
+		To customize further, add your own implementation of the
+		<span class="emphasis"><em>BootstrapOptions</em></span>
+		class. The main scenario for embedding DataCleaner is to run the
+		application in the so-called "single datastore mode". This can be
+		achieved by implementing the BootstrapOptions and providing a
+		non-null value for the getSingleDatastore() method.
+	</p>
+
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch20s04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="pt07.html">Up</a></td><td width="40%" align="right">&nbsp;</td></tr><tr><td width="40%" align="left" valign="top">Component icons&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;</td></tr></table></div></body></html>

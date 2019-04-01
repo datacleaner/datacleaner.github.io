@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Boolean analyzer</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Analyze</li> 
+
+					<li class="active">Boolean analyzer</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABt0lEQVR4Xu1VO07DQBDNATgRBaag5QBU1NByASTOQc8FEHGBKGigoUwFElIQQnFCsEzitSmGzCaO1s+73o+2QeJJT4rHO+/N7Ow6g8E//grEyYBCqNPBmBNQ2JUmDTXuhODEDbAwb62gpA3QOEgnNBGNQzQkQpLR2De/BV8BNPbJ1UIngs8N0Ni0zgsoZBJHY3wfDFUMDWzxKEBBNNKxL98bOgE0NJmrazHuDJMAGuvWMPretbB/N9lJbrKjJM2uk2GWS65+P53vUn2qF7CZM2zvJaTxMKNertZgHsMmbi1gL51eNCYH6YQuRzmN5oIePpZ09jhrFcFrMd+G3gLUzg9vM3orahJCbFmWJaXjRasIHgnO3oXovZ650vnV87c0rapqS34uyqqzE3wm0MBG9O90/76sW+ZqEbgLpvPghc1pDytglYt63kjWVy1oBJyLet5QC2h2weUQxitAGUHD5hq+5oJe5trO14wygp6Pz9eipqL66cS3jHEI1WuIPL6fyd3AeEPORb0g6HaBzReVoGlZd4wlY3SvQv0UM7lzvgGfy24BIZ9iJ+h2osPYnSNMf8ccizZzBb8jQxXYNSxBSQAAAABJRU5ErkJggg==" alt="" /> <span>Boolean analyzer</span>
+					</h1>
+					<div><p>Inspect your boolean values. How is the distribution of true/false? Are there null values?</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					<span class="label label-primary">Analyzer</span>
+					
+					
+
+					<!-- execution details -->
+					  
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#resultPanel"
+						aria-controls="resultPanel">Result metrics <small>(BooleanAnalyzerResult)</small></a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="resultPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Row count</span>
+						</h3>  
+						
+						<span class="label label-primary">Not
+							parameterized</span>
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Null count</span>
+						</h3>  
+						<span
+						class="label label-primary">Parameterized by value</span>
+						
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">True count</span>
+						</h3>  
+						<span
+						class="label label-primary">Parameterized by value</span>
+						
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">False count</span>
+						</h3>  
+						<span
+						class="label label-primary">Parameterized by value</span>
+						
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Total combination count</span>
+						</h3>  
+						
+						<span class="label label-primary">Not
+							parameterized</span>
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+							<span class="text-info">Combination count</span>
+						</h3>  
+						<span
+						class="label label-primary">Parameterized by value</span>
+						
+					</li> 
+				</ul>
+			</div>
+		</div>
+		 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Columns
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Boolean&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

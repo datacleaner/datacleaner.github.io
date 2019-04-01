@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Stacked area plot</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Analyze</li> 					<li>Visualization</li>
+
+					<li class="active">Stacked area plot</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAhCAYAAAC4JqlRAAADFUlEQVR4Xu2WW0gUURyHreilCz1EL1YPBam1Myu6rWlewUSXbkQZUuSth+gi2S4upgS9KERRr/kgRFnOObvrbkgRoVhqaqlpWrSLM7MmlvXcQ0SX0zknd5qZM7sr4a4vDnww/M/vzO87u7OwCaIoIr/fn5iwVNeyQLwFLC0jq1M6Zjfyng/b6SBeAqSYhxLPuWQHB+Q2zhVspQuxFiiFaJVZEDneFTxjgsH7HJRlDOKgNEsDMRNAaIXZM7VlF5SPmaDcgkulv8UhogngBxB7/TjaRU+Mi3FJEQ/kK7g8gO9/asujCJjvfl670y3t4FziXrMwnU5eGAuUNoQVuopWmuC7dSRnAmI2KcYlXzC/2OJIAvjUyQ/96/F3VYLNffPhr5hO3iWd5N3BlDQ4tcnS+WkNkSGQe65d3GoC8kH80A62KBwGAqR83n6G3aDQwwGp2gyntyW3zyRisSoeykMGuSioBAKBwGb8EzmBFybZYKxQCRT65AE8nMP8YINh+Yb5bjBfICqBfB99WIQXxhCS/62f83AKHRVuoVQY0Od1qATyvPrF/yMNvkWHwW10SmjEAu+ZdTX4vfm46AIWOE7LCfvBHSqkz1jhCLKBe4TIAlY4jPLAU2YejnQ4gUrAA0WAsBuOajIZ8BU6AFrpWrnQYCywBw6iAvCYnqBUuI5yQDdTpoecvBgImnJCEXDjT2FSyRWAR8oaI5AJB1A2eKZ8hyFKhRuasizQT3MEC3xDZ7mgiykPsQ94lLwNtBkLFHtH6Gn1mwnHhWv0owtRJjQra8Wgnc4KgZfZp6bKU4sq3Q7NTCNwztPEbFosKlx16FJvIarpPoQqoFOZx03A0Z+LGseSKBd7bMo8LgLOIatSHsLeV0DXYiZQDupR/XAqpeF1cnwFKt12VDeYwZSquTxqQrXPixYmcNp3nhrrqfbWMFkyc7zIYQqNIBL2vnxW4OyTMvyilCjY+/OZzQQioc7RLJ7pc5FoGEv6J1DfU4EudB1BzpcWJhgrNAJN41lMINYsC2gEbk7YsERmXGkez56jf4aJwFLyB7xvUMTgoeLqAAAAAElFTkSuQmCC" alt="" /> <span>Stacked area plot</span>
+					</h1>
+					<div><p>Plots a number of related measures in a stacked area chart. Useful visualization for showing the relative influence of each measure compared to the sum of measures.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					<span class="label label-primary">Analyzer</span>
+					
+					
+
+					<!-- execution details -->
+					  
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#resultPanel"
+						aria-controls="resultPanel">Result metrics <small>(IStackedAreaAnalyzerResult)</small></a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="resultPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+
+				</ul>
+			</div>
+		</div>
+		 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Measure columns
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Number&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Category column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

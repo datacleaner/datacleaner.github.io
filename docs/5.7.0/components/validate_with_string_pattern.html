@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Validate with string pattern</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Filter</li>
+
+					<li class="active">Validate with string pattern</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACBUlEQVR4XmNgGEzA2NhYkh4Y3V44AEl+k2X4T0s86gCgHbuAeDO63WAwpBzws6Py/99v3/6DwN9XL/5/D7HHUIMNU80Bf79/B1sOA7+3r8NQgw1TzQHo4Pf+7RhqsGGSHfBVT+T/r+Vz/v9aPP3/N3M5ohzwPdTh/+9NK/7/7Kym3AG/t62FWwKK818Tmv5/VeVCshoCwA6wUvz/e+saFPEfxYnkO+C7jxmKYTDw9/kTdKH/f9+9wUgXYPHnT/9/lWcmzwE/0kPQzSMZ/P316/9XDV7yHPBVgeX/r4VT///98wfdXKLA3/dv//8oiCM/CuDY3eD/n5OH0M3HCf7+/v3/16Jp/7/qCGGYRZ4DgPirCifRjvjVW4+hnyIH/MgI/f/38QN0e/CC30f2/v/mooNhFkkO+KrG/f/3od3oZhMNwFHR10C+A37kRKGbSTL4+/fv/6/aAuQ54JujJtYc8OfCKXSh/3+fPgJXSujgz92b/7+SGwIg/GvJDLhhoELlR2E82EB0ACoJQfn917TO/39//ICLf0/wIT8KQBiU+kFl+s+mYnCagImjA5TKyFrp/6/JreAoRDePZAfgwuiAZrUhLvz300dUB2xeiaEGG6aaA0DB++fG5f9/7t/+/+fUkf/fnLQw1GDDVHMAuXjUAQQdgIRBCmmFsTsAGYAU0RKj2zdyAQCJDjK/Cc2RWQAAAABJRU5ErkJggg==" alt="" /> <span>Validate with string pattern</span>
+					</h1>
+					<div><p>Filters values that matches and does not match string patterns</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					
+					<span class="label label-primary">Filter</span>
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					 <span class="label label-info">Alias:
+						String pattern match</span> 
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#filterOutcomesPanel"
+						aria-controls="filterOutcomesPanel">Filter outcomes</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="filterOutcomesPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">VALID</span>
+						</h3> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">INVALID</span>
+						</h3> 
+					</li> 
+				</ul>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Match criteria
+						</h3> <p>Require values to match all or just any of the string patterns?</p> <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">ANY</span>
+						 <span class="label label-default">ALL</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 String patterns
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of StringPattern</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

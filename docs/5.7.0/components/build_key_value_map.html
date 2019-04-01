@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Build key/value map</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Build key/value map</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFh0lEQVR4Xu2Vf0yUdRzHjwxTPH9mMY3WcFPW7NS2ZjUCDdvUzAYWKsqRgghMjcrUVMyfaBJgW61cyyH+QMIsQBE8INQ5PdFEBEH5LXfP3fPc7/zRZNq9+3y/zx3cndTU+qeNz/ba871nu+f9+f1VKPqsz/7vJgidMYKgqxREnV0w6pwEDKLOaRD19FtP74UY3//8J6Y36JOZKAlBvHyRw84GSYBRJNiTEE0GnDxVdbOmtibV9xuPbSxiLkZYc3NwNzyMY6MzExc9xNeu+wwqlQpRcyJx8nTVWd9vPbIJBl29W5xFfTt+EZz+/hx2zszM9EI1QQU/Pz8EBAzE7t3formlqcH3mw/YzBWKp15dqXjD971n5JzONjjSt+J+YCDn9+3bYNR1dEff2t6CyKhILj527FiUV2ogmY2QJKHS99teFpSgGPHxnumYlxES7X7Hau4l7sLYUAfDwR9hJKTGOkq/gSORA6LJiOqL5/EdRc7EqWdgsogwW0VywpDsqeltMxVDvipbhr1n0u7N2jgqm71yN5yXuKRH/TUD8guMhIiG60zUjREii5YoOlqI1rZmLt7tgFm09+htGR06f+e4aYyYL0MiZm4aHZlVmoSsqjhnrjYNa3Kiqtp1zT7RC7ih0yM9y4HAkPuc9GwHdILsgGQmLEbEqhdikHIQJk6aCO35czBbJHLAhVmURzQ1J6Jrx/EFYOwsVSOjLA7fnE5xbtdEY2tZJDI0anxdshI1jb95RC+gps6IxStuwz/QyYmns28TBo8JBklwsrIz0X6jDWabCRZyQJJEuRc+2f+WbcPxGUgrmY5NpW9ji2Y2tlbMxmbNLHxeOt25tjgCG0tmYWfRUlxsONM944zcfCvC37mLKcQ+OvMmI0wWGa8MVJ/jkTNxi9XEyiGXIXXfVNvqonCsPhqG9SfexIaKCKwvD8OnZa9g6c/BWHhwJObljEDioRCsypuBk5eKZQdc9a6tkVB7idVVFmepN3EnWM0lFBX/gvb2VjntLHoX9NvJHUj84WXrorznsfhwEJYUPoclxwIRX/I01EVKLDgSgLl5AxC5tz/e26PEin2hKNXmdY+a6ZoRtsMWjum67AQTpibjT231WWTtypSjt0nd4i4HWGkU/ou+f8k2d78S8wsGQl2sxOKywVhSPhQJmqH4oGSwkzmx8NBwbDzyPk6c/Qls3xvZuOkNNPt22gFdnJs77JAEEnaJt99o5aln9Z9Ezw7aGz4O8AwMiN89oSvl8HgsL3wRH5WOx8pKFdZpVc6kU+RE+WB8WBaCzQUxKKzIp3Fqoe5vk6O/IuJOwi3agvc47OzbhEqqP3OAPSt+LfdywN0DA0NThr0blvJs7OsJz8RPjhuZNCl6SGpaRTiStUrn5upQrNk7x151RoMrdTW43tyATn0HXzQSzbr9gAVdU/7gOA5Y5bpTalntWYrV6liMoUlQx8V6iTOoTHwK+rEsEMOJUcQLxLj1minYdiEc0ekhxfn5B5fXknhj01WeRl5/s3vejTBf0hPylutZNqzecscXHyt6QJyXwL0HyPyI/oTS5UjgstzJiEoPXkXnYcSQlrZmh97QKW85c8+WMzU1wHakAHbC0tTYs2S4uAnnL2iRvSuLP3tLf+82VfHka6n95rl+PUH4GSR9snvNdo+b0ImbGTtwLyiIcyvjC5ipQeXoTTxbrPkUvTShZJb+4S74GxPoFmOplx0QYam/jDtLE/FnQADnTlLiQzWhu/aPZVT/ej7jrnl35O3H3WkRHEfeAXnLeaSaNZ9nE1Ld632/+chGTlRK7oajm81y9TJRy8XN1gebjV3F/zpyX2P3uUhXqtx0JteK9Y7eDWu4x6r5wxg5EcNuNcoIc8bpmgKnLCpWeo5an/VZb/YXTPopn6gqXEMAAAAASUVORK5CYII=" alt="" /> <span>Build key/value map</span>
+					</h1>
+					<div><p>Build a map with a variable amount of keys and values. Adds the capability to store complex structures with named entries within it.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					 <span class="label label-info">Alias:
+						Build map</span> 
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Add to existing map
+						</h3> <p>Add key/value pairs to this (optional) existing map</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Map&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Include null values
+						</h3>  <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Keys
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of String</span>  <span class="label label-primary">Mapped with <i>Values</i></span>
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Retain key order
+						</h3>  <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Values
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

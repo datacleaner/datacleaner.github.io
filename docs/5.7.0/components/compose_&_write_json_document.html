@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Compose & write JSON document</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Data structures</li>
+
+					<li class="active">Compose & write JSON document</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,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" alt="" /> <span>Compose & write JSON document</span>
+					</h1>
+					<div><p>Creates a string representation of a data structure as a JSON (JavaScript Object Notation) document</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Data
+						</h3> <p>Column containing data structures to format</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Density plot</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Analyze</li> 					<li>Visualization</li>
+
+					<li class="active">Density plot</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,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" alt="" /> <span>Density plot</span>
+					</h1>
+					<div><p>Plots the occurences of two number variables in a density plot chart. A useful visualization for identifying freqencies of combinations in numeric data relationships.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					<span class="label label-primary">Analyzer</span>
+					
+					
+
+					<!-- execution details -->
+					  
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#resultPanel"
+						aria-controls="resultPanel">Result metrics <small>(IDensityAnalyzerResult)</small></a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="resultPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+
+				</ul>
+			</div>
+		</div>
+		 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Variable1
+						</h3> <p>The field with the first variable. Will be plotted on the horizontal X-axis.</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Number&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Variable2
+						</h3> <p>The field with the second variable. Will be plotted on the vertical Y-axis.</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Number&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

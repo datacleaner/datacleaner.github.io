@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Train Random Forest regression</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Analyze</li> 					<li>Machine learning</li>
+
+					<li class="active">Train Random Forest regression</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACQElEQVR4XmNgIAO87rTm/dJoHP+10ageRIP46GpoBj43GGp9aTS6BbT8PwyD+CBxdLVUB/9XhTIDLTuIbDmSIw6C5NH1UBV8bzBQAFr2B91yKP4DkkfXQ1XwudlIE4vFcAySR9dDVfC/QZsHaNETdIuh+AlIHl0P1cGXJqMYUHCjWf4HJI6ulibg/38Gxi+Nhs5AS3eczdH6/7RC/yiIDxJHV0tzwMTI8B9IOaCL0wIkAPF+LBjkgPNYxEHqqQoagPg+lCaEYeqoChoYID4jBoDUNaALkg2uqs4yWCBddniOVPHzS8pzmq8qzJdAVwMDILU9Eun3V8nWXSaklihwSXVO1GWVOd+B+D8Sfn5VZR5GuU+KWqLAbZUlfEAD3qIZCMHKs3eTq5ZocEltnguGYQj896r2KjZy1BINSDGUFLVEA1KClRS1JAFSEhYpakkCpGbDLfJtq/skMv8TUksqaGAgviByYIAU0WQDkGZ8uAGuEhOAHImuHh03wBTjAiBFBQwQn6BjUMXTAFKEA4AcMJ8BUx8M49cPqtMZ8VSxQLn9TEy4DSBL/luT4f4vDQYGoBYtsJFxIcZA+D8LC4PjlwajfhAGqQG2dhKArd5DzMyMhzzV+LeC2CA9cP1AeZD+nYlqh05maW4Ft56BYiA5sH6gWpAeY2nOTzxsTK1g/UB5sAPAjckGEwcYu9pREhwCIM0wA4DiDSA5IHN/oLbgfnQ9IHkQG4ceBpBaENtWgRecBpD1wAwYMDzqgIF3wIgHAHM2kZIRJSoNAAAAAElFTkSuQmCC" alt="" /> <span>Train Random Forest regression</span>
+					</h1>
+					<div><p>Train a regression model of the 'Random Forest' type.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					<span class="label label-primary">Analyzer</span>
+					
+					
+
+					<!-- execution details -->
+					  
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#resultPanel"
+						aria-controls="resultPanel">Result metrics <small>(MLRegressionAnalyzerResult)</small></a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="resultPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+
+				</ul>
+			</div>
+		</div>
+		 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Cross validation sample rate
+						</h3> <p>Determine how much (if any) of the records should be used for cross-validation.</p> <!-- type --> <span
+						class="label label-primary">Percentage</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Feature modifier types
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of Choice:</span>  <span class="label label-default">Scaled (Min-Max)</span>
+						 <span class="label label-default">Direct (0.0 to 1.0)</span>
+						 <span class="label label-default">Direct (1 or 0)</span>
+						 <span class="label label-default">Vector (One Hot Encoding)</span>
+						 <span class="label label-default">Vector (2-gram)</span>
+						 <span class="label label-default">Vector (3-gram)</span>
+						 <span class="label label-default">Vector (4-gram)</span>
+						 <span class="label label-default">Vector (5-gram)</span>
+						 <span class="label label-primary">Mapped with <i>Features</i></span>
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Features
+						</h3>  <!-- type --> <span
+						class="label label-primary">List of InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Include unique value features
+						</h3> <p>Include generated features that are only triggered once in the training data set.</p> <!-- type --> <span
+						class="label label-primary">boolean</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Max features generated per column
+						</h3> <p>Defines the maximum number of features to generate per column. Applies to feature vectors such as 'One-Hot Encoding' or n-grams.</p> <!-- type --> <span
+						class="label label-primary">Integer</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Number of trees
+						</h3>  <!-- type --> <span
+						class="label label-primary">int</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Regression output
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Number&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Save model to file
+						</h3>  <!-- type --> <span
+						class="label label-primary">File</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

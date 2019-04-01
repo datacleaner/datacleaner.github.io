@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Compare</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Filter</li>
+
+					<li class="active">Compare</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADrklEQVR4XtVXaUhUURQ+LURRVD/a572xDfpR0A9TI+dHWZRYtFCRZrQZGVQ/yjUrp0zTjEIZyYqsoGiRNrKISltoo4WKKCKwLA0zTc1xlprxdTv34RvfO7OgzvtRH3wo59xzvu/e++68+wD+F5QC9LIJkIssrB8KA2jOKYDZLoKlcTwMVOd0g1WARQ4RWDvv1gjQj8d3AfR0GOGUkrOJkExK9QHOrlhlgNkNcKtqNPR1GuEojdPaLqN2FAzB5oPVMZzZB7WQLCZCtY+Y/d1E6KPU1Q2H/g0hMFLdKyBaBIiwC+DERpLdCI/x786WEJhLhQIR6xPQcJJDgHL8/zfv1SrCMqrlE61GWE8b6kGbEfZRLZ+wjoIJtFgP4srGUC2/wGX7RBsEQ76lyqnpFHDPimiTYOgU4QbV8IAxZuaUar8ebLt387Lr3LFXrqIca8WWRFa8Opa15G1nrgPm4Fi4x+E6ffitu6KsTPpcaVE0OWUDsigpur55HQsNDWXRpkh2ZeNa9mt/pnfjdtZkpbLURfP88sia5dqaksIqye3e3WGgYI+TNlUMKIybOYM9TdvkJc75fucWzVjKxJjZ2pqD5j9SY0O+x0Db/VuXeFA9yLpvBzuRsIJNnxqhabZ1wVxWaU4KyoC7rPSOZgv8meBsys1glpXLWGR4uKdhGDJ/+RL2Y+827cw6QbW4xoBs4sHti7RAYV1OOtsQM0czszTcXzouEKm4xoAkSbtc50pe0iLOqt3JLGPxfI043xr+nPB8p7fghKVSstuzvQzI4meOvqbCddlpLC9usbzkSrOIsCnsQPxS1qha/k4b4Dxu+ag2IRtwl558TsWfp29mpoiOfedMwgeQrwYdW52VIuf88dCqWG0NXwmctMeAqyDrF22qPobxs6LYMz9HsLuUGr7t9xiQT0Bxfr16ADcQbZrGrm5KCPgj1GUW5TW7r10o92yBGvWjYQS+x+OQ974Ye7NmsYfX73p3iO+CN/h+WfszBMZoBP0BDZynTYKiAC+ohl/wGy4WNHk1CYI4+z9142AY1fIJqxFMtIEexBvRKqrlE3h320iLcQY2GgtEX+Pxe6KAavkEv8Fig4d4i3nEPzbwKhX+cSwMwpibNvXHJhEmcaJoCr+Y4nfDq2YDTKZaXQIaeEKFbAY4i/E2TVyA77RWF7QaIFsthCuUyeM4y3h+7VaborW6gG+FIsLNqHP8jPMnXc6JEKvO6YrWEIhCI9E0zoGnJ9IqwkIG0IPm/mn8BbCMN+sT6pkPAAAAAElFTkSuQmCC" alt="" /> <span>Compare</span>
+					</h1>
+					<div><p>Compare two values using an operator of your choice. The options available in this filter resemble those of a SQL WHERE clause - you can specify columns, fixed values and use operators including the LIKE operator.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					
+					<span class="label label-primary">Filter</span>
+
+					<!-- execution details -->
+					<span class="label label-info">Query
+						optimizer</span> <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#filterOutcomesPanel"
+						aria-controls="filterOutcomesPanel">Filter outcomes</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="filterOutcomesPanel"
+				aria-expanded="true">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">TRUE</span>
+						</h3> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							<span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+							<span class="text-info">FALSE</span>
+						</h3> 
+					</li> 
+				</ul>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Input column
+						</h3> <p>The column to compare values of</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Operator
+						</h3>  <!-- type --> <span
+						class="label label-primary">Choice:</span>  <span class="label label-default">Less than</span>
+						 <span class="label label-default">Less than or equal</span>
+						 <span class="label label-default">Equal</span>
+						 <span class="label label-default">Like</span>
+						 <span class="label label-default">In</span>
+						 <span class="label label-default">Not equal</span>
+						 <span class="label label-default">Greater than or equal</span>
+						 <span class="label label-default">Greater than</span>
+						 
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							 Compare value
+						</h3> <p>Value to compare with</p> <!-- type --> <span
+						class="label label-primary">String</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Compare column
+						</h3> <p>Column holding value to compare with</p> <!-- type --> <span
+						class="label label-primary">InputColumn&lt;Object&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Optional</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

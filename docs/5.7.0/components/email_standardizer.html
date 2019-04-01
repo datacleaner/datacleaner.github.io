@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Email standardizer</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Muli:300,400" type="text/css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+<style type="text/css">
+body {
+	font-family: 'Muli', sans-serif;
+}
+
+h1, .jumbotron h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 22px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+.panel {
+	border-radius: 2px;
+}
+
+.container .jumbotron {
+	padding: 20px;
+	border-radius: 2px;
+}
+
+.jumbotron p {
+	font-size: inherit;
+}
+
+.label {
+	font-size: 0.9em;
+	font-weight: normal;
+	border-radius: 2px;
+}
+
+.panel-heading {
+	background-image: none !important;
+}
+</style>
+</head>
+<body>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<ol class="breadcrumb">
+					<li><a href="index.html">Component library</a></li>
+
+					<!-- categorization -->
+					<li>Transform</li> 					<li>Contact data</li>
+
+					<li class="active">Email standardizer</li>
+				</ol>
+				<div class="jumbotron">
+					<h1>
+						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACcklEQVR4Xu2VS2sTURTH+zXcC1pfoMFVXagoiiiKuNJVv4ALd4Ig6MatujWtbWlpa7UWK4XSqlhaRKmbSTJJpmnzahrN5DGTxzwyw3HOuRjSmZSamUQEc+DP3DP33nN+mXvOTV/fv2Q+n+/A35A9b8Nwkjv4ArqpHoCVY9HSO3tush7AnwAI12dBHAtCLZKHuqyBodZB26mA9DEB24/WIHhq1LGnIwAYuLSwCftZXVYhdf+zY78ngODJEahF8yyBpMKP598heu0NBE68BK7fD/yZCUjcXQZ5Nd0AyTz54ojjGqC0uEVBa7wI/MCEY75Z6QcrYBommHUDoldmHPNtA8Ruzzd+eWhgnN7hUxwPgZqWwdQMMCoa1EIi5EYCNJ8bDdCe/CTvHSA/xVOw7NN18sMXpkHP1+hdK8M1kcszNFYTkncAJVakYNGrr8mXluPkl79mQLj5FrjDfuCODu0CwHdo2CH2eG0DYKuhBY4PM7/MfHst7AI4woCMqu4dwFB0Frh/iPkVBhA8PbYnQPjiNI0VoeAdQMuUKVj43CT58kqKfGkpDpFLr6gNsU1N3WAAFmj22TqN8cKyx2sbQPqUpGDYXugLN2YbX6WV6QWFnnhU/FkG7Qkg/XCVAipbpcYxhM9PQWFOAF2sUhtiteeGOVA2ivQlqtxP2Lg150juCgArXMtWCAIvJO4YK0a3ah/AUuzOPLUUmpqUYPvxGvU6dcYhPxUkHo29MFvJFQBBWDeimpLZQe9hyXsfHPvscg1AsioekxTfx0CNl6glf/8dV77twObggnNPRwE6oB5AD2BfgCbhwm6pNUCz4aJuyp7v/7Vfxk+Y8vYyNtAAAAAASUVORK5CYII=" alt="" /> <span>Email standardizer</span>
+					</h1>
+					<div><p>Retrieve the username or domain from an email address.</p></div>
+					
+				</div>
+
+				<div>
+					<!-- component type -->
+					
+					<span class="label label-primary">Transformer</span>
+					
+
+					<!-- execution details -->
+					 <span
+						class="label label-info">Concurrent</span> <span class="label label-info">Distributed
+						execution possible</span>
+
+					<!-- aliases -->
+					
+				</div>
+			</div>
+		</div>
+
+ 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<a data-toggle="collapse" href="#configuredPropertiesPanel"
+						aria-controls="configuredPropertiesPanel">Configured
+						properties</a>
+				</h2>
+			</div>
+			<div class="panel-body collapse in" id="configuredPropertiesPanel"
+				aria-expanded="true">
+
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>
+							 <span
+								class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							 Input column
+						</h3>  <!-- type --> <span
+						class="label label-primary">InputColumn&lt;String&gt;</span>  
+
+						<!-- required/optional -->  <span
+						class="label label-info">Required</span> 
+					</li> 
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
